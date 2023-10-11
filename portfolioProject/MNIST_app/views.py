@@ -15,7 +15,7 @@ filename = 'mnist_model.keras'
 model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'ml_models', filename)
 model = tf.keras.models.load_model(model_path)
 
-
+@csrf_exempt
 def mnist_view(request):
     if request.method == 'POST':
         # Get the JSON data from the request

@@ -73,8 +73,8 @@ function sendToServer(matrixData) {
             method: 'POST',
             body: jsonData,
             headers: {
-                'X-CSRFToken': csrfToken, // Include the CSRF token in the headers
                 'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken, // Include the CSRF token in the headers
             }
         })
         .then(response => response.json())
