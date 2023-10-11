@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class SongSearchView(FilterView):
     model = SpotifyStats
     filterset_class = SongFilter
-    template_name = 'spotifyapp/song_search.html'
+    template_name = 'spotistats_app/song_search.html'
 
     def get_queryset(self):
         # Get the queryset based on the filter settings
@@ -38,7 +38,7 @@ class SongSearchView(FilterView):
 
 class SongInfoView(DetailView):
     model = SpotifyStats
-    template_name = 'spotifyapp/song_info.html'
+    template_name = 'spotistats_app/song_info.html'
     context_object_name = 'song'
     pk_url_kwarg = 'song_pk'  # Define the URL keyword for the song's primary key
 

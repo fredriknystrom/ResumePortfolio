@@ -2,7 +2,7 @@
 
 import csv
 from django.core.management.base import BaseCommand
-from spotifyapp.models import SpotifyStats, Artist
+from spotistats_app.models import SpotifyStats, Artist
 from datetime import datetime
 
 class Command(BaseCommand):

@@ -32,7 +32,7 @@
                             <a class="nav-link{% if request.resolver_match.url_name == 'artist-search' %} active{% endif %}" href="{% url 'artist-search' %}">Artists</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Back to Resume</a>
+                            <a class="nav-link" href="{% url 'resume-view' %}">Back to Resume</a>
                         </li>
                     </ul>
                 </div>

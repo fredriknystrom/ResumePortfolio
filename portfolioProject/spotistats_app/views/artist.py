@@ -9,7 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class ArtistSearchView(FilterView):
     model = Artist
     filterset_class = ArtistFilter
-    template_name = 'spotifyapp/artist_search.html'
+    template_name = 'spotistats_app/artist_search.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,7 +31,7 @@ class ArtistSearchView(FilterView):
 
 class ArtistInfoView(ListView):
     model = SpotifyStats
-    template_name = 'spotifyapp/artist_info.html'
+    template_name = 'spotistats_app/artist_info.html'
     context_object_name = 'records'
 
     def get_queryset(self):
