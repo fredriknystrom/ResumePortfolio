@@ -42,3 +42,6 @@ __init__.py
 
 # Ignore migrations
 migrations
+
+# Ignore data
+*.npy

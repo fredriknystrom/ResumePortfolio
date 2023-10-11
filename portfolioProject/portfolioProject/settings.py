@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
     'MNIST_app',
     'spotistats_app',
+    'resume_app'
 ]
 
 MIDDLEWARE = [
