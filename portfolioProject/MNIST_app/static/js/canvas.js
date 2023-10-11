@@ -56,31 +56,42 @@ function convertDataToMatrix(imageData) {
     return matrix;
 }
 
+function checkIfAllZeros(matrixData) {
+    return matrixData.every(row => row.every(element => element === 0));
+}
+
 function sendToServer(matrixData) {
     // Get the CSRF token from the page's cookie
-    const csrfToken = getCookie('csrftoken');
+    if (!checkIfAllZeros(matrixData)) {
+        const csrfToken = getCookie('csrftoken');
 
-    // Convert the matrix data to JSON
-    const jsonData = JSON.stringify({ pixel_data: matrixData });
+        // Convert the matrix data to JSON
+        const jsonData = JSON.stringify({ pixel_data: matrixData });
 
-    // Make a POST request to your Django server with the CSRF token included
-    fetch('/mnist/', {
-        method: 'POST',
-        body: jsonData,
-        headers: {
-            'X-CSRFToken': csrfToken, // Include the CSRF token in the headers
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        const predictionResult = document.getElementById('predictionResult');
-        predictionResult.innerHTML = `Predicted Number: ${data.prediction}`;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        // Make a POST request to your Django server with the CSRF token included
+        fetch('/mnist/', {
+            method: 'POST',
+            body: jsonData,
+            headers: {
+                'X-CSRFToken': csrfToken, // Include the CSRF token in the headers
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            const predictionResult = document.getElementById('predictionResult');
+            predictionResult.innerHTML = `Predicted Number: ${data.prediction}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    
+    }
+    else {
+        console.log("Empty Canvas!")
+    }
+
 }
 
 // Function to get the CSRF token from cookies
@@ -101,14 +112,11 @@ function getCookie(name) {
 
 const guessButton = document.getElementById('guessButton');
 guessButton.addEventListener('click', () => {
-    // Log the grayscale data
-    console.log(imageData);
-
     data_matrix = convertDataToMatrix(imageData)
 
     console.log(data_matrix);
 
-    // Send the grayscale data to the server
+    // Send the data matrix to the server
     sendToServer(data_matrix);
 });
 
