@@ -1,0 +1,44 @@
+# Ignore compiled Python files and directories
+__pycache__
+*.pyc
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore local settings file (if you have one)
+settings_local.py
+
+# Ignore database files
+db.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore the media folder (where user-uploaded files might be stored)
+media/
+
+# Ignore static files collected for production
+staticfiles/
+
+# Ignore secret and sensitive information (e.g., credentials)
+*.secret
+
+# Ignore IDE and editor-specific files and folders
+.idea/
+.vscode/
+*.code-workspace
+
+# Ignore system files and directories
+.DS_Store
+Thumbs.db
+
+# Ignore any custom files or directories you want to exclude
+custom_folder/
+custom_file.ext
+
+
+__init__.py
+
+# Ignore migrations
+migrations
