@@ -1,2 +1,2 @@
 # ResumePortfolio
-Welcome to my ResumePortfolio, a showcase of my journey in the world of technology and software development.
+Welcome to my ResumePortfolio, a showcase of my journey in the world of technology and software development. This project serves as a dynamic and interactive representation of my skills, achievements, and ongoing learning experiences. With multiple applications, each highlighting a different facet of my expertise, I aim to demonstrate how I've evolved and what I can bring to the table.
