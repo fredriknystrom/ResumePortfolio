@@ -1,0 +1,82 @@
+{% extends "spotifyapp/base.html" %}
+
+{% block title %}Song Search{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Song Search Page</h1>
+
+<form method="get" action="">
+    <input type="hidden" name="title" value="{{ filter.form.title.value }}">
+    <input type="hidden" name="released_year_0" value="{{ filter.form.released_year_0.value }}">
+    <input type="hidden" name="released_year_1" value="{{ filter.form.released_year_1.value }}">
+    <input type="hidden" name="danceability_percentage" value="{{ filter.form.danceability_percentage.value }}">
+    <input type="hidden" name="energy_percentage" value="{{ filter.form.energy_percentage.value }}">
+    <input type="hidden" name="acousticness_percentage" value="{{ filter.form.acousticness_percentage.value }}">
+    <input type="hidden" name="speechiness_percentage" value="{{ filter.form.speechiness_percentage.value }}">
+    
+    <div class="horizontal-form-row">
+        <div class="form-group col-md-2">
+            {{ filter.form.title.label_tag }}
+            {{ filter.form.title }}
+        </div>
+        <div class="form-group col-md-2">
+            {{ filter.form.released_year.label_tag }}
+            {{ filter.form.released_year }}
+        </div>
+        <div class="form-group col-md-2">
+            {{ filter.form.danceability_percentage.label_tag }}
+            {{ filter.form.danceability_percentage }}
+        </div>
+        <div class="form-group col-md-2">
+            {{ filter.form.energy_percentage.label_tag }}
+            {{ filter.form.energy_percentage }}
+        </div>
+        <div class="form-group col-md-2">
+            {{ filter.form.acousticness_percentage.label_tag }}
+            {{ filter.form.acousticness_percentage }}
+        </div>
+        <div class="form-group col-md-2">
+            {{ filter.form.speechiness_percentage.label_tag }}
+            {{ filter.form.speechiness_percentage }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary my-3">Search</button>
+</form>
+    {% if songs %}
+    <h2>Songs <span style="float: right;">Artists</span></h2>
+    <ul class="list-group">
+        {% for song in songs %}
+        <li class="list-group-item bg-light-grey text-spotify-green d-flex justify-content-between">
+            <a class="text-white no-underline" href="{% url 'song-info' song.id %}">{{ song.title }}</a>
+            <span class="text-spotify-green">
+                {% if song.artists.all %}
+                    {% for artist in song.artists.all %}
+                        <a class="text-spotify-green no-underline" href="{% url 'artist-info' artist.name %}">{{ artist.name }}</a>{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                {% else %}
+                    No artists found
+                {% endif %}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Pagination links -->
+    <div class="pagination mt-1 justify-content-center">
+        <span class="step-links">
+            {% if songs.has_previous %}
+            <a class="btn btn-primary" href="?page=1{% if filter.form.title.value %}&title={{ filter.form.title.value }}{% endif %}{% if filter.form.released_year_0.value %}&released_year_0={{ filter.form.released_year_0.value }}{% endif %}{% if filter.form.released_year_1.value %}&released_year_1={{ filter.form.released_year_1.value }}{% endif %}{% if filter.form.danceability_percentage.value %}&danceability_percentage={{ filter.form.danceability_percentage.value }}{% endif %}{% if filter.form.energy_percentage.value %}&energy_percentage={{ filter.form.energy_percentage.value }}{% endif %}{% if filter.form.acousticness_percentage.value %}&acousticness_percentage={{ filter.form.acousticness_percentage.value }}{% endif %}{% if filter.form.speechiness_percentage.value %}&speechiness_percentage={{ filter.form.speechiness_percentage.value }}{% endif %}">First</a>
+            <a class="btn btn-primary" href="?page={{ songs.previous_page_number }}{% if filter.form.title.value %}&title={{ filter.form.title.value }}{% endif %}{% if filter.form.released_year_0.value %}&released_year_0={{ filter.form.released_year_0.value }}{% endif %}{% if filter.form.released_year_1.value %}&released_year_1={{ filter.form.released_year_1.value }}{% endif %}{% if filter.form.danceability_percentage.value %}&danceability_percentage={{ filter.form.danceability_percentage.value }}{% endif %}{% if filter.form.energy_percentage.value %}&energy_percentage={{ filter.form.energy_percentage.value }}{% endif %}{% if filter.form.acousticness_percentage.value %}&acousticness_percentage={{ filter.form.acousticness_percentage.value }}{% endif %}{% if filter.form.speechiness_percentage.value %}&speechiness_percentage={{ filter.form.speechiness_percentage.value }}{% endif %}">Previous</a>
+            {% endif %}
+            
+            <span class="current-page text-spotify-green">Page {{ songs.number }} of {{ songs.paginator.num_pages }}</span>
+            
+            {% if songs.has_next %}
+            <a class="btn btn-primary" href="?page={{ songs.next_page_number }}{% if filter.form.title.value %}&title={{ filter.form.title.value }}{% endif %}{% if filter.form.released_year_0.value %}&released_year_0={{ filter.form.released_year_0.value }}{% endif %}{% if filter.form.released_year_1.value %}&released_year_1={{ filter.form.released_year_1.value }}{% endif %}{% if filter.form.danceability_percentage.value %}&danceability_percentage={{ filter.form.danceability_percentage.value }}{% endif %}{% if filter.form.energy_percentage.value %}&energy_percentage={{ filter.form.energy_percentage.value }}{% endif %}{% if filter.form.acousticness_percentage.value %}&acousticness_percentage={{ filter.form.acousticness_percentage.value }}{% endif %}{% if filter.form.speechiness_percentage.value %}&speechiness_percentage={{ filter.form.speechiness_percentage.value }}{% endif %}">Next</a>
+            <a class="btn btn-primary" href="?page={{ songs.paginator.num_pages }}{% if filter.form.title.value %}&title={{ filter.form.title.value }}{% endif %}{% if filter.form.released_year_0.value %}&released_year_0={{ filter.form.released_year_0.value }}{% endif %}{% if filter.form.released_year_1.value %}&released_year_1={{ filter.form.released_year_1.value }}{% endif %}{% if filter.form.danceability_percentage.value %}&danceability_percentage={{ filter.form.danceability_percentage.value }}{% endif %}{% if filter.form.energy_percentage.value %}&energy_percentage={{ filter.form.energy_percentage.value }}{% endif %}{% if filter.form.acousticness_percentage.value %}&acousticness_percentage={{ filter.form.acousticness_percentage.value }}{% endif %}{% if filter.form.speechiness_percentage.value %}&speechiness_percentage={{ filter.form.speechiness_percentage.value }}{% endif %}">Last</a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
+    
+{% endblock %}

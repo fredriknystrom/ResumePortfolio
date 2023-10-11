@@ -1,0 +1,51 @@
+{% extends "spotifyapp/base.html" %}
+
+{% block title %}Artist Information{% endblock %}
+
+{% block content %}
+<h1 class="text-spotify-green">{{ artist_name }}</h1>
+<div class="row">
+    <!-- Left Column -->
+    <div class="col-md-6">
+        <h2>Songs<span style="float: right;">Streams</span></h2>
+        <ul class="list-group">
+            {% for record in records %}
+            <li class="list-group-item bg-light-grey text-spotify-green d-flex justify-content-between">
+                <a class="text-white no-underline" href="{% url 'song-info' record.id %}">{{ record.title }}</a>
+                <span>{{ record.streams }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Right Column -->
+    <div class="col-md-6">
+        <h2>Overall Artist Song Statistics</h2>
+        <h4>Total Streams: {{ artist.total_million_streams }} M</h4>
+        <h4>Average BPM: {{ artist.avg_bpm }}</h4>
+        <h4>In Spotify playlists: {{ artist.in_playlists }}</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-muted">Dance</h4>
+                {{ dance|safe }}
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-muted">Energy</h4>
+                {{ energy|safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-muted">Acoustic</h4>
+                {{ acoustic|safe }}
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-muted">Speech</h4>
+                {{ speech|safe }}
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+{% endblock %}

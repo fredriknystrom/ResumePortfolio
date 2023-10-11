@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{% block title %}SpotiStats{% endblock %}</title>
+    
+    <!-- Bootstrap CSS and JS -->
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
+    <!-- Include static CSS files -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    
+</head>
+<body class="bg-grey">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-spotify-green">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'song-search' %}" style="font-size: 32px;">SpotiStats</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto" style="font-size: 24px;">
+                        <li class="nav-item">
+                            <a class="nav-link{% if request.resolver_match.url_name == 'song-search' %} active{% endif %}" href="{% url 'song-search' %}">Songs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link{% if request.resolver_match.url_name == 'artist-search' %} active{% endif %}" href="{% url 'artist-search' %}">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Back to Resume</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container bg-grey mt-4">
+        {% block content %}
+        <!-- Content from child templates will be placed here -->
+        {% endblock %}
+    </main>
+    
+    <footer class="bg-light-grey py-2 mt-3">
+        <div class="container">
+            <div class="text-center my-1">
+                <p class="mb-1 text-white">Created by:</p>
+                <p class="font-weight-bold text-white">Fredrik Nyström</p>
+                <p class="mb-0 text-white">Contact: <a class="text-spotify-green" href="mailto:fredriknystroms@gmail.com">fredriknystroms@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
