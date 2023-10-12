@@ -7,8 +7,7 @@
 
 <form method="get" action="">
     <input type="hidden" name="title" value="{{ filter.form.title.value }}">
-    <input type="hidden" name="released_year_0" value="{{ filter.form.released_year_0.value }}">
-    <input type="hidden" name="released_year_1" value="{{ filter.form.released_year_1.value }}">
+    <input type="hidden" name="released_date" value="{{ filter.form.released_date.value }}">
     <input type="hidden" name="danceability_percentage" value="{{ filter.form.danceability_percentage.value }}">
     <input type="hidden" name="energy_percentage" value="{{ filter.form.energy_percentage.value }}">
     <input type="hidden" name="acousticness_percentage" value="{{ filter.form.acousticness_percentage.value }}">
@@ -20,8 +19,8 @@
             {{ filter.form.title }}
         </div>
         <div class="form-group col-md-2">
-            {{ filter.form.released_year.label_tag }}
-            {{ filter.form.released_year }}
+            {{ filter.form.released_date.label_tag }}
+            {{ filter.form.released_date }}
         </div>
         <div class="form-group col-md-2">
             {{ filter.form.danceability_percentage.label_tag }}

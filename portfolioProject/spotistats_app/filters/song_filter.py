@@ -13,8 +13,9 @@ class SongFilter(django_filters.FilterSet):
         )
     )
 
-    released_year = django_filters.DateFilter(
+    released_date = django_filters.DateFilter(
         label="Release Date",
+        lookup_expr="gte",
         widget=forms.DateInput(
             attrs={
                 'class': 'form-control',
@@ -60,5 +61,5 @@ class SongFilter(django_filters.FilterSet):
 
     class Meta:
         model = SpotifyStats
-        fields = ['title', 'released_year', 'danceability_percentage', 'energy_percentage', 'acousticness_percentage', 'speechiness_percentage']
+        fields = ['title', 'released_date', 'danceability_percentage', 'energy_percentage', 'acousticness_percentage', 'speechiness_percentage']
         order_by = ['']
