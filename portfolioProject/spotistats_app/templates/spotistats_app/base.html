@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}SpotiStats{% endblock %}</title>
     
+    
     <!-- Bootstrap CSS and JS -->
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -13,7 +14,8 @@
     <!-- Include static CSS files -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
 </head>
 <body class="bg-grey">
     <header>

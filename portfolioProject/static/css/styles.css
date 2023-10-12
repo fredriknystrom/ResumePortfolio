@@ -1,0 +1,119 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+h1, h2, h3, h4 {
+    color: #ffffff;
+}
+
+.nav-item a:hover {
+    text-decoration: underline;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #1DB954;
+    color: #444444;
+    border-color: #1DB954;
+}
+
+.btn-primary:hover {
+    background-color: #444444;
+    color: #1DB954;
+    border-color: #444444;
+}
+
+.bg-spotify-green{
+    background-color: #1DB954;
+}
+
+.text-spotify-green{
+    color: #1DB954;
+}
+
+.bg-black {
+    background-color: #15151515;
+}
+
+.bg-grey {
+    background-color: #222222;
+}
+
+.bg-light-grey {
+    background-color: #444444;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.horizontal-form-row {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.horizontal-form-row .form-group {
+    flex: 1;
+    margin: 0 15px;
+}
+
+/* Media query for smaller screens (mobile devices) */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .list-group {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px; /* Change this to your desired font size for smaller screens */
+    }
+
+    h2 {
+        font-size: 20px; /* Change this to your desired font size for smaller screens */
+    }
+
+    h3 {
+        font-size: 16px; /* Change this to your desired font size for smaller screens */
+    }
+
+    h4 {
+        font-size: 16px; /* Change this to your desired font size for smaller screens */
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        background-color: #1DB954;
+        color: #444444;
+        border-color: #1DB954;
+        padding: 0.300rem 0.60rem;
+    }
+
+    .horizontal-form-row {
+        display: block; /* Remove the flex layout for smaller screens */
+        margin-right: -15px; /* Reset margins */
+        margin-left: -15px;  /* Reset margins */
+    }
+}
