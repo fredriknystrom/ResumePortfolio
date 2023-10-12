@@ -1,17 +1,1 @@
-@media (max-width: 768px) {
-    /* Styles for screens with a maximum width of 768px */
-    .container {
-        padding: 0;
-        background-color: aqua;
-        margin: 0;
-    }
-    /* Add more responsive styles as needed */
 
-    .btn {
-        background-color: red;
-    }
-
-    .btn-primary {
-        background-color: red;
-    }
-}

@@ -3,6 +3,7 @@ const context = canvas.getContext('2d');
 let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 let drawing = false;
 
+// Mouse event listeners
 canvas.addEventListener('mousedown', () => {
     drawing = true;
 });
@@ -18,10 +19,29 @@ canvas.addEventListener('mousemove', (e) => {
     draw(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
 });
 
+// Touch event listeners
+canvas.addEventListener('touchstart', (e) => {
+    drawing = true;
+    const touch = e.touches[0];
+    draw(touch.clientX - canvas.getBoundingClientRect().left, touch.clientY - canvas.getBoundingClientRect().top);
+});
+
+canvas.addEventListener('touchend', () => {
+    drawing = false;
+    context.beginPath();
+    imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    if (!drawing) return;
+    const touch = e.touches[0];
+    draw(touch.clientX - canvas.getBoundingClientRect().left, touch.clientY - canvas.getBoundingClientRect().top);
+});
+
 function draw(x, y) {
-    context.lineWidth = 30;
+    context.lineWidth = 20;
     context.lineCap = 'round';
-    context.strokeStyle = 'black';
+    context.strokeStyle = 'white';
     context.lineTo(x, y);
     context.stroke();
     context.beginPath();
