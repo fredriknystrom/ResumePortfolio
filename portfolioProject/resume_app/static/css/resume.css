@@ -34,6 +34,34 @@ p {
 .nav-link {
     color: #002255;
 }
+@media (max-width: 991px) {
+    .navbar-nav .nav-item {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Style each section with a minimum height of 100vh */
 .resume-section {
@@ -120,5 +148,5 @@ ul {
     .card {
         padding: 0;
         margin-bottom: 0;
-    }   
+    }
 }
