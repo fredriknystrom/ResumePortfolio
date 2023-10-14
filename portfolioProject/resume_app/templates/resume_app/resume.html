@@ -2,13 +2,18 @@
 <html>
 <head>
     <title>Resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Bootstrap CSS and JS -->
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Favicon -->
+ 
     {% load static %}
+    <!-- Include static CSS files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'favicons/favicon.ico' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
@@ -16,235 +21,178 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'favicons/android-chrome-192x192.png' %}">
     <link rel="icon" type="image/png" sizes="512x512" href="{% static 'favicons/android-chrome-512x512.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
-    <!-- Include static CSS files -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
-    
-    <style>
-        .navbar {
-            background-color: #F5F5F5; /* White background for the navbar */
-        }
-
-        body {
-            background-color:#002255;
-        }
-
-        .nav-link {
-            color: #002255;
-        }
-
-        /* Style each section with a minimum height of 100vh */
-        .resume-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .container {
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 50px;
-            max-width: 50%;
-        }
-
-        h1 {
-            color: #002255; /* Text color for headings */
-        }
-
-        p {
-            color: #002255; /* Text color for paragraphs */
-        }
-
-        .card {
-            margin: 20px;
-            background-color: #F5F5F5;
-            border-color: #002255;
-        }
-
-        .btn {
-            background-color: green;
-            border-color: green;
-        }
-
-        .btn:hover {
-            color: green;
-            background-color: #F5F5F5;
-            border-color: green;
-        }
-
-        /* No normal bullets please */
-ul {
-    list-style-type: none;
-    color: #002255;
-    margin: 0;
-    padding: 0;
-  }
-        
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand m-2 d-flex align-items-center" href="#">
-            <img src="{% static 'favicons/favicon-64x64.png' %}" alt="Favicon">
-            <p class="fs-3 mb-0 ms-2">Fredrik Nystrom</p>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link fs-3 mx-2" href="#about">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-3 mx-2" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-3 mx-2" href="#experience">Work Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-3 mx-2" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-3 ms-2 me-5" href="#contact">Contact</a>
-                </li>
-            </ul>
+        <div class="container-fluid">
+            <a class="navbar-brand m-2 d-flex align-items-center" href="#">
+                <img src="{% static 'favicons/favicon-64x64.png' %}" alt="Favicon">
+                <p class="fs-3 mb-0 ms-2">Fredrik Nystrom</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fs-3 mx-2" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-3 mx-2" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-3 mx-2" href="#experience">Work Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-3 mx-2" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-3 ms-2 me-5" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     
     
 
     <!-- About Me Section -->
-    <div class="container resume-section" id="about">
-        <h1 class="display-3 text-decoration-underline text-center my-5">About Me</h1>
-        <div class="row mx-5">
-            <div class="col-md-7">
-                <p class="fs-2">
-                    Hello, my name is Fredrik.
-                </p>
-                <p class="fs-2">
-                    I am a full-stack developer <br> 
-                    from Sweden, Gothenburg <br>
-                    with a strong passion for <br> 
-                    Artificial Intelligence and <br> 
-                    Machine Learning.
-                </p>
-                <p class="fs-2">
-                    Currently on exchange at <br>
-                    ETH Zürich in Switzerland <br>
-                    until August 2024.
-                </p>
-            </div>
-            <div class="col-md-5">
-                <img src="{% static 'images/resume.jpg' %}" alt="Your Image" class="img-fluid">
+    <div class="resume-section" id="about">
+        <h1 class="display-3 text-decoration-underline text-center" id="about-css">About Me</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <p class="fs-2">
+                        Hello, my name is Fredrik.
+                    </p>
+                    <p class="fs-2">
+                        I am a full-stack developer <br> 
+                        from Sweden, Gothenburg <br>
+                        with a strong passion for <br> 
+                        Artificial Intelligence and <br> 
+                        Machine Learning.
+                    </p>
+                    <p class="fs-2">
+                        Currently on exchange at <br>
+                        ETH Zürich in Switzerland <br>
+                        until August 2024.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{% static 'images/resume.jpg' %}" alt="Your Image" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
-   
+    
     <!-- Education Section -->
-    <div class="container text-center resume-section" id="education">
-        <h1 class="display-3 text-decoration-underline text-center my-4">Education</h1>
-        <ul>
-            <li class="list-item mb-4">
-                <span class="fs-1">Master's degree</span><br />
-                <span class="fs-3">Data Science and AI</span><br />
-                <span class="fs-5">Chalmers University of Technology/ETH Zürich</span><br />
-                <span class="fs-5">Sep. 2023 - ongoing</span><br />
-                <span class="description">
-                    During my first year of the master's program, I will be <br>
-                    studying abroad at the renowned ETH Zürich in Switzerland. <br>
-                </span>
-            </li>
-            <li class="list-item">
-                <span class="fs-1">Bachelor's degree</span><br />
-                <span class="fs-3">Computer Science and Engineering</span><br />
-                <span class="fs-5">Chalmers University of Technology</span><br />
-                <span class="fs-5">Aug. 2020 - June 2023</span><br />
-            </li>
-        </ul>
+    <div class="resume-section" id="education">
+        <h1 class="display-3 text-decoration-underline text-center">Education</h1>
+        <div class="container text-center">
+            <ul>
+                <li class="list-item mb-4">
+                    <span class="fs-1">Master's degree</span><br />
+                    <span class="fs-3">Data Science and AI</span><br />
+                    <span class="fs-5">Chalmers University of Technology/ETH Zürich</span><br />
+                    <span class="fs-5">Sep. 2023 - ongoing</span><br />
+                    <span class="description">
+                        During my first year of the master's program, I will be <br>
+                        studying abroad at the renowned ETH Zürich in Switzerland. <br>
+                    </span>
+                </li>
+                <li class="list-item">
+                    <span class="fs-1">Bachelor's degree</span><br />
+                    <span class="fs-3">Computer Science and Engineering</span><br />
+                    <span class="fs-5">Chalmers University of Technology</span><br />
+                    <span class="fs-5">Aug. 2020 - June 2023</span><br />
+                </li>
+            </ul>
+        </div>
     </div>
-  
+    
     <!-- Work Experience Section -->
-    <div class="container text-center resume-section" id="experience">
-        <h1 class="display-3 text-decoration-underline text-center my-4">Work Experience</h1>
-        <ul>
-            <li class="list-item mb-4">
-                <span class="fs-1">Axis Communications AB</span><br />
-                <span class="fs-3">Software Developer Intern</span><br />
-                <span class="fs-5">Lund, Sweden</span><br />
-                <span class="fs-5">June 2023 - Aug. 2023</span><br />
-                <span class="description">
-                    Full stack development for an internal component information <br>
-                    system. My responsibilities spanned user interface <br>
-                    implementation, database design, and data presentation. <br>
-                    My tools of choice were MySQL, Python/Django, HTML/CSS, <br>
-                    and I worked in a Linux environment.</span>
-            </li>
-            <li class="list-item mb-4">
-                <span class="fs-1">Chalmers University of Technology</span><br />
-                <span class="fs-3">Teaching Assistant</span><br />
-                <span class="fs-5">Gothenburg, Sweden</span><br />
-                <span class="fs-5">Oct. 2022 - Mar. 2023</span><br />
-                <span class="description">
-                    Served as a supervisor during exercise and lab sessions for <br>
-                    'Introduction to Computer Engineering'. The course included <br>
-                    over 350 students and covered topics like assembly <br>
-                    programming, Boolean algebra, circuit design, and <br>
-                    hexadecimal number representation.</span>
-            </li>
-            <li class="list-item mb-4">
-                <span class="fs-1">Axis Communications AB</span><br />
-                <span class="fs-3">Software Developer Intern</span><br />
-                <span class="fs-5">Lund, Sweden</span><br />
-                <span class="fs-5">June 2022 - Aug. 2022</span><br />
-                <span class="description">
-                    Development of a user interface for a complex measurement <br>
-                     equipment. I focused on implementing the UI requirements, <br>
-                      using Python, the Qt GUI framework, and CSS.</span>
-            </li>
-        </ul>
+    <div class="resume-section" id="experience">
+        <h1 class="display-3 text-decoration-underline text-center">Work Experience</h1>
+        <div class="container text-center">
+            <ul>
+                <li class="list-item mb-4">
+                    <span class="fs-1">Axis Communications AB</span><br />
+                    <span class="fs-3">Software Developer Intern</span><br />
+                    <span class="fs-5">Lund, Sweden</span><br />
+                    <span class="fs-5">June 2023 - Aug. 2023</span><br />
+                    <span class="description">
+                        Full stack development for an internal component information <br>
+                        system. My responsibilities spanned user interface <br>
+                        implementation, database design, and data presentation. <br>
+                        My tools of choice were MySQL, Python/Django, HTML/CSS, <br>
+                        and I worked in a Linux environment.</span>
+                </li>
+                <li class="list-item mb-4">
+                    <span class="fs-1">Chalmers University of Technology</span><br />
+                    <span class="fs-3">Teaching Assistant</span><br />
+                    <span class="fs-5">Gothenburg, Sweden</span><br />
+                    <span class="fs-5">Oct. 2022 - Mar. 2023</span><br />
+                    <span class="description">
+                        Served as a supervisor during exercise and lab sessions for <br>
+                        'Introduction to Computer Engineering'. The course included <br>
+                        over 350 students and covered topics like assembly <br>
+                        programming, Boolean algebra, circuit design, and <br>
+                        hexadecimal number representation.</span>
+                </li>
+                <li class="list-item mb-4">
+                    <span class="fs-1">Axis Communications AB</span><br />
+                    <span class="fs-3">Software Developer Intern</span><br />
+                    <span class="fs-5">Lund, Sweden</span><br />
+                    <span class="fs-5">June 2022 - Aug. 2022</span><br />
+                    <span class="description">
+                        Development of a user interface for a complex measurement <br>
+                         equipment. I focused on implementing the UI requirements, <br>
+                          using Python, the Qt GUI framework, and CSS.</span>
+                </li>
+            </ul>
+        </div>
     </div>
-
+    
     <!-- Projects Section -->
-    <div class="container text-center resume-section mb-5" id="projects">
-        <h1 class="display-3 text-decoration-underline text-center mt-5">Projects</h1>
-        <div class="card-deck">
-            <!-- Project 1 -->
-            <div class="card m-5">
-                <div class="card-body">
-                    <h5 class="card-title">MNIST Prediction</h5>
-                    <p class="card-text">Description of Project 1.</p>
-                    <a href="{% url 'mnist-view' %}" class="btn btn-primary mb-3">Interact with project here</a>
-                    <br>
-                    <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/MNIST_app" target="_blank">
-                        <i class="fa fa-github" style="font-size:48px;color:black"></i>
-                    </a>
+    <div class="resume-section mb-5" id="projects">
+        <h1 class="display-3 text-decoration-underline text-center">Projects</h1>
+        <div class="container text-center">
+            <div class="card-deck">
+                <!-- Project 1 -->
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h5 class="card-title">MNIST Prediction</h5>
+                        <p class="card-text">Description of Project 1.</p>
+                        <a href="{% url 'mnist-view' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <br>
+                        <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/MNIST_app" target="_blank">
+                            <i class="fa fa-github" style="font-size:48px;color:black"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="card m-5">
-                <div class="card-body">
-                    <h5 class="card-title">Spotistats</h5>
-                    <p class="card-text">Description of Project 2.</p>
-                    <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
-                    <br>
-                    <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
-                        <i class="fa fa-github" style="font-size:48px;color:black"></i>
-                    </a>
+                <!-- Project 2 -->
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Spotistats</h5>
+                        <p class="card-text">Description of Project 2.</p>
+                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <br>
+                        <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
+                            <i class="fa fa-github" style="font-size:48px;color:black"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="card m-5">
-                <div class="card-body">
-                    <h5 class="card-title">Spotistats</h5>
-                    <p class="card-text">Description of Project 2.</p>
-                    <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
-                    <br>
-                    <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
-                        <i class="fa fa-github" style="font-size:48px;color:black"></i>
-                    </a>
+                <!-- Project 3 -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spotistats</h5>
+                        <p class="card-text">Description of Project 2.</p>
+                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <br>
+                        <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
+                            <i class="fa fa-github" style="font-size:48px;color:black"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -253,7 +201,7 @@ ul {
     <!-- Contact Section -->
     <footer class="bg-white text-center" id="contact">
         <div class="py-5">
-            <h1 class="display-3 text-decoration-underline text-center mb-5">Contact Me</h1>
+            <h1 class="display-3 text-decoration-underline text-center mb-5" style="color:#002255;">Contact Me</h1>
             <div class="d-flex justify-content-center align-items-center">
                 <!-- Mail -->
                 <a href="mailto:fredriknystroms@gmail.com" class="fs-5 text-decoration-none mx-3">
