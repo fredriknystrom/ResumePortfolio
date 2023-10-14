@@ -3,6 +3,18 @@ const context = canvas.getContext('2d');
 let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 let drawing = false;
 
+// Adjust size off canvas if mobile device
+window.addEventListener('resize', adjustCanvasSize);
+window.addEventListener('DOMContentLoaded', adjustCanvasSize);
+
+function adjustCanvasSize() {
+    const canvas = document.getElementById('drawingCanvas');
+    const canvasStyle = getComputedStyle(canvas);
+
+    canvas.width = parseFloat(canvasStyle.width);
+    canvas.height = parseFloat(canvasStyle.height);
+}
+
 // Mouse event listeners
 canvas.addEventListener('mousedown', () => {
     drawing = true;
