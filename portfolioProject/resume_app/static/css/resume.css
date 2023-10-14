@@ -85,6 +85,10 @@ ul {
     padding-left: 3.5px;
 }
 
+#about-css {
+    margin-top: 20px;
+} 
+
 @media (max-width: 768px) {
     .container {
         max-width: 90%;
@@ -93,16 +97,11 @@ ul {
     }
 
     .resume-section{
-        padding: 0;
         margin-bottom: 20px;
     }
 
     .card {
         padding: 0;
         margin-bottom: 0;
-    }
-
-    #about-css {
-        margin-top: 20px;
-    }    
+    }   
 }
