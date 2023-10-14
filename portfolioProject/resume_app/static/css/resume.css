@@ -1,9 +1,34 @@
-.navbar {
-    background-color: #F5F5F5; /* White background for the navbar */
-}
-
 body {
     background-color:#002255;
+}
+
+h1 {
+    color: #F5F5F5; /* Text color for headings */
+}
+
+p {
+    color: #666666; /* Text color for paragraphs */
+}
+
+.fs-2 {
+    color:#666666;
+}
+
+.fs-5 {
+    color:#666666;
+    font-weight: bold;
+}
+
+.description {
+    color:#666666;
+}
+
+#brandname {
+    color:#002255;
+}
+
+.navbar {
+    background-color: #F5F5F5; /* White background for the navbar */
 }
 
 .nav-link {
@@ -25,14 +50,6 @@ body {
     margin-top: 30px;
     border-radius: 10px;
     max-width: 50%;
-}
-
-h1 {
-    color: #F5F5F5; /* Text color for headings */
-}
-
-p {
-    color: #002255; /* Text color for paragraphs */
 }
 
 .card {
