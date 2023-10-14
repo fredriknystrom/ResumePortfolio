@@ -72,12 +72,12 @@ h1, h2, h3, h4 {
 }
 
 .navbar-toggler {
-    border-color: rgba(0,34,85,.2);
+    border-color: rgba(0,0,0,.2);
 }
 
 .navbar-toggler {
     transition: transform 0.3s;
-    color: #002255;
+    color: #000000;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 8px;
