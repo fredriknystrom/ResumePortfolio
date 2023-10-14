@@ -162,7 +162,7 @@
                     <div class="card-body">
                         <h5 class="card-title">MNIST Prediction</h5>
                         <p class="card-text">Description of Project 1.</p>
-                        <a href="{% url 'mnist-view' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <a href="{% url 'mnist-view' %}" class="btn btn-primary mb-3">Click to view</a>
                         <br>
                         <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/MNIST_app" target="_blank">
                             <i class="fa fa-github" style="font-size:48px;color:black"></i>
@@ -174,7 +174,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Spotistats</h5>
                         <p class="card-text">Description of Project 2.</p>
-                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Click to view</a>
                         <br>
                         <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
                             <i class="fa fa-github" style="font-size:48px;color:black"></i>
@@ -186,7 +186,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Spotistats</h5>
                         <p class="card-text">Description of Project 2.</p>
-                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Interact with project here</a>
+                        <a href="{% url 'song-search' %}" class="btn btn-primary mb-3">Click to view</a>
                         <br>
                         <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/spotistats_app" target="_blank">
                             <i class="fa fa-github" style="font-size:48px;color:black"></i>
@@ -201,21 +201,27 @@
     <footer class="bg-white text-center" id="contact">
         <div class="py-5">
             <h1 class="display-3 text-center mb-5" style="color:#002255;">Contact Me</h1>
-            <div class="d-flex justify-content-center align-items-center">
-                <!-- Mail -->
-                <a href="mailto:fredriknystroms@gmail.com" class="fs-5 text-decoration-none mx-3">
-                    <i class="fa fa-envelope" style="font-size: 48px;color:black;"></i>
-                </a>
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/fredrik-nyström-b1757322b" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3">
-                    <i class="fa fa-linkedin-square" style="font-size: 48px;color:#0077B5;"></i>
-                </a>
-                <!-- GitHub -->
-                <a href="https://github.com/fredriknystrom?tab=repositories" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3">
-                    <i class="fa fa-github" style="font-size: 48px;color:black;"></i>
-                </a>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex flex-column flex-lg-row align-items-start">
+                    <!-- Mail -->
+                    <a href="mailto:fredriknystroms@gmail.com" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
+                        <i class="fa fa-envelope" style="font-size: 48px; width: 48px; color:black;"></i>
+                        <span class="ms-2">fredriknystroms@gmail.com</span>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/fredrik-nyström-b1757322b" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
+                        <i class="fa fa-linkedin-square" style="font-size: 48px; width: 48px; color:#0077B5;"></i>
+                        <span class="ms-2">Fredrik Nyström</span>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/fredriknystrom?tab=repositories" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
+                        <i class="fa fa-github" style="font-size: 48px; width: 48px; color:black;"></i>
+                        <span class="ms-2">fredriknystrom</span>
+                    </a>
+                </div>
             </div>
         </div>
+        
     </footer>
 </body>
 </html>
