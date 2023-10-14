@@ -143,6 +143,8 @@ ul {
 
     .resume-section{
         margin-bottom: 20px;
+        padding-top: 0;  /* Adjust based on the height of your navbar */
+        margin-top: 0; /* Adjust based on the height of your navbar */
     }
 
     .card {
