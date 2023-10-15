@@ -8,7 +8,7 @@ The main page offers a overview of my professional journey, highlighting my educ
 The projects aim to interact with the user in different ways. A dynamic website hosted via pythonanywhere is in use since the projects either make use of serverside calculations and/or reading from database. 
 
 ### MNIST Prediction
-This project is a basic machine learning model, trained using the MNIST dataset, to accurately predict handwritten numbers from the user between 0 to 9. I also made some additional data by slightly rotating the images to improve the model. The front-end design is made to mimic a university chalkboard.
+This project is a basic machine learning model, trained using the MNIST dataset, to accurately predict handwritten numbers from the user between 0 to 9. I also created some synthetic data by slightly rotating the images to improve the model. The front-end design is made to mimic a university chalkboard.
 
 ![MNIST IMG](md-images/mnist-prediction.png)
 
