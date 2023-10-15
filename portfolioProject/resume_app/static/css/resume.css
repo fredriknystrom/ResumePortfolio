@@ -39,6 +39,11 @@ p {
 .nav-link {
     color: #002255;
 }
+
+.profile-img {
+    border-radius: 6px;
+}
+
 @media (max-width: 991px) {
     .navbar-nav .nav-item {
         opacity: 0;
@@ -141,19 +146,29 @@ ul {
 
 @media (max-width: 768px) {
     .container {
-        max-width: 90%;
+        max-width: 100%;
         padding: 20px;
         margin-top: 10px;
+        border-radius: 0;
     }
 
     .resume-section{
         margin-bottom: 20px;
-        padding-top: 0;  /* Adjust based on the height of your navbar */
+        padding:0px;  /* Adjust based on the height of your navbar */
         margin-top: 0; /* Adjust based on the height of your navbar */
     }
 
     .card {
         padding: 0;
         margin-bottom: 0;
+    }
+
+    .hello-header {
+        margin: 0!important;
+    }
+
+    .img-container {
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 }

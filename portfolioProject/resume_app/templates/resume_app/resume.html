@@ -58,28 +58,29 @@
     <!-- About Me Section -->
     <div class="resume-section">
         <div class="container">
-            <h1 class="display-4 mb-5" style="color:#002255">
+            <h1 class="display-4 mb-5 hello-header" style="color:#002255">
                 Hello, my name is Fredrik!
             </h1>
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-5 mt-2 order-md-2">
+                    <img class="img-fluid profile-img img-container" src="{% static 'images/resume.jpg' %}" alt="Your Image">
+                </div>
+                <div class="col-md-7 order-md-1">
                     <p class="fs-3">
-                        I am a full-stack developer <br> 
-                        from Sweden, Gothenburg <br>
-                        with a strong passion for <br> 
-                        Artificial Intelligence and <br> 
+                        I am a full-stack developer  
+                        from Sweden, Gothenburg 
+                        with a strong passion for  
+                        Artificial Intelligence and 
                         Machine Learning.
                     </p>
                     <p class="fs-3">
-                        Currently on exchange at <br>
-                        ETH Zürich in Switzerland <br>
+                        Currently on exchange at
+                        ETH Zürich in Switzerland 
                         until August 2024.
                     </p>
                 </div>
-                <div class="col-md-5 mt-3">
-                    <img src="{% static 'images/resume.jpg' %}" alt="Your Image" class="img-fluid">
-                </div>
             </div>
+            
         </div>
     </div>
     
@@ -162,8 +163,8 @@
                         <h5 class="fs-3 blue">MNIST Prediction</h5>
                         <p class="card-text">This project is a basic machine learning model, trained using 
                             the MNIST dataset, to accurately predict handwritten numbers from the user between
-                            0 to 9. I also made some additional data by slightly rotating the images to improve
-                            the model. The front-end design is made to mimic a university chalkboard..</p>
+                            0 to 9. I also created some synthetic data by slightly rotating the images to improve
+                            the model. The front-end design is made to mimic a university chalkboard.</p>
                         <a href="{% url 'mnist-view' %}" class="btn btn-primary mb-3">Click to view</a>
                         <br>
                         <a href="https://github.com/fredriknystrom/ResumePortfolio/tree/main/portfolioProject/MNIST_app" target="_blank">
@@ -199,17 +200,17 @@
                     <!-- Mail -->
                     <a href="mailto:fredriknystroms@gmail.com" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
                         <i class="fa fa-envelope" style="font-size: 48px; width: 48px; color:black;"></i>
-                        <span class="ms-2">fredriknystroms@gmail.com</span>
+                        <span class="ms-2 grey">fredriknystroms@gmail.com</span>
                     </a>
                     <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/fredrik-nyström-b1757322b" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
                         <i class="fa fa-linkedin-square" style="font-size: 48px; width: 48px; color:#0077B5;"></i>
-                        <span class="ms-2">Fredrik Nyström</span>
+                        <span class="ms-2 grey">Fredrik Nyström</span>
                     </a>
                     <!-- GitHub -->
                     <a href="https://github.com/fredriknystrom?tab=repositories" target="_blank" rel="noopener noreferrer" class="fs-5 text-decoration-none mx-3 my-2 d-flex align-items-center">
                         <i class="fa fa-github" style="font-size: 48px; width: 48px; color:black;"></i>
-                        <span class="ms-2">fredriknystrom</span>
+                        <span class="ms-2 grey">fredriknystrom</span>
                     </a>
                 </div>
             </div>
