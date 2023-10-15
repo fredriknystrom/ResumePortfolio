@@ -13,6 +13,6 @@ This project is a basic machine learning model, trained using the MNIST dataset,
 ![MNIST IMG](md-images/mnist-prediction.png)
 
 ### Spotistats
-This project leverages the 'Most Streamed Spotify Songs 2023' dataset from Kaggle, which has been structured into MySQL database tables to facilitate querying through Django filters."
+This project leverages the 'Most Streamed Spotify Songs 2023' dataset from Kaggle, which has been structured into MySQL database tables to facilitate querying through Django filters.
 
 ![SPOTISTATS IMG](md-images/spotistats.png)
