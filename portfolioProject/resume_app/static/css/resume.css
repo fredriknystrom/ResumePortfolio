@@ -8,19 +8,24 @@ h1 {
 
 p {
     color: #666666; /* Text color for paragraphs */
+    font-size: 20px;
 }
 
-.fs-2 {
-    color:#666666;
+.blue {
+    color: #002255;
+}
+
+.grey {
+    color:#666666
 }
 
 .fs-5 {
-    color:#666666;
     font-weight: bold;
 }
 
 .description {
     color:#666666;
+    font-size: 20px;
 }
 
 #brandname {
