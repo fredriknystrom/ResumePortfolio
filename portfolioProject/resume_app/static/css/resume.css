@@ -51,13 +51,13 @@ p {
     color:#666666
 }
 
-.fs-5 {
-    font-weight: bold;
-}
-
 .description {
+    margin-top: 10px;
     color:#666666;
     font-size: 20px;
+    max-width: 650px;  /* You can adjust this value based on your design needs */
+    word-wrap: break-word;  /* This ensures that the text wraps to the next line */
+    display: inline-block;  /* Makes max-width apply to the span */
 }
 
 #brandname {
@@ -229,5 +229,21 @@ ul {
         margin:0;
         padding:0;
         opacity: 1;
+    }
+
+    .description {
+        max-width: 280px;  /* You can adjust this value based on your design needs */
+    }
+
+    .fs-1 {
+        font-size: 24px!important;
+    }
+
+    .fs-3 {
+        font-size: 20px!important;
+    }
+
+    .fs-5 {
+        font-size: 16px!important;
     }
 }
