@@ -2,6 +2,38 @@ body {
     background-color:#002255;
 }
 
+.resume {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.myheader {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: text-decoration 0.3s ease; /* Smooth transition for the underline */
+}
+
+.myheader:hover {
+    text-decoration: underline;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
 h1 {
     color: #F5F5F5; /* Text color for headings */
 }
@@ -44,6 +76,15 @@ p {
     border-radius: 6px;
 }
 
+.img-container {
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.img-container:hover {
+    transform: scale(1.1); /* 10% larger than original size */
+}
+
+
 @media (max-width: 991px) {
     .navbar-nav .nav-item {
         opacity: 0;
@@ -77,7 +118,6 @@ p {
 .resume-section {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     padding-top: 105px;  /* Adjust based on the height of your navbar */
     margin-top: -105px; /* Adjust based on the height of your navbar */
 }
@@ -85,7 +125,6 @@ p {
 .container {
     background-color: #F5F5F5;
     padding: 50px;
-    margin-top: 30px;
     border-radius: 10px;
     max-width: 50%;
 }
@@ -115,7 +154,6 @@ ul {
     padding: 0;
 }
 
-
 .navbar-toggler {
     border-color: rgba(0,34,85,.2);
 }
@@ -140,9 +178,9 @@ ul {
     padding-left: 3.5px;
 }
 
-#about-css {
-    margin-top: 20px;
-} 
+.section-break {
+    display: none;
+}
 
 @media (max-width: 768px) {
     .container {
@@ -152,10 +190,9 @@ ul {
         border-radius: 0;
     }
 
-    .resume-section{
-        margin-bottom: 20px;
-        padding:0px;  /* Adjust based on the height of your navbar */
-        margin-top: 0; /* Adjust based on the height of your navbar */
+    .resume {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .card {
@@ -175,6 +212,7 @@ ul {
     .footer {
         padding-top: 20px!important;
         padding-bottom: 20px!important;
+        box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .footer-header {
@@ -183,5 +221,13 @@ ul {
 
     .display-4{
         margin-bottom: 20px;
+    }
+
+    hr, .section-break {  /* This targets all <hr> and .section-break */
+        border: 0.5px solid #e0e0e0;  /* A subtle gray */
+        display: block;
+        margin:0;
+        padding:0;
+        opacity: 1;
     }
 }
