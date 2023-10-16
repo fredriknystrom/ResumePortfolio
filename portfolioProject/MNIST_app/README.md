@@ -1,11 +1,4 @@
 # Overview
+This project is a basic machine learning model, trained using the MNIST dataset with 28x28 pixel images, to accurately predict handwritten numbers from the user between 0 to 9. I also created some synthetic data by slightly rotating the images to improve the model. When users draw on the board, it measures 280x280 pixels on mobile devices and 560x560 pixels on computer screens. To optimize the input for the ML model, the image is first cropped to the smallest square determined by existing pixel values. It is then resized to a 28x28 dimension, which the model can process. The front-end design is made to mimic a university chalkboard.
 
-### MNIST Prediction
-This project is a basic machine learning model, trained using the MNIST dataset, to accurately predict handwritten numbers from the user between 0 to 9. I also created some synthetic data by slightly rotating the images to improve the model. The front-end design is made to mimic a university chalkboard.
-
-![MNIST IMG](md-images/mnist-prediction.png)
-
-### Spotistats
-This project leverages the 'Most Streamed Spotify Songs 2023' dataset from Kaggle, which has been structured into MySQL database tables to facilitate querying through Django filters.
-
-![SPOTISTATS IMG](md-images/spotistats.png)
+![MNIST IMG](/md-images/mnist-prediction.png)
