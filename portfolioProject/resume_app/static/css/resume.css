@@ -1,5 +1,7 @@
 body {
     background-color:#002255;
+
+    font-family: 'Roboto', sans-serif; /* This will apply Roboto to the entire document */
 }
 
 .resume {
