@@ -11,11 +11,6 @@ body {
 .myheader {
     margin-top: 20px;
     margin-bottom: 20px;
-    transition: text-decoration 0.3s ease; /* Smooth transition for the underline */
-}
-
-.myheader:hover {
-    text-decoration: underline;
 }
 
 @keyframes blink {
@@ -136,6 +131,14 @@ p {
     border-color: #002255;
 }
 
+.card {
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.card:hover {
+    transform: scale(1.1); /* 10% larger than original size */
+}
+
 .btn {
     background-color: green;
     border-color: green;
@@ -187,7 +190,7 @@ ul {
     .container {
         max-width: 100%;
         padding: 20px;
-        margin-top: 0;
+        padding-bottom: 40px;
         border-radius: 0;
     }
 
@@ -212,7 +215,7 @@ ul {
 
     .footer {
         padding-top: 20px!important;
-        padding-bottom: 20px!important;
+        padding-bottom: 40px!important;
         box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
@@ -234,14 +237,15 @@ ul {
 
     .description {
         max-width: 280px;  /* You can adjust this value based on your design needs */
+        font-size: 14px;
     }
 
     .fs-1 {
-        font-size: 24px!important;
+        font-size: 22px!important;
     }
 
     .fs-3 {
-        font-size: 20px!important;
+        font-size: 18px!important;
     }
 
     .fs-5 {
@@ -250,5 +254,17 @@ ul {
 
     .hello-header {
         font-size: 26px!important;
+    }
+
+    .fa-linkedin-square {
+        font-size: 32px!important;
+    }
+
+    .fa-envelope {
+        font-size: 32px!important;
+    }
+
+    .fa-github {
+        font-size: 32px!important;
     }
 }
