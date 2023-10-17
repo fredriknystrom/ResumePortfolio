@@ -11,11 +11,6 @@ body {
 .myheader {
     margin-top: 20px;
     margin-bottom: 20px;
-    transition: text-decoration 0.3s ease; /* Smooth transition for the underline */
-}
-
-.myheader:hover {
-    text-decoration: underline;
 }
 
 @keyframes blink {
