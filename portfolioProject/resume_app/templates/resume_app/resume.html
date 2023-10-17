@@ -9,6 +9,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
  
     {% load static %}
     <!-- Include static CSS files -->
@@ -223,13 +225,19 @@
             <div class="container text-center">
                 <div class="card">
                     <div class="card-body">
-                        <p class="description">Feel free to download and read my resume in pdf form</p>
-                        <br>
-                        <a href="https://www.yoursite.com/files/sample.pdf" download>
-                            <button class="btn btn-primary">
-                                <i class="bi bi-download"></i> Download Resume
-                            </button>
-                        </a>
+                        <p class="description">Feel free to read and or download my resume in pdf form</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="{% static 'pdfs/cv-17-10-2023.pdf'%}" target="_blank" class="me-2">
+                                <button class="btn btn-primary" style="width:100px;">
+                                    View
+                                </button>
+                            </a>
+                            <a href="{% static 'pdfs/cv-17-10-2023.pdf'%}" download>
+                                <button class="btn btn-primary" style="width:100px;">
+                                    <i class="bi bi-download"></i> 
+                                </button>
+                            </a>
+                        </div> 
                     </div>
                 </div>
             </div>
