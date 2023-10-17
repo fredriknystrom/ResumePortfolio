@@ -1,7 +1,6 @@
 body {
-    background-color:#002255;
-
-    font-family: 'Roboto', sans-serif; /* This will apply Roboto to the entire document */
+    background-color: #002255;
+    font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
 }
 
 .resume {
@@ -247,5 +246,9 @@ ul {
 
     .fs-5 {
         font-size: 16px!important;
+    }
+
+    .hello-header {
+        font-size: 26px!important;
     }
 }
