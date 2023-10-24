@@ -31,9 +31,9 @@ def mnist_view(request):
         predictions = model.predict(np.expand_dims(preprocessed_data, axis=0))
 
         # Convert predictions to a format you want to return to the frontend
-        predicted_number = np.argmax(predictions[0])  # Assuming it's a classification task
+        predicted_number = np.argmax(predictions[0])
 
         # Return the predicted result as JSON
         return JsonResponse({'prediction': int(predicted_number)})
     else:
-        return render(request, 'MNIST_app/canvas.html')  # Replace 'mnist.html' with your actual HTML template
+        return render(request, 'MNIST_app/canvas.html')

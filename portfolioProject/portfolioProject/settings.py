@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'MNIST_app',
     'spotistats_app',
-    'resume_app'
+    'resume_app',
+    'aicube_app',
 ]
 
 MIDDLEWARE = [

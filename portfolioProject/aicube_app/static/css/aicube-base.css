@@ -1,0 +1,11 @@
+body, html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #CCCCCC;
+}
+
+.navbar {
+    background-color: #666666;
+}

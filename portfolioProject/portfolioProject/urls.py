@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('resume_app.urls')),
     path('mnist/', include('MNIST_app.urls')),
     path('spotistats/', include('spotistats_app.urls')),
+    path('ai-cube/', include('aicube_app.urls')),
 ]
 
 if settings.DEBUG:
