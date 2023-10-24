@@ -1,3 +1,11 @@
+.my-header {
+    margin-top: -80px;
+    margin-bottom: 80px;
+    font-size: 40px;
+    color: #FFFFFF;
+    height: 40px;
+}
+
 .scene {
     width: 450px;
     height: 450px;
