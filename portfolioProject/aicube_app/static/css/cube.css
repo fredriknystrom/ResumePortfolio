@@ -19,7 +19,7 @@
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 1px solid #000;
+    border: 1.5px solid #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@
 
 /* Apply transformations to the text within each face */
 .face.front {
-    background-color: #B2FFD6;
+    background-color: #00CC5F;
     transform: translateZ(225px);
 }
 
@@ -38,7 +38,7 @@
 }
 
 .face.left {
-    background-color: #FFD166;
+    background-color: #FFD20A;
     transform: translateX(-225px) rotateY(-90deg);
 }
 
@@ -53,7 +53,7 @@
 }
 
 .face.bottom {
-    background-color: #60A561;
+    background-color: #4B4063;
     transform: translateY(225px) rotateX(-90deg);
 }
 
@@ -63,13 +63,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000;
+    border: 1.5px solid #FFF;
     text-decoration: none;
-    color: inherit;
-    
+    color: #FFF;
+    font-size: 20px;
+}
+
+.square:hover {
+    color: #FFF;
+    text-decoration: underline;
+    font-size: 22px;
 }
 
 
 #rotateButton {
     margin-top: 150px;
+    background-color: #666666;
+    border-color: #666666;
+    font-size: 24px;
 }

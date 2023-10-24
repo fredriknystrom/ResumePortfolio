@@ -3,9 +3,13 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #CCCCCC;
+    background-color: #999999;
 }
 
 .navbar {
     background-color: #666666;
+}
+
+.nav-link {
+    color: #FFFFFF;
 }
