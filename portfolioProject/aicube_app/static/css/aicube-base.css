@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #6C7C89;
+    font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
 }
 
 .navbar {
@@ -14,8 +15,7 @@ body, html {
 
 /* Set the background color for both the parent and dropdown */
 .navbar-nav .nav-item.dropdown .dropdown-menu {
-    background-color: #FFFFFF; /* Background color for both navbar and dropdown */
-    
+    background-color: #48535B; /* Background color for both navbar and dropdown */
     width: 100%; /* Stretch the dropdown menu to the parent size */
 }
 
