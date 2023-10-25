@@ -11,3 +11,67 @@ body, html {
 .nav-link {
     color: #FFFFFF;
 }
+
+/* Set the background color for both the parent and dropdown */
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+    background-color: #FFFFFF; /* Background color for both navbar and dropdown */
+    
+    width: 100%; /* Stretch the dropdown menu to the parent size */
+}
+
+/* Set the hover color for dropdown items */
+.ai-dropdown .dropdown-item {
+    color: #00CC5F; /* Hover color for "Foundations of AI" dropdown items */
+}
+
+.ml-dropdown .dropdown-item {
+    color: #EB3F33; /* Hover color for "Machine Learning" dropdown items */
+}
+
+.nn-dropdown .dropdown-item {
+    color: #E27396; /* Hover color for "Neural Networks" dropdown items */
+}
+
+.nlp-dropdown .dropdown-item {
+    color: #ED7A1D; /* Hover color for "NLP & LLMs" dropdown items */
+}
+
+.cv-dropdown .dropdown-item {
+    color: #4B4063; /* Hover color for "Computer Vision" dropdown items */
+}
+
+.rob-dropdown .dropdown-item {
+    color: #769FB6; /* Hover color for "Robotics" dropdown items */
+}
+
+/* Change background color of dropdown items on hover */
+.navbar-nav .nav-item.dropdown .dropdown-item:hover {
+    background-color: #FFFFFF; /* Hover background color for all dropdown items */
+}
+
+
+
+
+#aiDropdown:hover{
+    color: #00CC5F; /* Color when hovered */
+}
+
+#mlDropdown:hover {
+    color: #EB3F33;
+}
+
+#nnDropdown:hover {
+    color: #E27396;
+}
+
+#nlpDropdown:hover {
+    color: #ED7A1D;
+}
+
+#cvDropdown:hover {
+    color: #4B4063;
+}
+
+#robDropdown:hover {
+    color: #769FB6;
+}
