@@ -50,12 +50,12 @@ def rob_view(request):
 def gen_quote():
     # List of AI quotes
     ai_quotes = [
-        "The future is here with AI.",
-        "AI is the new electricity.",
-        "Machine learning is the way forward.",
-        "AI will change the world as we know it.",
-        "Artificial intelligence is the future of technology.",
-        "Deep learning is revolutionizing AI.",
+        '"The future is here with AI"',
+        '"AI is the new electricity"',
+        '"Machine learning is the way forward"',
+        '"AI will change the world as we know it"',
+        '"Artificial intelligence is the future of technology"',
+        '"Deep learning is revolutionizing AI"',
     ]
 
     return random.choice(ai_quotes)

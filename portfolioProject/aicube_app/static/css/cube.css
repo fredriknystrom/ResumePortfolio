@@ -2,7 +2,7 @@
     margin-top: -80px;
     margin-bottom: 80px;
     font-size: 40px;
-    color: #FFFFFF;
+    color: #F5F5F5;
     height: 40px;
 }
 
@@ -27,7 +27,7 @@
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 1.5px solid #FFF;
+    border: 1.5px solid #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,15 +72,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1.5px solid #FFF;
+    border: 1.5px solid #F5F5F5;
     text-decoration: none;
     text-align: center;
-    color: #FFF;
+    color: #F5F5F5;
     font-size: 18px;
 }
 
 .square:hover {
-    color: #FFF;
+    color: #F5F5F5;
     text-decoration: underline;
     font-size: 20px;
 }
@@ -88,17 +88,17 @@
 
 #rotateButton {
     margin-top: 150px;
-    background-color: #666666;
-    color:#FFFFFF;
-    border-color: #666666;
+    background-color: #48535B;
+    color:#F5F5F5;
+    border-color: #48535B;
     font-size: 24px;
     box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0.3);
 }
 
 #rotateButton:hover {
     margin-top: 150px;
-    background-color: #FFFFFF;
-    color:#666666;
-    border-color: #666666;
+    background-color: #F5F5F5;
+    color:#48535B;
+    border-color: #48535B;
     font-size: 24px;
 }
