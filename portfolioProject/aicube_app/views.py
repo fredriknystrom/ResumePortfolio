@@ -28,10 +28,17 @@ def nn_view(request):
 
 def nlp_view(request):
     context = {
-        "heading" : "Natural Language Processing & Large Lanugage Models",
+        "heading" : "Natural Language Processing",
         "quote" : gen_quote()
     }
     return render(request, 'aicube_app/nlp.html', context)
+
+def rob_view(request):
+    context = {
+        "heading" : "Large Language Models",
+        "quote" : gen_quote()
+    }
+    return render(request, 'aicube_app/llm.html', context)
 
 def cv_view(request):
     context = {
@@ -40,17 +47,12 @@ def cv_view(request):
     }
     return render(request, 'aicube_app/cv.html', context)
 
-def rob_view(request):
-    context = {
-        "heading" : "Robotics",
-        "quote" : gen_quote()
-    }
-    return render(request, 'aicube_app/rob.html', context)
+
 
 def gen_quote():
     # List of AI quotes
     ai_quotes = [
-        '"The future is here with AI"',
+        '"The future is here with AI."',
         '"AI is the new electricity"',
         '"Machine learning is the way forward"',
         '"AI will change the world as we know it"',

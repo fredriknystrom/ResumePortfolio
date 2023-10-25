@@ -36,7 +36,7 @@
 
 /* Apply transformations to the text within each face */
 .face.front {
-    background-color: #00CC5F;
+    background-color: #28A470;
     transform: translateZ(225px);
 }
 

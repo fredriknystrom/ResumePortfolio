@@ -10,9 +10,9 @@ let rotations = [
 let titles = [
     "Machine Learning",
     "Neural Networks",
-    "NLP & LLMs",
+    "Natural Language Processing",
+    "Large Language Models",
     "Computer Vision",
-    "Robotics",
     "Foundations of AI",
 ]
 
