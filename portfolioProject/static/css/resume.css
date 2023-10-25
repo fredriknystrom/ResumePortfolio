@@ -1,5 +1,5 @@
 body {
-    background-color: #002255;
+    background-color: #28A470;
     font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
 }
 
@@ -11,6 +11,7 @@ body {
 .myheader {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #F5F5F5;
 }
 
 @keyframes blink {
@@ -35,21 +36,21 @@ h1 {
 }
 
 p {
-    color: #666666; /* Text color for paragraphs */
+    color: #F5F5F5; /* Text color for paragraphs */
     font-size: 20px;
 }
 
-.blue {
-    color: #002255;
+.text-color {
+    color: #F5F5F5;
 }
 
-.grey {
-    color:#666666
+.footer-link {
+    color:#4C5760;
 }
 
 .description {
     margin-top: 10px;
-    color:#666666;
+    color:#F5F5F5;
     font-size: 20px;
     max-width: 650px;  /* You can adjust this value based on your design needs */
     word-wrap: break-word;  /* This ensures that the text wraps to the next line */
@@ -57,15 +58,19 @@ p {
 }
 
 #brandname {
-    color:#002255;
+    color:#F5F5F5;
 }
 
 .navbar {
-    background-color: #F5F5F5; /* White background for the navbar */
+    background-color: #4C5760; /* White background for the navbar */
 }
 
 .nav-link {
-    color: #002255;
+    color: #F5F5F5; 
+}
+
+.nav-link:hover {
+    color: #28A470; 
 }
 
 .profile-img {
@@ -119,7 +124,7 @@ p {
 }
 
 .container {
-    background-color: #F5F5F5;
+    background-color: #4C5760;
     padding: 50px;
     border-radius: 10px;
     max-width: 50%;
@@ -127,8 +132,8 @@ p {
 
 .card {
     margin: 20px;
-    background-color: #F5F5F5;
-    border-color: #002255;
+    background-color: #4C5760;
+    border-color: #28A470;
 }
 
 .card {
@@ -140,31 +145,31 @@ p {
 }
 
 .btn {
-    background-color: green;
-    border-color: green;
+    background-color: #28A470;
+    border-color: #28A470;
 }
 
 .btn:hover {
-    color: green;
+    color: #28A470;
     background-color: #F5F5F5;
-    border-color: green;
+    border-color: #28A470;
 }
 
 /* No normal bullets please */
 ul {
     list-style-type: none;
-    color: #002255;
+    color: #F5F5F5;
     margin: 0;
     padding: 0;
 }
 
 .navbar-toggler {
-    border-color: rgba(0,34,85,.2);
+    border-color: rgba(40,164,112,.2);
 }
 
 .navbar-toggler {
     transition: transform 0.3s;
-    color: #002255;
+    color: #28A470;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 8px;
@@ -242,14 +247,17 @@ ul {
 
     .fs-1 {
         font-size: 22px!important;
+        color:#F5F5F5;
     }
 
     .fs-3 {
         font-size: 18px!important;
+        color:#F5F5F5;
     }
 
     .fs-5 {
         font-size: 16px!important;
+        color:#F5F5F5;
     }
 
     .hello-header {

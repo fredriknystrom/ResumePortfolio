@@ -1,14 +1,15 @@
-body, html {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+.my-header {
+    margin-top: -80px;
+    margin-bottom: 80px;
+    font-size: 40px;
+    color: #F5F5F5;
+    height: 40px;
 }
 
 .scene {
-    width: 600px;
-    height: 600px;
-    perspective: 1800px;
+    width: 450px;
+    height: 450px;
+    perspective: 2000px;
     perspective-origin: center center;
 }
 
@@ -17,29 +18,87 @@ body, html {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transform: rotateX(0) rotateY(0);
-    transition: transform 1.5s;
-}
-
-.cube.rotate {
-    animation: rotateCube 2s infinite;
+    transition: transform 1.5s; /* Transition added for smooth rotation */
+    transform: rotateX(0deg) rotateY(0deg); /* Initial position */
 }
 
 .face {
+    /* Your existing styles for the faces */
     position: absolute;
-    height: 600px;
-    width: 600px;
-    background: rgba(255,255,255,0.8);
-    border: 1px solid #ccc;
+    height: 450px;
+    width: 450px;
+    border: 1.5px solid #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
 }
 
-.front  { transform: rotateY(0deg) translateZ(100px); }
-.back   { transform: rotateY(180deg) translateZ(100px); }
-.left   { transform: rotateY(-90deg) translateZ(100px); }
-.right  { transform: rotateY(90deg) translateZ(100px); }
-.top    { transform: rotateX(90deg) translateZ(100px); }
-.bottom { transform: rotateX(-90deg) translateZ(100px); }
+/* Apply transformations to the text within each face */
+.face.front {
+    background-color: #00CC5F;
+    transform: translateZ(225px);
+}
+
+.face.top {
+    background-color: #EB3F33;
+    transform: translateY(-225px) rotateX(90deg);
+}
+
+.face.back {
+    background-color: #E27396;
+    transform: translateZ(-225px) rotateY(180deg);
+}
+
+.face.left {
+    background-color: #ED7A1D;
+    transform: translateX(-225px) rotateY(-90deg);
+}
+
+.face.bottom {
+    background-color: #172764;
+    transform: translateY(225px) rotateX(-90deg);
+}
+
+.face.right {
+    background-color: #769FB6;
+    transform: translateX(225px) rotateY(90deg);
+}
+
+
+.square {
+    width: 33.3333%;
+    height: 33.3333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid #F5F5F5;
+    text-decoration: none;
+    text-align: center;
+    color: #F5F5F5;
+    font-size: 18px;
+}
+
+.square:hover {
+    color: #F5F5F5;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+#rotateButton {
+    margin-top: 150px;
+    background-color: #48535B;
+    color:#F5F5F5;
+    border-color: #48535B;
+    font-size: 24px;
+    box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0.3);
+}
+
+#rotateButton:hover {
+    margin-top: 150px;
+    background-color: #F5F5F5;
+    color:#48535B;
+    border-color: #48535B;
+    font-size: 24px;
+}
