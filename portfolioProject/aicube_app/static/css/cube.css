@@ -66,8 +66,8 @@
 }
 
 .square {
-    width: 50%;
-    height: 50%;
+    width: 33.3333%;
+    height: 33.3333%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +87,16 @@
 #rotateButton {
     margin-top: 150px;
     background-color: #666666;
+    color:#FFFFFF;
+    border-color: #666666;
+    font-size: 24px;
+    box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0.3);
+}
+
+#rotateButton:hover {
+    margin-top: 150px;
+    background-color: #FFFFFF;
+    color:#666666;
     border-color: #666666;
     font-size: 24px;
 }
