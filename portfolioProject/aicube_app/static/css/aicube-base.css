@@ -37,7 +37,7 @@ body, html {
 }
 
 .cv-dropdown .dropdown-item {
-    color: #4B4063; /* Hover color for "Computer Vision" dropdown items */
+    color: #172764; /* Hover color for "Computer Vision" dropdown items */
 }
 
 .rob-dropdown .dropdown-item {
@@ -69,7 +69,7 @@ body, html {
 }
 
 #cvDropdown:hover {
-    color: #4B4063;
+    color: #172764;
 }
 
 #robDropdown:hover {
