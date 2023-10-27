@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'spotistats_app',
     'resume_app',
     'aicube_app',
+    'private_app',
 ]
 
 MIDDLEWARE = [
