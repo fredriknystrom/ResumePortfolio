@@ -1,0 +1,27 @@
+body {
+    background-color: #F5F5F5;
+    font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
+}
+
+iframe {
+    width: 100%; 
+    height: 100%;
+    border: none;
+}
+
+#parent-container {
+    height: 85vh;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
