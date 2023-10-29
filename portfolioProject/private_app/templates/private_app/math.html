@@ -1,76 +1,244 @@
 {% extends "private_app/base.html" %}
 
+{% load static %}
+
 {% block content %}
-<h1>
-    Math reminder notes
-</h1>
+<div class="container">
+    <h1>
+        Math reminder notes
+    </h1>
+    
+    <section>
+        <h2>
+            Linear Algebra and Matrices
+        </h2>
+        <h3>
+            General Matrix Info
+        </h3>
+        <div>
+            <p>
+                A matrix is a rectangular array of numbers, symbols, or variables organized into rows and columns.
+                So a 3x2 matrix har 3 rows and two column. 
+                If one has got a row matrix its a 1xM matrix with 1 row and M column.
+                If one has got a column matrix its a Mx1 matrix with M rows and 1 column.
+                In the image there is a 1x3 row matrix and a 3x1 column matrix.
+            </p>
+            <br>
+            <img src="{% static 'images/row-column-matrix.png' %}" alt="Example Image">
+        </div>
+        <h3>
+            Matrix Multiplication
+        </h3>
+        <div>
+            <p>
+                For a matrix multiplication to be valid between two matrices A and B the format of rows and columns
+                must be like this A = LxM, B = MxN. So the columns of a matrix A and the rows of matrix B is equal.
+                Then the result of the matrix multiplication A*B = C gives C = LxN meaning L rows and N columns.
+            </p>
+            <img src="{% static 'images/matrix-mul.jpeg' %}" alt="Example Image">
+        </div>
 
-<section>
-    <h2>
-        Matrix multiplication
-    </h2>
-</section>
+        <h3>
+            Dot product
+        </h3>
+        <p>    
+            The dot product, also known as the scalar product or inner product, is a mathematical operation used to measure the similarity or alignment between two vectors.
+            Let's consider two vectors, A and B, in n-dimensional space. The dot product of these vectors is denoted by "A ⋅ B" and is defined as: A ⋅ B = |A| * |B| * cos(θ). 
+        </p>
+        <img src="{% static 'images/dot-product.png' %}" alt="Example Image">
 
-<section>
-    <h2>
-        Dot product
-    </h2>
-</section>
+        <h3>
+            Transpose matrix
+        </h3>
+        <p>    
+            The transpose of a matrix flips the matrix over its main diagonal, effectively swapping its rows and columns. 
+            I like to think about it like rotating matrix 90 degrees clockwise and then flip the x-axis.
+            This operation is denoted by adding a superscript "T", such as A^T. If one takes the transpose of a already transposed matrix, such as
+            (A^T)^T one ends up with the original matrix A.
+        </p>
+        <img src="{% static 'images/transpose-matrix.png' %}" alt="Example Image">
+    </section>
+    
+    <section>
+        <h2>Multivariable Analysis</h2>
+        <h3>
+            Partial derivative
+        </h3>
 
-<section>
-    <h2>
-        Transpose matrix
-    </h2>
-</section>
+        <p>
+            Partial derivatives allow us to calculate how a function changes with respect to one
+            specific variable while holding other variables constant. In essence, they provide a
+            way to measure the sensitivity of a function to changes in individual input variables
+            in a multi-dimensional space.
+            <img src="{% static 'images/chain-rule.png' %}" alt="Example Image">
+        </p>
+    
+        <h3>
+            Jacobian
+        </h3>
+        <p>
+            The Jacobian matrix, often denoted as J, is a matrix of partial derivatives that describes 
+            how a vector-valued function (a function that takes multiple inputs and produces a vector as an output)
+            changes with respect to its input variables. In other words, the Jacobian provides information
+            about the rate of change or sensitivity of each component of the output vector to changes in 
+            each input variable.
+            <img src="{% static 'images/jacobian-matrix.png' %}" alt="Example Image">
+        </p>
+    </section>
 
-<section>
-    <h2>
-        Distance norm, 1,2 and so on....
-    </h2>
-</section>
+    <section>
+        <h2>Statistics</h2>
+        <h3>
+            Gaussians aka "normal distributions"
+        </h3>
+        <p>
+            The Gaussian distribution forms a symmetrical bell-shaped curve, centered around its mean value.
+            The distribution is defined by two parameters: the mean (μ) and the variance (σ²) The mean determines the center of the curve, while the variance controls its spread. Larger variances result in wider curves.
+            The Gaussian distribution follows the 68-95-99.7 rule, which states that approximately 68% of data falls within one standard deviation of the mean, about 95% falls within two standard deviations, and roughly 99.7% falls within three standard deviations.
+            The PDF (probability density function) formula of a Gaussian distribution is shown in the first image and the curve in the second.
+        </p>
+        <img src="{% static 'images/gaussian-formula.jpeg' %}" alt="Example Image">
+        <br>
+        <img src="{% static 'images/gaussian-distribution.jpeg' %}" alt="Example Image">
+   
+        <h3>
+            Expected Value
+        </h3>
+        <p>
+            <b>E(X) = Σ [x * P(x)]</b>   
+            <br>
+            <br>
+            The expected value represents the "average" value you would expect to obtain from the Gaussian distribution if you were to repeatedly sample from it. 
+            It is a measure of the central location of the data meaning its expected value E(X) = μ.
+        </p>
 
-<section>
-    <h2>
-        Squared error y - y_hat why must be ||y - y_hat || for higher dim
-    </h2>
-</section>
+        <h3>
+            Variance
+        </h3>
+        <p>
+            <b>Var(X) = σ² = Σ(xi - μ)² / n</b>   
+            <br>
+            <br>
+            Variance is a numerical value that measures the average of the squared differences between each data point and the mean of the dataset.
+            It is usually denoted as σ² (sigma squared) or Var(X), where X represents the dataset.   
+        </p>
 
-<section>
-    <h2>
-        Convex property - soft: \_/ vs hard: U
-    </h2>
-</section>
+        <h3>
+            Covariance
+        </h3>
+        <p>
+            <b>Cov(X, Y) = Σ[(xi - μX) * (yi - μY)] / n</b>
+            <br>
+            <br>
+            Covariance is a measure of how two variables change together. It quantifies the degree to which two variables
+            tend to increase or decrease at the same time. A positive covariance indicates that when one variable goes up, 
+            the other tends to go up as well, while a negative covariance indicates that when one variable goes up, the other tends to go down.      
+        </p>
 
-<section>
-    <h2>
-        Partial derivative
-    </h2>
-</section>
+        <h3>
+            Correlation
+        </h3>
+        <p>
+            <b>ρ(X, Y) = Cov(X, Y) / (σX * σY)</b> 
+            <br>
+            <br>
+            Correlation is a standardized measure of the linear relationship between two variables. It not only tells you whether 
+            two variables are related but also the strength and direction of that relationship. Correlation values range between -1 
+            and 1, where -1 indicates a perfect negative linear relationship, 1 indicates a perfect positive linear relationship, 
+            and 0 indicates no linear relationship.     
+        </p>
 
+        <h3>
+            Distance norms L1 and L2
+        </h3>
+        <p>    
+            <b>L1 Norm</b>
+            <br>
+            Also known as Manhattan Distance or Taxicab norm. L1 Norm is the sum of the magnitudes of the vectors in a space.
+             It is the most natural way of measure distance between vectors, that is the sum of absolute difference of the 
+             components of the vectors. In this norm, all the components of the vector are weighted equally. 
+             <br>
+             This is the formula and notation: ‖𝑥‖₁ = |𝑥₁| + |𝑥₂| + ... + |𝑥ᵢ|
 
-<section>
-    <h2>
-        Jacobian
-    </h2>
-</section>
+        </p>
+        <p>    
+            <b>L2 Norm</b>
+            <br>
+            Is the most popular norm, also known as the Euclidean norm. It is the shortest distance to go from one point to another.
+            <br>
+            This is the formula and notation: ‖𝑥‖₂ = √(𝑥₁² + 𝑥₂² + ... + 𝑥ᵢ²)
+        </p>
 
-<section>
-    <h2>
-        NP and NP-hard problems
+        <h3>
+            Mean Squared Error (MSE)
+        </h3>
+        <p>
+            MSE = (1/n) * Σ (y_i - ŷ_i)²
 
-    </h2>
-</section>
+        </p>
+    </section>  
 
-<section>
-    <h2>
-        Gaussians
-    </h2>
-</section>
+    <section>
+        <h2>
+            Graphs
+        </h2>
+        <h3>
+            Convex property and strict convexity
+        </h3>
+        <p>
+            Functions can have either a convex property if one can pick any two points in the function space 
+            and draw a line between them without crossing below any other values of the function however can 
+            pass through other function values. Strict convexity does not alow for passing through other function values.
+            First image is a soft convex function and second a strict convex function, third image is a non convex function.
+        </p>
+        <img src="{% static 'images/convex-function.png' %}" alt="Example Image">
+        <br>
+        <img src="{% static 'images/strictly-convex-function.png' %}" alt="Example Image">
+        <br>
+        <img src="{% static 'images/non-convex-function.png' %}" alt="Example Image">
+    </section>
+    
+    <section>
+        <h2>
+            Computer Science
+        </h2>
+        <h3>
+            Data normalization
+        </h3>
+        <p>
+            Data normalization is a technique used to scale and standardize data to a common range, typically between 0 and 1.
+            The normalization is achieved by shifting the minimum value (x_min) to 0 and the maximum value (x_max) to 1. 
+            This process is useful for ensuring that data with different scales and ranges can be compared or used effectively
+            in various machine learning algorithms. Normalized data speeds up training time and makes the training process numerically stable.
+            <br>
+            <br>
+            <b>Normalized_data = x_data - x_min / (x_max - x_min)</b>
+        </p>
+    </section>
 
-<section>
-    <h2>
-        Normalize data x_data - x_min / (x_max - x_min) delta förskjuter alltid minvärdet till 0 och maxvärde = 1
-    </h2>
-</section>
+    <section>
+        <h2>
+            NP and NP-hard problems
+    
+        </h2>
+        <h3>
+            NP (Non-deterministic Polynomial time) Problems:
+    
+        </h3>
+        <p>
+            NP problems are a group of problems where it's relatively easy to check if a proposed solution is correct, but finding that solution in the first place might be quite hard.
+            It's easy to check if a solution is correct however we don't know if there's a fast way to find the solution in the first place.
+        </p>
+        <h3>
+            NP-hard (Non-deterministic Polynomial time-hard) Problems:
+
+        </h3>
+
+        <p>
+            NP-hard problems are among the most challenging problems. They're at least as hard as the hardest problems in NP. Finding the right solution could be very difficult, and even checking if a proposed solution is correct might be equally tough.
+            They are, in a sense, as hard as the hardest problems in NP and we are not sure if there's a fast way to solve them or verify solutions.
+        </p>
+</section> 
+</div>
 
 {% endblock %}

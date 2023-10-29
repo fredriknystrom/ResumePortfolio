@@ -3,6 +3,14 @@ body {
     font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
 }
 
+.navbar {
+    background-color: #F5F5F5; /* Set the desired background color */
+}
+
+.nav-link {
+    color: black;
+}
+
 iframe {
     width: 100%; 
     height: 100%;
@@ -15,13 +23,34 @@ iframe {
 
 h1 {
     font-size: 64px;
+    margin-top: 50px;
 }
 
 h2 {
     font-size: 32px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+h3 {
+    font-size: 24px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+p {
+    font-size: 20px;
 }
 
 section {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+img {
+    max-width: 720px; /* Maximum width of the image */
+    max-height: 360px; /* Maximum height of the image */
+    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
