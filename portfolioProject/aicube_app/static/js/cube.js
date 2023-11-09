@@ -13,7 +13,7 @@ let titles = [
     "Natural Language Processing",
     "Large Language Models",
     "Computer Vision",
-    "Foundations of AI",
+    "Introduction to AI",
 ]
 
 let currentIndex = 0;
