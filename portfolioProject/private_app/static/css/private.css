@@ -1,10 +1,10 @@
 body {
-    background-color: #F5F5F5;
+    background-color: #F0F0F0;
     font-family: 'Rubik', sans-serif; /* This will apply Rubik to the entire document */
 }
 
 .navbar {
-    background-color: #F5F5F5; /* Set the desired background color */
+    background-color: #FFFFFF; /* Set the desired background color */
 }
 
 .nav-link {
@@ -44,6 +44,9 @@ p {
 section {
     margin-top: 50px;
     margin-bottom: 50px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 30px;
 }
 
 img {
