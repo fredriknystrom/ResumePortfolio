@@ -3,25 +3,74 @@
     <head>
         <title>Image Editor</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <!-- Bootstrap CSS and JS -->
-        {% load bootstrap5 %}
-        {% bootstrap_css %}
-        {% bootstrap_javascript %}
-        <!-- Include static CSS files -->
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/mnist_styles.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Optional Bootstrap JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- Your custom CSS -->
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{% static 'favicons/favicon.ico' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="48x48" href="{% static 'favicon/favicon-48x48.png' %}">
-        <link rel="icon" type="image/png" sizes="192x192" href="{% static 'favicons/android-chrome-192x192.png' %}">
-        <link rel="icon" type="image/png" sizes="512x512" href="{% static 'favicon/android-chrome-512x512.png' %}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <!-- [Your favicon links] -->
     </head>
-<body>
-    <p>{{ image }}</p>
-</body>
+    <body>
+        <div class="container mt-5">
+            <h2>Image Editor</h2>
+            <form method="POST" enctype="multipart/form-data" class="my-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="file" name="image" class="form-control-file">
+                </div>
 
+                <!-- Checkboxes for color scales in a single row -->
+                <div class="form-row mb-3">
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="grayscale" id="grayscale">
+                            <label class="form-check-label" for="grayscale" style="color: grey;">Grayscale</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="redscale" id="redscale">
+                            <label class="form-check-label" for="redscale" style="color: red;">Redscale</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="greenscale" id="greenscale">
+                            <label class="form-check-label" for="greenscale" style="color: green;">Greenscale</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="bluescale" id="bluescale">
+                            <label class="form-check-label" for="bluescale" style="color: blue;">Bluescale</label>
+                        </div>
+                    </div>
+                    <!-- Custom color picker -->
+                    <div class="col-md-1">
+                        <label>Custom</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="color" id="colorPicker" name="color" value="{{ selected_color }}" class="form-control form-control-color">
+                    </div>
+                </div>
+
+    
+
+
+
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+
+            {% if image_data_url %}
+                <div class="image-display my-4">
+                    <img src="{{ image_data_url }}" alt="Processed Image" class="img-fluid">
+                    <a href="{{ image_data_url }}" download="processed_image.jpg" class="btn btn-success mt-3">Download Image</a>
+                </div>
+            {% endif %}
+        </div>
+    </body>
 </html>
