@@ -35,9 +35,12 @@ def upload_image(request):
             # Convert the NumPy array back to a PIL Image
             processed_image = Image.fromarray(np_image)
 
+        # Get the dimensions of the processed image
+        width, height = processed_image.size
+
         # Save the processed image to a BytesIO object
         img_io = BytesIO()
-        processed_image.save(img_io, format='JPEG', quality=70)
+        processed_image.save(img_io, format='PNG')
         img_io.seek(0)
 
         # Convert the image to a data URL
@@ -46,7 +49,9 @@ def upload_image(request):
 
         context = {
             'image_data_url': img_url,
-            'selected_color': selected_color
+            'selected_color': selected_color,
+            'image_width': width,
+            'image_height': height
         }
         return render(request, 'image_app/upload_image.html', context)
 

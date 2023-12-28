@@ -68,6 +68,7 @@
             {% if image_data_url %}
                 <div class="image-display my-4">
                     <img src="{{ image_data_url }}" alt="Processed Image" class="img-fluid">
+                    <p class="mt-1">Resolution: {{ image_width }} x {{ image_height }} pixels</p>
                     <a href="{{ image_data_url }}" download="processed_image.jpg" class="btn btn-success mt-3">Download Image</a>
                 </div>
             {% endif %}
