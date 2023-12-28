@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'resume_app',
     'aicube_app',
     'private_app',
+    'image_app',
 ]
 
 MIDDLEWARE = [
