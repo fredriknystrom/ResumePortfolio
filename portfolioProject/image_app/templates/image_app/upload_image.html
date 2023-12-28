@@ -58,12 +58,14 @@
                     </div>
                 </div>
 
-    
-
-
-
                 <button type="submit" class="btn btn-primary">Upload</button>
             </form>
+
+            {% if error_message %}
+                <div class="alert alert-warning">
+                    {{ error_message }}
+                </div>
+            {% endif %}
 
             {% if image_data_url %}
                 <div class="image-display my-4">
