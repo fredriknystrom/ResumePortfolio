@@ -14,9 +14,9 @@
         <!-- Favicon -->
         <!-- [Your favicon links] -->
     </head>
-    <body>
+    <body style="background-color:46F6F6;">
         <div class="container mt-5">
-            <h2>Image Editor</h2>
+            <h1>Image Editor</h1>
             <form method="POST" enctype="multipart/form-data" class="my-4">
                 {% csrf_token %}
                 <div class="form-group">
@@ -24,7 +24,7 @@
                 </div>
 
                 <!-- Checkboxes for color scales in a single row -->
-                <div class="form-row mb-3">
+                <div class="form-row align-items-center mb-1">
                     <div class="col-md-2">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" name="grayscale" id="grayscale">
@@ -50,11 +50,35 @@
                         </div>
                     </div>
                     <!-- Custom color picker -->
+                    <!-- Custom color picker label with individual letter coloring -->
                     <div class="col-md-1">
-                        <label>Custom</label>
+                        <label>
+                            <span style="color: red;">C</span>
+                            <span style="color: orange;">u</span>
+                            <span style="color: #00E1FF;">s</span>
+                            <span style="color: green;">t</span>
+                            <span style="color: blue;">o</span>
+                            <span style="color: indigo;">m</span>
+                        </label>
                     </div>
+
                     <div class="col-md-1">
                         <input type="color" id="colorPicker" name="color" value="{{ selected_color }}" class="form-control form-control-color">
+                    </div>
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-1">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="fileFormat" id="formatJPEG" value="JPEG">
+                            <label class="form-check-label" for="formatJPEG">JPEG</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="fileFormat" id="formatPNG" value="PNG" checked>
+                            <label class="form-check-label" for="formatPNG">PNG</label>
+                        </div>
                     </div>
                 </div>
 
@@ -70,8 +94,9 @@
             {% if image_data_url %}
                 <div class="image-display my-4">
                     <img src="{{ image_data_url }}" alt="Processed Image" class="img-fluid">
-                    <p class="mt-1">Resolution: {{ image_width }} x {{ image_height }} pixels</p>
-                    <a href="{{ image_data_url }}" download="processed_image.jpg" class="btn btn-success mt-3">Download Image</a>
+                    <p class="mt-3">Image: {{ image_name }}</p>
+                    <p>Resolution: {{ image_width }} x {{ image_height }} pixels</p>
+                    <a href="{{ image_data_url }}" download="{{ image_name }}" class="btn btn-success mt-3">Download Image</a>
                 </div>
             {% endif %}
         </div>
