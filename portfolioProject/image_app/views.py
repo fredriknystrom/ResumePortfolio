@@ -4,6 +4,12 @@ from io import BytesIO
 import base64
 import numpy as np
 
+def resize_image_aspect_ratio(image, base_width):
+    w_percent = (base_width / float(image.size[0]))
+    h_size = int((float(image.size[1]) * float(w_percent)))
+    return image.resize((base_width, h_size), Image.Resampling.LANCZOS)
+
+
 def upload_image(request):
     if request.method == 'POST':
         # Check if an image was uploaded
@@ -47,6 +53,11 @@ def upload_image(request):
 
                 # Convert the NumPy array back to a PIL Image
                 processed_image = Image.fromarray(np_image)
+
+            new_width = request.POST.get('newWidth')
+            if new_width and int(new_width) > 0:
+                new_width = int(new_width)
+                processed_image = resize_image_aspect_ratio(processed_image, new_width)
 
             # Get the dimensions of the processed image
             width, height = processed_image.size
