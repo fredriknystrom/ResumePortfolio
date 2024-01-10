@@ -4,6 +4,7 @@ from io import BytesIO
 import base64
 import numpy as np
 
+
 def resize_image_aspect_ratio(image, base_width):
     w_percent = (base_width / float(image.size[0]))
     h_size = int((float(image.size[1]) * float(w_percent)))
@@ -73,7 +74,7 @@ def upload_image(request):
             # Convert the image to a data URL
             img_data = base64.b64encode(img_io.getvalue()).decode()
             img_url = f"data:image/{file_format.lower()};base64," + img_data
-
+            print(color_scale)
             context = {
                     'image_data_url': img_url,
                     'color_scale': color_scale,
@@ -87,7 +88,7 @@ def upload_image(request):
             # No image was uploaded
             context = {
                 'image_data_url': None,
-                'color_scale': 'greyscale',
+                'color_scale': 'grayscale',
                 'custom_color': '#ffffff',
                 'error_message': "No image selected."
             }
@@ -95,7 +96,7 @@ def upload_image(request):
     else:
         context = {
             'image_data_url': None,
-            'color_scale': 'greyscale',
+            'color_scale': 'grayscale',
             'custom_color': '#ffffff',
             'error_message': None
         }
