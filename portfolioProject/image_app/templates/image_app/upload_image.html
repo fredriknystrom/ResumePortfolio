@@ -24,54 +24,58 @@
                 </div>
 
                 <!-- Checkboxes for color scales in a single row -->
+                
                 <div class="form-row align-items-center mb-2">
                     <div class="col-md-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="grayscale" id="grayscale">
+                            <input type="radio" class="form-check-input" name="colorscale" value="grayscale" id="grayscale" {% if color_scale == "greyscale" %}checked{% endif %}>
                             <label class="form-check-label" for="grayscale" style="color: grey;">Grayscale</label>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="redscale" id="redscale">
+                            <input type="radio" class="form-check-input" name="colorscale" value="redscale" id="redscale" {% if color_scale == "redscale" %}checked{% endif %}>
                             <label class="form-check-label" for="redscale" style="color: red;">Redscale</label>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="greenscale" id="greenscale">
+                            <input type="radio" class="form-check-input" name="colorscale" value="greenscale" id="greenscale" {% if color_scale == "greenscale" %}checked{% endif %}>
                             <label class="form-check-label" for="greenscale" style="color: green;">Greenscale</label>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="bluescale" id="bluescale">
+                            <input type="radio" class="form-check-input" name="colorscale" value="bluescale" id="bluescale" {% if color_scale == "bluescale" %}checked{% endif %}>
                             <label class="form-check-label" for="bluescale" style="color: blue;">Bluescale</label>
                         </div>
                     </div>
-                    <!-- Custom color picker -->
-                    <!-- Custom color picker label with individual letter coloring -->
-                    <div class="col-md-1">
-                        <label>
-                            <span style="color: red;">C</span>
-                            <span style="color: orange;">u</span>
-                            <span style="color: #00E1FF;">s</span>
-                            <span style="color: green;">t</span>
-                            <span style="color: blue;">o</span>
-                            <span style="color: indigo;">m</span>
-                        </label>
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="colorscale" value="custom" id="customColor" {% if color_scale == "custom" %}checked{% endif %}>
+                            <label class="form-check-label" for="customColor">
+                                <span style="color: red;">C</span>
+                                <span style="color: orange;">u</span>
+                                <span style="color: #00E1FF;">s</span>
+                                <span style="color: green;">t</span>
+                                <span style="color: blue;">o</span>
+                                <span style="color: indigo;">m</span>
+                            </label>
+                        </div>
                     </div>
-
                     <div class="col-md-1">
-                        <input type="color" id="colorPicker" name="color" value="{{ selected_color }}" class="form-control form-control-color">
+                        <input type="color" id="colorPicker" name="customcolor" value="{{ custom_color }}" class="form-control form-control-color">
                     </div>
                 </div>
-                <div class="form-row mb-3 align-items-center">
+                
+
+                   
+                <div class="form-row mb-3 align-items-center" title="Leave empty to keep image size">
                     <div class="col-md-1">
                         <label for="newWidth">Width:</label>
                     </div>
                     <div class="col-md-1">
-                        <input type="number" class="form-control" id="newWidth" name="newWidth" placeholder="" title="Leave empty to keep image size">
+                        <input type="number" class="form-control" id="newWidth" name="newWidth" placeholder="">
                     </div>
                 </div>
 
