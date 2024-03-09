@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'portfolioProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -92,7 +93,7 @@ DATABASES = {
         'PORT': '3306',         # MySQL default port
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
