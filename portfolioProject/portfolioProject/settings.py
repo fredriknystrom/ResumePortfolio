@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'MNIST_app',
     'spotistats_app',
     'resume_app',
-    'aicube_app',
     'private_app',
     'image_app',
 ]

@@ -25,7 +25,6 @@ urlpatterns = [
     path('mnist/', include('MNIST_app.urls')),
     path('image/', include('image_app.urls')),
     path('spotistats/', include('spotistats_app.urls')),
-    path('ai-cube/', include('aicube_app.urls')),
     path('private/', include('private_app.urls')),
 ]
 
