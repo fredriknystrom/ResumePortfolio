@@ -7,14 +7,15 @@ body {
 }
 
 .canvas {
-    background-color: #244C3C;
+    background-color: #2c5b48;
     border-style: solid;
     border-width: 2vh;
     border-radius: 2%;
-    border-color: #BC8C5C;
+    border-color: #b47548;
     height: 560px;
     width: 560px;
 }
+
 
 @media (max-width: 768px) {
     .canvas {
