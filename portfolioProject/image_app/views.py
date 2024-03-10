@@ -77,6 +77,14 @@ def image_view(request):
             if new_width and int(new_width) > 0:
                 new_width = int(new_width)
                 processed_image = resize_image_aspect_ratio(processed_image, new_width)
+            else:
+                context = {
+                    'image_data_url': None,
+                    'color_scale': None,
+                    'custom_color': None,
+                    'error_message': f"Invalid width of image {new_width}. Width must be positive."
+                }
+                return render(request, 'image_app/image-editor.html', context)
 
             # Get the dimensions of the processed image
             width, height = processed_image.size
