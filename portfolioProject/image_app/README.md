@@ -1,8 +1,7 @@
 # Image Editor
 
 ## Overview
-Image editor application offers a user-friendly interface for uploading 
-images and applying transformations such color scale adjustments, resizing, and format conversion.Leveraging the capabilities of the Python Imaging Library (PIL) alongside NumPy, the app provides quality image processing with an focus on maintaining the aspect ratio and image integrity.
+Image editor application offers a user-friendly interface for uploading images and applying transformations such color scale adjustments, resizing, and format conversion.Leveraging the capabilities of the Python Imaging Library (PIL) alongside NumPy, the app provides quality image processing with an focus on maintaining the aspect ratio and image integrity.
 
 ## Features
 
@@ -28,6 +27,21 @@ images and applying transformations such color scale adjustments, resizing, and 
 3. **Adjusting Image Width:** Alter the image's width as desired, while the original aspect ratio is preserved. Leave the width field blank to keep the image's original width.
 
 4. **Choosing the Output Format:** Select your preferred output format for the edited image. Options include JPEG and PNG.
+
+
+## Example
+
+### Originally I have this image of size 1792 × 1024.
+
+![ORIGINAL IMG](/md-images/Python2.png)
+
+### Appying custom colorscale, resizing image to 600 x 342 and output as PNG.
+
+![SETTINGS IMG](/md-images/image-editor.png)
+
+### This is the resulting image - Python2_custom.png
+
+![FINAL IMG](/md-images/Python2_custom.png)
 
 
 
