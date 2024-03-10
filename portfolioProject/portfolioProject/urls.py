@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('resume_app.urls')),
     path('mnist/', include('MNIST_app.urls')),
-    path('image/', include('image_app.urls')),
-    path('spotistats/', include('spotistats_app.urls')),
+    path('image-editor/', include('image_app.urls')),
+    #path('spotistats/', include('spotistats_app.urls')),
     path('private/', include('private_app.urls')),
 ]
 

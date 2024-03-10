@@ -2,5 +2,5 @@ from django.urls import path
 from image_app import views
 
 urlpatterns = [
-    path('', views.upload_image, name='mnist-view'),
+    path('', views.image_view, name='image-view'),
 ]

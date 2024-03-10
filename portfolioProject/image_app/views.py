@@ -11,7 +11,7 @@ def resize_image_aspect_ratio(image, base_width):
     return image.resize((base_width, h_size), Image.Resampling.LANCZOS)
 
 
-def upload_image(request):
+def image_view(request):
     if request.method == 'POST':
         # Check if an image was uploaded
         if 'image' in request.FILES:
@@ -25,7 +25,7 @@ def upload_image(request):
                 context = {
                     'error_message': "Invalid file type. Please upload an image in PNG or JPEG format.",
                 }
-                return render(request, 'image_app/upload_image.html', context)
+                return render(request, 'image_app/image-editor.html', context)
 
             file_format = request.POST.get('fileFormat', 'PNG').lower()
             original_image_name, _ = uploaded_image.name.rsplit('.', 1)
@@ -41,7 +41,7 @@ def upload_image(request):
                     'custom_color': None,
                     'error_message': f"{file_format} is unsupported. Please upload a PNG or JPEG file."
                 }
-                return render(request, 'image_app/upload_image.html', context)
+                return render(request, 'image_app/image-editor.html', context)
 
             # Return original image if no processing options are selected
             processed_image = Image.open(uploaded_image)
@@ -113,7 +113,7 @@ def upload_image(request):
                 'custom_color': '#ffffff',
                 'error_message': "No image selected."
             }
-        return render(request, 'image_app/upload_image.html', context)
+        return render(request, 'image_app/image-editor.html', context)
     else:
         context = {
             'image_data_url': None,
@@ -121,4 +121,4 @@ def upload_image(request):
             'custom_color': '#ffffff',
             'error_message': None
         }
-        return render(request, 'image_app/upload_image.html', context)
+        return render(request, 'image_app/image-editor.html', context)
