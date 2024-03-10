@@ -32,46 +32,36 @@ def image_view(request):
             color_scale = request.POST.get('colorscale')
             custom_color = request.POST.get('customcolor')
 
-            # Check if the file format is allowed
-            allowed_formats = ['png', 'jpeg', 'jpg']
-            if file_format not in allowed_formats:
-                context = {
-                    'image_data_url': None,
-                    'color_scale': None,
-                    'custom_color': None,
-                    'error_message': f"{file_format} is unsupported. Please upload a PNG or JPEG file."
-                }
-                return render(request, 'image_app/image-editor.html', context)
-
             # Return original image if no processing options are selected
             processed_image = Image.open(uploaded_image)
-
-            if color_scale == 'grayscale':
-                image_name = original_image_name + '_gray.' + file_format
-                image = Image.open(uploaded_image)
-                processed_image = image.convert('L')
-            else:
-                image = Image.open(uploaded_image).convert("RGB")
-                np_image = np.array(image)
-                if color_scale == 'redscale':
-                    image_name = original_image_name + '_red.' + file_format
-                    np_image[:, :, 1] = 0  # Remove green channel
-                    np_image[:, :, 2] = 0  # Remove blue channel
-                elif color_scale == 'greenscale':
-                    image_name = original_image_name + '_green.' + file_format
-                    np_image[:, :, 0] = 0  # Remove red channel
-                    np_image[:, :, 2] = 0  # Remove blue channel
-                elif color_scale == 'bluescale':
-                    image_name = original_image_name + '_blue.' + file_format
-                    np_image[:, :, 0] = 0  # Remove red channel
-                    np_image[:, :, 1] = 0  # Remove green channel
-                elif color_scale == 'custom':
-                    image_name = original_image_name + '_custom.' + file_format
-                    rgb_color = tuple(int(custom_color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
-                    np_image = np.multiply(np_image / 255, rgb_color).astype('uint8')
-                    
-                # Convert the NumPy array back to a PIL Image
-                processed_image = Image.fromarray(np_image)
+            image_name = original_image_name + '_original.' + file_format
+            if color_scale != 'original':
+                if color_scale == 'grayscale':
+                    image_name = original_image_name + '_gray.' + file_format
+                    image = Image.open(uploaded_image)
+                    processed_image = image.convert('L')
+                else:
+                    image = Image.open(uploaded_image).convert("RGB")
+                    np_image = np.array(image)
+                    if color_scale == 'redscale':
+                        image_name = original_image_name + '_red.' + file_format
+                        np_image[:, :, 1] = 0  # Remove green channel
+                        np_image[:, :, 2] = 0  # Remove blue channel
+                    elif color_scale == 'greenscale':
+                        image_name = original_image_name + '_green.' + file_format
+                        np_image[:, :, 0] = 0  # Remove red channel
+                        np_image[:, :, 2] = 0  # Remove blue channel
+                    elif color_scale == 'bluescale':
+                        image_name = original_image_name + '_blue.' + file_format
+                        np_image[:, :, 0] = 0  # Remove red channel
+                        np_image[:, :, 1] = 0  # Remove green channel
+                    elif color_scale == 'custom':
+                        image_name = original_image_name + '_custom.' + file_format
+                        rgb_color = tuple(int(custom_color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
+                        np_image = np.multiply(np_image / 255, rgb_color).astype('uint8')
+                        
+                    # Convert the NumPy array back to a PIL Image
+                    processed_image = Image.fromarray(np_image)
 
             new_width = request.POST.get('newWidth')
             if new_width and int(new_width) > 0:
@@ -117,7 +107,7 @@ def image_view(request):
             # No image was uploaded
             context = {
                 'image_data_url': None,
-                'color_scale': 'grayscale',
+                'color_scale': 'original',
                 'custom_color': '#ffffff',
                 'error_message': "No image selected."
             }
@@ -125,7 +115,7 @@ def image_view(request):
     else:
         context = {
             'image_data_url': None,
-            'color_scale': 'grayscale',
+            'color_scale': 'original',
             'custom_color': '#ffffff',
             'error_message': None
         }

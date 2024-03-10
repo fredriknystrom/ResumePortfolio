@@ -32,6 +32,12 @@
                     <div class="form-row align-items-center mb-2">
                         <div class="col-md-2">
                             <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="original" id="original" {% if color_scale == "original" %}checked{% endif %}>
+                                <label class="form-check-label" for="original" style="color: black;">Original</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
                                 <input type="radio" class="form-check-input" name="colorscale" value="grayscale" id="grayscale" {% if color_scale == "grayscale" %}checked{% endif %}>
                                 <label class="form-check-label" for="grayscale" style="color: grey;">Grayscale</label>
                             </div>
@@ -54,16 +60,14 @@
                                 <label class="form-check-label" for="bluescale" style="color: blue;">Bluescale</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="colorscale" value="custom" id="customColor" {% if color_scale == "custom" %}checked{% endif %}>
                                 <label class="form-check-label" for="customColor">
-                                    <span style="color: red;">C</span>
-                                    <span style="color: orange;">u</span>
-                                    <span style="color: #00E1FF;">s</span>
-                                    <span style="color: green;">t</span>
-                                    <span style="color: blue;">o</span>
-                                    <span style="color: indigo;">m</span>
+                                    <span style="color: grey;">C</span>
+                                    <span style="color: red;">u</span>
+                                    <span style="color: green;">s</span>
+                                    <span style="color: blue;">t</span>
                                 </label>
                             </div>
                         </div>
