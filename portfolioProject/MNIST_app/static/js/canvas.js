@@ -154,6 +154,8 @@ guessButton.addEventListener('click', () => {
 
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', () => {
+    // Clear prediction text
+    document.getElementById("predictionResult").textContent = "";
     // Clear the canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
     // Reset the image data to a blank image
