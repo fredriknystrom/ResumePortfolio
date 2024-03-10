@@ -17,10 +17,31 @@ def upload_image(request):
         if 'image' in request.FILES:
 
             uploaded_image = request.FILES['image']
+            content_type = uploaded_image.content_type
+            allowed_mime_types = ['image/jpeg', 'image/png']
+
+            if content_type not in allowed_mime_types:
+                # Return an error message if the uploaded file is not a PNG or JPEG image
+                context = {
+                    'error_message': "Invalid file type. Please upload an image in PNG or JPEG format.",
+                }
+                return render(request, 'image_app/upload_image.html', context)
+
             file_format = request.POST.get('fileFormat', 'PNG').lower()
             original_image_name, _ = uploaded_image.name.rsplit('.', 1)
             color_scale = request.POST.get('colorscale')
             custom_color = request.POST.get('customcolor')
+
+            # Check if the file format is allowed
+            allowed_formats = ['png', 'jpeg', 'jpg']
+            if file_format not in allowed_formats:
+                context = {
+                    'image_data_url': None,
+                    'color_scale': None,
+                    'custom_color': None,
+                    'error_message': f"{file_format} is unsupported. Please upload a PNG or JPEG file."
+                }
+                return render(request, 'image_app/upload_image.html', context)
 
             # Return original image if no processing options are selected
             processed_image = Image.open(uploaded_image)

@@ -11,103 +11,110 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Your custom CSS -->
+        <!-- Include static CSS files -->
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <!-- Favicon -->
-        <!-- [Your favicon links] -->
     </head>
-    <body style="background-color:46F6F6;">
-        <div class="container mt-5">
+    <body>
+        <div class="container mt-3">
             <h1>Image Editor</h1>
-            <form method="POST" enctype="multipart/form-data" class="my-4">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="file" name="image" class="form-control-file">
-                </div>
-
-                <!-- Checkboxes for color scales in a single row -->
-                
-                <div class="form-row align-items-center mb-2">
-                    <div class="col-md-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="colorscale" value="grayscale" id="grayscale" {% if color_scale == "grayscale" %}checked{% endif %}>
-                            <label class="form-check-label" for="grayscale" style="color: grey;">Grayscale</label>
+            <div class="frame">
+                <form method="POST" enctype="multipart/form-data" class="my-4">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="file" name="image" class="form-control-file">
+                    </div>
+    
+                    <!-- Checkboxes for color scales in a single row -->
+                    
+                    <div class="form-row align-items-center mb-2">
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="grayscale" id="grayscale" {% if color_scale == "grayscale" %}checked{% endif %}>
+                                <label class="form-check-label" for="grayscale" style="color: grey;">Grayscale</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="redscale" id="redscale" {% if color_scale == "redscale" %}checked{% endif %}>
+                                <label class="form-check-label" for="redscale" style="color: red;">Redscale</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="greenscale" id="greenscale" {% if color_scale == "greenscale" %}checked{% endif %}>
+                                <label class="form-check-label" for="greenscale" style="color: green;">Greenscale</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="bluescale" id="bluescale" {% if color_scale == "bluescale" %}checked{% endif %}>
+                                <label class="form-check-label" for="bluescale" style="color: blue;">Bluescale</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="colorscale" value="custom" id="customColor" {% if color_scale == "custom" %}checked{% endif %}>
+                                <label class="form-check-label" for="customColor">
+                                    <span style="color: red;">C</span>
+                                    <span style="color: orange;">u</span>
+                                    <span style="color: #00E1FF;">s</span>
+                                    <span style="color: green;">t</span>
+                                    <span style="color: blue;">o</span>
+                                    <span style="color: indigo;">m</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="color" id="colorPicker" name="customcolor" value="{{ custom_color }}" class="form-control form-control-color">
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="colorscale" value="redscale" id="redscale" {% if color_scale == "redscale" %}checked{% endif %}>
-                            <label class="form-check-label" for="redscale" style="color: red;">Redscale</label>
+                    
+    
+                       
+                    <div class="form-row mb-3 align-items-center" title="Leave empty to keep image size">
+                        <div class="col-md-1">
+                            <label for="newWidth">Width:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="number" class="form-control" id="newWidth" name="newWidth" placeholder="">
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="colorscale" value="greenscale" id="greenscale" {% if color_scale == "greenscale" %}checked{% endif %}>
-                            <label class="form-check-label" for="greenscale" style="color: green;">Greenscale</label>
+    
+                    <div class="form-row mb-3">
+                        <div class="col-md-1">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="fileFormat" id="formatJPEG" value="JPEG">
+                                <label class="form-check-label" for="formatJPEG">JPEG</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="fileFormat" id="formatPNG" value="PNG" checked>
+                                <label class="form-check-label" for="formatPNG">PNG</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="colorscale" value="bluescale" id="bluescale" {% if color_scale == "bluescale" %}checked{% endif %}>
-                            <label class="form-check-label" for="bluescale" style="color: blue;">Bluescale</label>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="colorscale" value="custom" id="customColor" {% if color_scale == "custom" %}checked{% endif %}>
-                            <label class="form-check-label" for="customColor">
-                                <span style="color: red;">C</span>
-                                <span style="color: orange;">u</span>
-                                <span style="color: #00E1FF;">s</span>
-                                <span style="color: green;">t</span>
-                                <span style="color: blue;">o</span>
-                                <span style="color: indigo;">m</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <input type="color" id="colorPicker" name="customcolor" value="{{ custom_color }}" class="form-control form-control-color">
-                    </div>
-                </div>
-                
-
-                   
-                <div class="form-row mb-3 align-items-center" title="Leave empty to keep image size">
-                    <div class="col-md-1">
-                        <label for="newWidth">Width:</label>
-                    </div>
-                    <div class="col-md-1">
-                        <input type="number" class="form-control" id="newWidth" name="newWidth" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-row mb-3">
-                    <div class="col-md-1">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="fileFormat" id="formatJPEG" value="JPEG">
-                            <label class="form-check-label" for="formatJPEG">JPEG</label>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" name="fileFormat" id="formatPNG" value="PNG" checked>
-                            <label class="form-check-label" for="formatPNG">PNG</label>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
+    
+                    <button type="submit" class="btn btn-primary">Preview changes</button>
+                </form>
+            </div>
+            
 
             {% if error_message %}
-                <div class="alert alert-warning">
+                <div class="alert alert-warning my-3">
                     {{ error_message }}
                 </div>
             {% endif %}
 
             {% if image_data_url %}
-                <div class="image-display my-4">
+                <div class="image-display my-3">
                     <img src="{{ image_data_url }}" alt="Processed Image" class="img-fluid">
-                    <p class="mt-3">Image: {{ image_name }}</p>
-                    <p>Resolution: {{ image_width }} x {{ image_height }} pixels</p>
+                </div>
+                <div class="frame mb-3">
+                    <p class="mt-3">Image - {{ image_name }}</p>
+                    <p>Resolution - {{ image_width }} x {{ image_height }} pixels</p>
                     <a href="{{ image_data_url }}" download="{{ image_name }}" class="btn btn-success mt-3">Download Image</a>
                 </div>
             {% endif %}
