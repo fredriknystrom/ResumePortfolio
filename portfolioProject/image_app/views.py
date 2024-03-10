@@ -77,7 +77,7 @@ def image_view(request):
             if new_width and int(new_width) > 0:
                 new_width = int(new_width)
                 processed_image = resize_image_aspect_ratio(processed_image, new_width)
-            else:
+            elif new_width and int(new_width) < 0:
                 context = {
                     'image_data_url': None,
                     'color_scale': None,
