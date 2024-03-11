@@ -45,3 +45,5 @@ migrations
 
 # Ignore data
 *.npy
+
+portfolioProject/static/*
