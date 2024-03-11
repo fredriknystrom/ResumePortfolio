@@ -10,7 +10,7 @@ document.getElementById('themeToggle').addEventListener('click', function() {
     if (bodyElement.classList.contains('light-mode')) {
         themeIcon.className = 'fa fa-tint'; // Change to your light mode icon class
     } else {
-        themeIcon.className = 'fa fa-sun-o'; // Change to your default mode icon class
+        themeIcon.className = 'fa fa-lightbulb-o'; // Change to your default mode icon class
     }
     event.preventDefault();
 });
