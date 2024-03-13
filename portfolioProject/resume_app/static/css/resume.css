@@ -9,23 +9,23 @@ body {
 }
 
 /* Light mode styles */
-body.light-mode {
-    background-color: #EEEEEE;
-    color: black; 
+body.dark-mode {
+    background-color: #181818;
+    color: #F5F5F5; 
 }
 
 /* footer is same styling in color and light mode*/
 footer {
-    color: black;
-    background: white;
+    color: #181818;
+    background: #F5F5F5;
 }
 
 .footer-link {
-    color: black;
+    color: #181818;
 }
 
 .footer-header {
-    color: black;
+    color: #181818;
     font-size: 48px;
     font-weight: 300;
 }
@@ -34,8 +34,8 @@ h1 {
     color: #F5F5F5;
 }
 
-.light-mode h1 {
-    color: black;
+.dark-mode h1 {
+    color: #F5F5F5;
 }
 
 p {
@@ -55,35 +55,35 @@ p {
     font-weight: 300;
 }
 
-.light-mode p{
-    color: black;
+.dark-mode p{
+    color: #F5F5F5;
 }
 
 
 .navbar {
-    background-color: #4C5760;
+    background-color: #3D3D3D;
     color: #F5F5F5;
 }
 
-.light-mode .navbar {
-    background-color: white; 
-    color: black; 
+.dark-mode .navbar {
+    background-color: #212121; 
+    color: #F5F5F5; 
 }
 
 .nav-link {
     color: #F5F5F5; 
 }
 
-.light-mode .nav-link{
-    color: black; 
+.dark-mode .nav-link{
+    color: #181818; 
 }
 
 .nav-link:visited, .nav-link:focus {
     color: #F5F5F5;
 }
 
-.light-mode .nav-link:visited, .light-mode .nav-link:focus {
-    color: black;
+.dark-mode .nav-link:visited, .dark-mode .nav-link:focus {
+    color: #F5F5F5;
 }
 
 
@@ -95,7 +95,7 @@ p {
     color: #28A470; 
 }
 
-.light-mode .nav-link:hover {
+.dark-mode .nav-link:hover {
     color: #888888;
 }
 
@@ -112,25 +112,25 @@ p {
 }
 
 .container {
-    background-color: #4C5760;
+    background-color: #3D3D3D;
     padding: 50px;
     border-radius: 10px;
     max-width: 50%;
 }
 
-.light-mode .container {
-    background-color: white;
+.dark-mode .container {
+    background-color: #3D3D3D;
 }
 
 .card {
     margin: 20px;
-    background-color: #4C5760;
+    background-color: #3D3D3D;
     border-color: #28A470;
 }
 
-.light-mode .card {
-    background-color: white;
-    border-color: #AAAAAA;
+.dark-mode .card {
+    background-color: #3D3D3D;
+    border-color: #F5F5F5;
 }
 
 .card {
@@ -149,8 +149,8 @@ ul {
     padding: 0;
 }
 
-.light-mode ul {
-    color: black;
+.dark-mode ul {
+    color: #F5F5F5;
 }
 
 .description {
@@ -162,8 +162,8 @@ ul {
     display: inline-block;  /* Makes max-width apply to the span */
 }
 
-.light-mode .description {
-    color: black;
+.dark-mode .description {
+    color: #F5F5F5;
 }
 
 .btn {
@@ -177,13 +177,13 @@ ul {
     border-color: #28A470;
 }
 
-.light-mode .btn {
+.dark-mode .btn {
     color: black;
     background-color: white;
     border-color: black;
 }
 
-.light-mode .btn:hover {
+.dark-mode .btn:hover {
     color: white;
     background-color: black;
     border-color: black;
@@ -303,7 +303,7 @@ ul {
         margin-bottom: 20px;
     }
 
-    .light-mode .navbar-toggler {
+    .dark-mode .navbar-toggler {
         color: black;
         border-color: black;
     }

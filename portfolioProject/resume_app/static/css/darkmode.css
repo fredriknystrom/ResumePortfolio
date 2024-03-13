@@ -1,0 +1,98 @@
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 68px;
+    height: 32px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #28A470;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Adjust for dark mode */
+.dark-mode .slider:before {
+    background-color: black;
+}
+
+/* On/Off icon styles */
+.slider i {
+    font-size: 20px; /* Icon size */
+    opacity: 0; /* Start with icons fully transparent */
+    visibility: hidden; /* Icons not visible by default */
+    position: absolute;
+    transition: visibility 0s linear 0.5s, opacity 0.5s linear; /* Delay visibility transition when fading out */
+}
+
+/* Position the icons */
+.off { /* Sun icon */
+    position: absolute;
+    left: 8px;
+    bottom: 6px;
+    color: black;
+}
+
+.on { /* Moon icon */
+    position: absolute;
+    right: 8px;
+    bottom: 6px;
+    color: #28A470;
+}
+
+/* Toggle icon display based on checkbox state */
+.switch input:checked + .slider .fa-sun-o,
+.switch input:not(:checked) + .slider .fa-moon-o {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0s, opacity 0.5s linear; /* Make visibility turn off instantly */
+}
+
+.switch input:checked + .slider .fa-moon-o,
+.switch input:not(:checked) + .slider .fa-sun-o {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Apply fade-in effect without delay */
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

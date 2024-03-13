@@ -14,7 +14,7 @@
     {% load static %}
     <!-- Include static CSS files -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">  
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/darkmode.css' %}">  
     <!-- Include static JS files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
@@ -37,9 +37,14 @@
             <a class="nav-link fs-3 mx-2" href="#">
                 Fredrik Nystrom
             </a>
-            <a class="nav-link fs-3 mx-2" href="#" id="themeToggle">
-                <i class="fa fa-lightbulb-o" aria-hidden="true" id="themeToggleIcon"></i> <!-- Default icon -->
-            </a>
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <div class="slider round">
+                  <i class="on fa fa-sun-o"></i> <!-- Sun icon -->
+                  <i class="off fa fa-moon-o"></i> <!-- Moon icon -->
+                </div>
+            </label>
+              
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
