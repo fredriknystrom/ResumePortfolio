@@ -4,42 +4,42 @@ body {
 
 /* Color mode styles (default) */
 body {
-    background-color: #28A470;
-    color: white;
+    background-color: #6cb79d;/*#28A470;*/
+    color: #AAAAAA;
 }
 
 /* Light mode styles */
-body.light-mode {
-    background-color: #EEEEEE;
-    color: black; 
+body.dark-mode {
+    background-color: #181818;
+    color: #F5F5F5; 
 }
 
 /* footer is same styling in color and light mode*/
 footer {
-    color: black;
-    background: white;
+    color: #181818;
+    background: #F5F5F5;
 }
 
 .footer-link {
-    color: black;
+    color: #181818;
 }
 
-.footer-header {
-    color: black;
+.dark-mode .footer-header, .footer-header {
+    color: #181818;
     font-size: 48px;
     font-weight: 300;
 }
 
 h1 {
+    color: #AAAAAA;
+}
+
+.dark-mode h1 {
     color: #F5F5F5;
 }
 
-.light-mode h1 {
-    color: black;
-}
-
 p {
-    color: #F5F5F5; /* Text color for paragraphs */
+    color: #AAAAAA; /* Text color for paragraphs */
     font-size: 20px;
 }
 
@@ -48,6 +48,7 @@ p {
     margin-bottom: 20px;
     font-size: 56px;
     font-weight: 300;
+    color: #F5F5F5;
 }
 
 .hello-header {
@@ -55,35 +56,34 @@ p {
     font-weight: 300;
 }
 
-.light-mode p{
-    color: black;
-}
-
-
-.navbar {
-    background-color: #4C5760;
+.dark-mode p{
     color: #F5F5F5;
 }
 
-.light-mode .navbar {
-    background-color: white; 
-    color: black; 
+.navbar {
+    background-color: #F5F5F5;
+    color: #AAAAAA;
 }
 
-.nav-link {
+.dark-mode .navbar {
+    background-color: #212121; 
     color: #F5F5F5; 
 }
 
-.light-mode .nav-link{
-    color: black; 
+.nav-link {
+    color: #AAAAAA; 
+}
+
+.dark-mode .nav-link{
+    color: #181818; 
 }
 
 .nav-link:visited, .nav-link:focus {
-    color: #F5F5F5;
+    color: #AAAAAA;
 }
 
-.light-mode .nav-link:visited, .light-mode .nav-link:focus {
-    color: black;
+.dark-mode .nav-link:visited, .dark-mode .nav-link:focus {
+    color: #F5F5F5;
 }
 
 
@@ -92,10 +92,10 @@ p {
 }
 
 .nav-link:hover {
-    color: #28A470; 
+    color: #6cb79d; 
 }
 
-.light-mode .nav-link:hover {
+.dark-mode .nav-link:hover {
     color: #888888;
 }
 
@@ -112,81 +112,76 @@ p {
 }
 
 .container {
-    background-color: #4C5760;
+    background-color: #F5F5F5;
     padding: 50px;
     border-radius: 10px;
     max-width: 50%;
 }
 
-.light-mode .container {
-    background-color: white;
+.dark-mode .container {
+    background-color: #3D3D3D;
 }
 
 .card {
     margin: 20px;
-    background-color: #4C5760;
-    border-color: #28A470;
+    background-color: #F5F5F5;
+    border-color: #AAAAAA;
 }
 
-.light-mode .card {
-    background-color: white;
-    border-color: #AAAAAA;
+.dark-mode .card {
+    background-color: #3D3D3D;
+    border-color: #F5F5F5;
 }
 
 .card {
     transition: transform 0.3s ease; /* Smooth transition effect */
 }
 
-.card:hover {
-    transform: scale(1.1); /* 10% larger than original size */
-}
-
 /* No normal bullets please */
 ul {
     list-style-type: none;
-    color: #F5F5F5;
+    color: #AAAAAA;
     margin: 0;
     padding: 0;
 }
 
-.light-mode ul {
-    color: black;
+.dark-mode ul {
+    color: #F5F5F5;
 }
 
 .description {
     margin-top: 10px;
-    color:#F5F5F5;
+    color:#AAAAAA;
     font-size: 20px;
     max-width: 650px;  /* You can adjust this value based on your design needs */
     word-wrap: break-word;  /* This ensures that the text wraps to the next line */
     display: inline-block;  /* Makes max-width apply to the span */
 }
 
-.light-mode .description {
-    color: black;
+.dark-mode .description {
+    color: #F5F5F5;
 }
 
 .btn {
-    background-color: #28A470;
-    border-color: #28A470;
+    background-color: #6cb79d;
+    border-color: #6cb79d;
+    border-width: 2px;
 }
 
 .btn:hover {
-    color: #28A470;
+    color: #6cb79d;
+    border-color: #6cb79d;
     background-color: #F5F5F5;
-    border-color: #28A470;
 }
 
-.light-mode .btn {
-    color: black;
-    background-color: white;
-    border-color: black;
+.dark-mode .btn {
+    color: #F5F5F5;
+    background-color: #212121;
+    border-color: #212121;
 }
 
-.light-mode .btn:hover {
-    color: white;
-    background-color: black;
-    border-color: black;
+.dark-mode .btn:hover {
+    border-color: #F5F5F5;
 }
 
 @keyframes blink {
@@ -303,13 +298,23 @@ ul {
         margin-bottom: 20px;
     }
 
-    footer {
-        padding-top: 20px!important;
-        padding-bottom: 40px!important;
-        box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+    .dark-mode .navbar-toggler {
+        color: #F5F5F5;
+        border-color: #F5F5F5;
+    }
+
+    .navbar-toggler {
+        color: #28A470; 
+        border-color: #28A470;
+    }
+
+    .footer-header {
+        font-size: 32px;
     }
 
     .display-4{
+        font-size: 32px;
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 
@@ -331,8 +336,15 @@ ul {
         color:#F5F5F5;
     }
 
+    #brandname {
+        font-size: 24px!important;
+        padding: 0;
+        margin:0;
+
+    }
+
     .fs-3 {
-        font-size: 18px!important;
+        font-size: 20px!important;
         color:#F5F5F5;
     }
 
@@ -340,6 +352,8 @@ ul {
         font-size: 16px!important;
         color:#F5F5F5;
     }
+
+   
 
     .hello-header {
         font-size: 26px!important;
