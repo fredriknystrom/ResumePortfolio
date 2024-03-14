@@ -24,6 +24,12 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    border: 1px solid #6cb79d; /* Adding a border for distinction */
+    border-radius: 34px; /* Keeping the rounded edges */
+}
+
+.dark-mode .slider {
+    border-color: #F5F5F5;
 }
 
 .slider:before {
@@ -32,15 +38,15 @@
     height: 24px;
     width: 24px;
     left: 4px;
-    bottom: 4px;
-    background-color: #28A470;
+    bottom: 3px;
+    background-color: #6cb79d;
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 /* Adjust for dark mode */
 .dark-mode .slider:before {
-    background-color: black;
+    background-color: #181818;
 }
 
 /* On/Off icon styles */
@@ -56,15 +62,15 @@
 .off { /* Sun icon */
     position: absolute;
     left: 8px;
-    bottom: 6px;
+    bottom: 5px;
     color: black;
 }
 
 .on { /* Moon icon */
     position: absolute;
     right: 8px;
-    bottom: 6px;
-    color: #28A470;
+    bottom: 5px;
+    color: #6cb79d;
 }
 
 /* Toggle icon display based on checkbox state */
