@@ -8,7 +8,7 @@ Link to website: https://www.fredriknystrom.tech/
 
 - **Front-End:** HTML, CSS (custom and Bootstrapv5), JavaScript
 - **Back-End:** Django (Python-based web framework) is on the server-side
-- **Libraries & Plugins:** jQuery, Font Awesome for icons, and Google Fonts for typography
+- **Libraries & Plugins:** jQuery, Font Awesome icons and Google Fonts
 
 ## Django Local Development Guide
 
