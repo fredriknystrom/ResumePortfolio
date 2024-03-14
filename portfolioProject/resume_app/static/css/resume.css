@@ -4,8 +4,8 @@ body {
 
 /* Color mode styles (default) */
 body {
-    background-color: #28A470;
-    color: white;
+    background-color: #6cb79d;/*#28A470;*/
+    color: #AAAAAA;
 }
 
 /* Light mode styles */
@@ -31,7 +31,7 @@ footer {
 }
 
 h1 {
-    color: #F5F5F5;
+    color: #AAAAAA;
 }
 
 .dark-mode h1 {
@@ -39,7 +39,7 @@ h1 {
 }
 
 p {
-    color: #F5F5F5; /* Text color for paragraphs */
+    color: #AAAAAA; /* Text color for paragraphs */
     font-size: 20px;
 }
 
@@ -48,6 +48,7 @@ p {
     margin-bottom: 20px;
     font-size: 56px;
     font-weight: 300;
+    color: #F5F5F5;
 }
 
 .hello-header {
@@ -60,8 +61,8 @@ p {
 }
 
 .navbar {
-    background-color: #3D3D3D;
-    color: #F5F5F5;
+    background-color: #F5F5F5;
+    color: #AAAAAA;
 }
 
 .dark-mode .navbar {
@@ -70,7 +71,7 @@ p {
 }
 
 .nav-link {
-    color: #F5F5F5; 
+    color: #AAAAAA; 
 }
 
 .dark-mode .nav-link{
@@ -78,7 +79,7 @@ p {
 }
 
 .nav-link:visited, .nav-link:focus {
-    color: #F5F5F5;
+    color: #AAAAAA;
 }
 
 .dark-mode .nav-link:visited, .dark-mode .nav-link:focus {
@@ -91,7 +92,7 @@ p {
 }
 
 .nav-link:hover {
-    color: #28A470; 
+    color: #6cb79d; 
 }
 
 .dark-mode .nav-link:hover {
@@ -111,7 +112,7 @@ p {
 }
 
 .container {
-    background-color: #3D3D3D;
+    background-color: #F5F5F5;
     padding: 50px;
     border-radius: 10px;
     max-width: 50%;
@@ -123,8 +124,8 @@ p {
 
 .card {
     margin: 20px;
-    background-color: #3D3D3D;
-    border-color: #28A470;
+    background-color: #F5F5F5;
+    border-color: #AAAAAA;
 }
 
 .dark-mode .card {
@@ -139,7 +140,7 @@ p {
 /* No normal bullets please */
 ul {
     list-style-type: none;
-    color: #F5F5F5;
+    color: #AAAAAA;
     margin: 0;
     padding: 0;
 }
@@ -150,7 +151,7 @@ ul {
 
 .description {
     margin-top: 10px;
-    color:#F5F5F5;
+    color:#AAAAAA;
     font-size: 20px;
     max-width: 650px;  /* You can adjust this value based on your design needs */
     word-wrap: break-word;  /* This ensures that the text wraps to the next line */
@@ -162,13 +163,15 @@ ul {
 }
 
 .btn {
-    background-color: #28A470;
-    border-color: #28A470;
+    background-color: #6cb79d;
+    border-color: #6cb79d;
+    border-width: 2px;
 }
 
 .btn:hover {
-    border-color: #F5F5F5;
-    background-color: #28A470;
+    color: #6cb79d;
+    border-color: #6cb79d;
+    background-color: #F5F5F5;
 }
 
 .dark-mode .btn {
