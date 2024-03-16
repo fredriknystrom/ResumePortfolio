@@ -47,3 +47,6 @@ migrations
 *.npy
 
 portfolioProject/static/*
+
+# ignore ml model logs
+portfolioProject/MNIST_app/model_logs

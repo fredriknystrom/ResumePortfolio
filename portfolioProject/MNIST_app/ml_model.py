@@ -23,23 +23,36 @@ def create_model():
     ])
     return model
 
+
+# Based on: https://www.kaggle.com/code/cdeotte/how-to-choose-cnn-architecture-mnist
+
 def create_improved_model():
     model = Sequential([
-        Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
+        Conv2D(32, kernel_size=3, activation='relu', input_shape=(28, 28, 1)),
         BatchNormalization(),
-        MaxPooling2D((2, 2)),
-        Conv2D(64, (3, 3), activation='relu'),
+        Conv2D(32, kernel_size=3, activation='relu'),
         BatchNormalization(),
-        MaxPooling2D((2, 2)),
-        Conv2D(128, (3, 3), activation='relu'),
+        Conv2D(32, kernel_size=5, strides=2, padding='same', activation='relu'),
         BatchNormalization(),
+        Dropout(0.4),
+
+        Conv2D(64, kernel_size=3, activation='relu'),
+        BatchNormalization(),
+        Conv2D(64, kernel_size=3, activation='relu'),
+        BatchNormalization(),
+        Conv2D(64, kernel_size=5, strides=2, padding='same', activation='relu'),
+        BatchNormalization(),
+        Dropout(0.4),
+
         Flatten(),
         Dense(128, activation='relu'),
-        Dropout(0.5),  # Add dropout for regularization
-        Dense(64, activation='relu'),
+        BatchNormalization(),
+        Dropout(0.4),
         Dense(10, activation='softmax')
     ])
     return model
+
+
 
 def preprocess_data(data):
     # Normalize the data - Scale images to the [0, 1] range
@@ -48,6 +61,27 @@ def preprocess_data(data):
     # Make sure images have shape (28, 28, 1)
     dim_data = np.expand_dims(norm_data, -1)
     return dim_data
+
+def log_model_params(batch_size, epochs, test_accuracy, test_loss, history):
+
+    with open(f'model_logs/weights_b{batch_size}_e{epochs}.txt', 'w') as file:
+    
+        # Write each string to the file followed by a newline character
+        file.write(f'Training\n')
+        file.write(f'Training loss: {history.history["loss"]}\n')
+        file.write(f'Training accuracy: {history.history["accuracy"]}\n')
+        file.write(f'\n')
+
+        file.write(f'Validation\n')
+        file.write(f'Validation loss: {history.history["val_loss"]}\n')
+        file.write(f'Validation accuracy: {history.history["val_accuracy"]}\n')
+        file.write('\n')
+
+        file.write(f'Batch size: {batch_size}\n')
+        file.write(f'Epochs: {epochs}\n')
+        file.write(f'Test accuracy: {test_accuracy}\n')
+        file.write(f'Test loss: {test_loss}\n')
+
 
 def plot_loss_curves(history):
     # Extract loss values from the history object
@@ -66,12 +100,14 @@ def plot_loss_curves(history):
 
 def main():
     # Load data from files
-    train_images = np.load('data/rotated_train_images.npy')
-    train_labels = np.load('data/rotated_train_labels.npy')
+    train_images = np.load('data/rotated_train_images.npy')[0:50000]
+    print(len(train_images))
+    train_labels = np.load('data/rotated_train_labels.npy')[0:50000]
 
-    test_images = np.load('data/rotated_test_images.npy')
-    test_labels = np.load('data/rotated_test_labels.npy')
-
+    test_images = np.load('data/rotated_test_images.npy')[0:12000]
+    print(len(test_images))
+    test_labels = np.load('data/rotated_test_labels.npy')[0:12000]
+    
     #check_image_labelling(loaded_rotated_test_labels, loaded_rotated_test_images)
 
     # Normalize the data - Scale images to the [0, 1] range
@@ -94,9 +130,12 @@ def main():
     )
 
     # Train the model
+    batch_size = 256 # 64
+    epochs = 1 # 20-30
+
     history = model.fit(preprocessed_train_images, train_labels, 
-            batch_size=64,
-            epochs=10, 
+            batch_size=batch_size, 
+            epochs=epochs,
             validation_data=(preprocessed_test_images, test_labels), 
             callbacks=[early_stopping])
 
@@ -104,9 +143,13 @@ def main():
     test_loss, test_accuracy = model.evaluate(preprocessed_test_images, test_labels, verbose=2)
     print("\nTest accuracy:", test_accuracy)
 
-    # Save the model's weights
-    model.save('saved_models/real_run2.keras')
+    # Log model parameters and result
+    log_model_params(batch_size, epochs, test_accuracy, test_loss, history)
 
+    # Save the model's weights
+    model.save(f'ml_models/weights-b{batch_size}_e{epochs}.keras')
+
+    # Plot training data
     plot_loss_curves(history)
 
 if __name__ == '__main__':
