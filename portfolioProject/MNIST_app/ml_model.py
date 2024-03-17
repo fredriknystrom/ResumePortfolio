@@ -6,11 +6,11 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import SparseCategoricalCrossentropy
 from tensorflow.keras.callbacks import EarlyStopping
-from utils import check_image_labelling
+from utils import log_model_params, plot_loss_curves, preprocess_data
 import matplotlib.pyplot as plt
 
-# Build the model
-def create_model():
+# Simple model
+def simple_model():
     model = Sequential([
         Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
         MaxPooling2D((2, 2)),
@@ -26,7 +26,7 @@ def create_model():
 
 # Based on: https://www.kaggle.com/code/cdeotte/how-to-choose-cnn-architecture-mnist
 
-def create_improved_model():
+def advanced_model():
     model = Sequential([
         Conv2D(32, kernel_size=3, activation='relu', input_shape=(28, 28, 1)),
         BatchNormalization(),
@@ -52,57 +52,6 @@ def create_improved_model():
     ])
     return model
 
-
-
-def preprocess_data(data):
-    # Normalize the data - Scale images to the [0, 1] range
-    norm_data = data.astype("float32") / 255
-
-    # Make sure images have shape (28, 28, 1)
-    dim_data = np.expand_dims(norm_data, -1)
-    return dim_data
-
-def log_model_params(batch_size, epochs, test_accuracy,
-                      test_loss, history, train_images, test_images):
-
-    with open(f'model_logs/weights-b{batch_size}-e{epochs}.txt', 'w') as file:
-        # Write each string to the file followed by a newline character
-        file.write(f'Data\n')
-        file.write(f'Train: {len(train_images)} images\n')
-        file.write(f'Test: {len(test_images)} images\n')
-
-        file.write(f'Training\n')
-        file.write(f'Training loss: {history.history["loss"]}\n')
-        file.write(f'Training accuracy: {history.history["accuracy"]}\n')
-        file.write(f'\n')
-
-        file.write(f'Validation\n')
-        file.write(f'Validation loss: {history.history["val_loss"]}\n')
-        file.write(f'Validation accuracy: {history.history["val_accuracy"]}\n')
-        file.write('\n')
-
-        file.write(f'Batch size: {batch_size}\n')
-        file.write(f'Epochs: {epochs}\n')
-        file.write(f'Test accuracy: {test_accuracy}\n')
-        file.write(f'Test loss: {test_loss}\n')
-
-
-def plot_loss_curves(history, filename):
-    # Extract loss values from the history object
-    training_loss = history.history['loss']
-    validation_loss = history.history['val_loss']
-
-    # Plot the training and validation loss
-    plt.figure(figsize=(10, 6))
-    plt.plot(training_loss, label='Training Loss', color='blue')
-    plt.plot(validation_loss, label='Validation Loss', color='red')
-    plt.xlabel('Epochs')
-    plt.ylabel('Loss')
-    plt.title('Training and Validation Loss')
-    plt.legend()
-    plt.savefig(f'{filename}.png')
-    plt.show()
-
 def main():
     # Load data from files
     train_images = np.load('data/20degree-rotated-train-images.npy')
@@ -122,7 +71,7 @@ def main():
     preprocessed_test_images = preprocess_data(test_images)
 
     # Create model
-    model = create_improved_model()
+    model = advanced_model()
 
     # Compile the model
     model.compile(optimizer=Adam(),

@@ -2,12 +2,69 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
-def display_images(images, num=20):
-    """Display a random set of images."""
+def preprocess_data(data):
+    # Normalize the data - Scale images to the [0, 1] range
+    norm_data = data.astype("float32") / 255
+
+    # Make sure images have shape (28, 28, 1)
+    dim_data = np.expand_dims(norm_data, -1)
+    return dim_data
+
+def log_model_params(batch_size, epochs, test_accuracy,
+                      test_loss, history, train_images, test_images):
+    """
+    Logs parameters of interest to a txt file in the model_logs dir
+    """
+
+    with open(f'model_logs/weights-b{batch_size}-e{epochs}.txt', 'w') as file:
+        # Write each string to the file followed by a newline character
+        file.write(f'Data\n')
+        file.write(f'Train: {len(train_images)} images\n')
+        file.write(f'Test: {len(test_images)} images\n')
+
+        file.write(f'Training\n')
+        file.write(f'Training loss: {history.history["loss"]}\n')
+        file.write(f'Training accuracy: {history.history["accuracy"]}\n')
+        file.write(f'\n')
+
+        file.write(f'Validation\n')
+        file.write(f'Validation loss: {history.history["val_loss"]}\n')
+        file.write(f'Validation accuracy: {history.history["val_accuracy"]}\n')
+        file.write('\n')
+
+        file.write(f'Batch size: {batch_size}\n')
+        file.write(f'Epochs: {epochs}\n')
+        file.write(f'Test accuracy: {test_accuracy}\n')
+        file.write(f'Test loss: {test_loss}\n')
+
+
+def plot_loss_curves(history, filename):
+    """
+    Plotting loss for training and validation data and saves the plot as png
+    """
+    # Extract loss values from the history object
+    training_loss = history.history['loss']
+    validation_loss = history.history['val_loss']
+
+    # Plot the training and validation loss
+    plt.figure(figsize=(10, 6))
+    plt.plot(training_loss, label='Training Loss', color='blue')
+    plt.plot(validation_loss, label='Validation Loss', color='red')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.title('Training and Validation Loss')
+    plt.legend()
+    plt.savefig(f'{filename}.png')
+    plt.show()
+
+def display_images(images, num=20, rand=False):
+    """Display a first or random n images."""
     
     fig, axes = plt.subplots(1, num, figsize=(20, 2))
-    #indices = np.random.choice(images.shape[0], size=num, replace=False)
-    indices = range(0,20)
+    if rand:
+        indices = np.random.choice(images.shape[0], size=num, replace=False)
+    else:
+        indices = range(0,20)
     
     for ax, idx in zip(axes, indices):
         ax.imshow(images[idx], cmap='gray')
@@ -23,6 +80,11 @@ def check_image_labelling(labels, images):
         plt.show()
 
 def cv2_crop(data):
+    """
+    Crops number on the canvas from the frontend and adds some padding to 
+    make the format of the image more alike the mnist set which the model
+    is trained on.
+    """
     # Find the bounding box of non-zero values
     non_zero_indices = np.nonzero(data)
     min_y, min_x = np.min(non_zero_indices, axis=1)
