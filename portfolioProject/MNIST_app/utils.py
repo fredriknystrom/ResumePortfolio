@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
-def display_images(images, num=10):
+def display_images(images, num=20):
     """Display a random set of images."""
     
     fig, axes = plt.subplots(1, num, figsize=(20, 2))
-    indices = np.random.choice(images.shape[0], size=num, replace=False)
+    #indices = np.random.choice(images.shape[0], size=num, replace=False)
+    indices = range(0,20)
     
     for ax, idx in zip(axes, indices):
         ax.imshow(images[idx], cmap='gray')

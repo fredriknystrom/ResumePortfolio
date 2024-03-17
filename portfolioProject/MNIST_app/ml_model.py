@@ -62,11 +62,15 @@ def preprocess_data(data):
     dim_data = np.expand_dims(norm_data, -1)
     return dim_data
 
-def log_model_params(batch_size, epochs, test_accuracy, test_loss, history):
+def log_model_params(batch_size, epochs, test_accuracy,
+                      test_loss, history, train_images, test_images):
 
-    with open(f'model_logs/weights_b{batch_size}_e{epochs}.txt', 'w') as file:
-    
+    with open(f'model_logs/weights-b{batch_size}-e{epochs}.txt', 'w') as file:
         # Write each string to the file followed by a newline character
+        file.write(f'Data\n')
+        file.write(f'Train: {len(train_images)} images\n')
+        file.write(f'Test: {len(test_images)} images\n')
+
         file.write(f'Training\n')
         file.write(f'Training loss: {history.history["loss"]}\n')
         file.write(f'Training accuracy: {history.history["accuracy"]}\n')
@@ -83,7 +87,7 @@ def log_model_params(batch_size, epochs, test_accuracy, test_loss, history):
         file.write(f'Test loss: {test_loss}\n')
 
 
-def plot_loss_curves(history):
+def plot_loss_curves(history, filename):
     # Extract loss values from the history object
     training_loss = history.history['loss']
     validation_loss = history.history['val_loss']
@@ -96,17 +100,20 @@ def plot_loss_curves(history):
     plt.ylabel('Loss')
     plt.title('Training and Validation Loss')
     plt.legend()
+    plt.savefig(f'{filename}.png')
     plt.show()
 
 def main():
     # Load data from files
-    train_images = np.load('data/rotated_train_images.npy')
+    train_images = np.load('data/20degree-rotated-train-images.npy')
+    train_labels = np.load('data/20degree-rotated-train-labels.npy')
     print(len(train_images))
-    train_labels = np.load('data/rotated_train_labels.npy')
+    print(len(train_labels))
 
-    test_images = np.load('data/rotated_test_images.npy')
+    test_images = np.load('data/20degree-rotated-test-images.npy')
+    test_labels = np.load('data/20degree-rotated-test-labels.npy')
     print(len(test_images))
-    test_labels = np.load('data/rotated_test_labels.npy')
+    print(len(test_labels))
     
     #check_image_labelling(loaded_rotated_test_labels, loaded_rotated_test_images)
 
@@ -131,7 +138,7 @@ def main():
 
     # Train the model
     batch_size = 64 # 64
-    epochs = 20 # 20-30
+    epochs = 10 # 20-30
 
     history = model.fit(preprocessed_train_images, train_labels, 
             batch_size=batch_size, 
@@ -144,13 +151,14 @@ def main():
     print("\nTest accuracy:", test_accuracy)
 
     # Log model parameters and result
-    log_model_params(batch_size, epochs, test_accuracy, test_loss, history)
+    log_model_params(batch_size, epochs, test_accuracy, test_loss, history, train_images, test_images)
 
     # Save the model's weights
-    model.save(f'ml_models/weights-b{batch_size}-e{epochs}.keras')
+    filename = f'ml_models/weights-b{batch_size}-e{epochs}'
+    model.save(f'{filename}.keras')
 
-    # Plot training data
-    plot_loss_curves(history)
+    # Plot training data and save the plot
+    plot_loss_curves(history, filename)
 
 if __name__ == '__main__':
     main()
