@@ -11,7 +11,7 @@ import os
 import json
 
 # Load the pre-trained model
-filename = 'mnist_model.keras'
+filename = 'weights-b64-e20.keras' # 'mnist-model.keras'
 model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'ml_models', filename)
 model = tf.keras.models.load_model(model_path)
 

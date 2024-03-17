@@ -100,13 +100,13 @@ def plot_loss_curves(history):
 
 def main():
     # Load data from files
-    train_images = np.load('data/rotated_train_images.npy')[0:50000]
+    train_images = np.load('data/rotated_train_images.npy')
     print(len(train_images))
-    train_labels = np.load('data/rotated_train_labels.npy')[0:50000]
+    train_labels = np.load('data/rotated_train_labels.npy')
 
-    test_images = np.load('data/rotated_test_images.npy')[0:12000]
+    test_images = np.load('data/rotated_test_images.npy')
     print(len(test_images))
-    test_labels = np.load('data/rotated_test_labels.npy')[0:12000]
+    test_labels = np.load('data/rotated_test_labels.npy')
     
     #check_image_labelling(loaded_rotated_test_labels, loaded_rotated_test_images)
 
@@ -130,8 +130,8 @@ def main():
     )
 
     # Train the model
-    batch_size = 256 # 64
-    epochs = 1 # 20-30
+    batch_size = 64 # 64
+    epochs = 20 # 20-30
 
     history = model.fit(preprocessed_train_images, train_labels, 
             batch_size=batch_size, 
@@ -147,7 +147,7 @@ def main():
     log_model_params(batch_size, epochs, test_accuracy, test_loss, history)
 
     # Save the model's weights
-    model.save(f'ml_models/weights-b{batch_size}_e{epochs}.keras')
+    model.save(f'ml_models/weights-b{batch_size}-e{epochs}.keras')
 
     # Plot training data
     plot_loss_curves(history)
