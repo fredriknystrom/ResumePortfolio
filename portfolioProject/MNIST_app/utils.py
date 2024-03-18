@@ -86,6 +86,7 @@ def cv2_crop(data):
     make the format of the image more alike the mnist set which the model
     is trained on.
     """
+    
     # Find the bounding box of non-zero values
     non_zero_indices = np.nonzero(data)
     min_y, min_x = np.min(non_zero_indices, axis=1)
@@ -99,7 +100,7 @@ def cv2_crop(data):
     max_dimension = max(delta_x, delta_y)
 
     # Calculate the padding size to make it square
-    padding_size = int(1.1 * max_dimension)
+    padding_size = int(1.2 * max_dimension)
 
     # Calculate vertical and horizontal padding while maintaining aspect ratio
     horizontal_padding = int((padding_size - delta_x) / 2)
@@ -112,7 +113,11 @@ def cv2_crop(data):
     padded_array[vertical_padding:vertical_padding + delta_y,
                  horizontal_padding:horizontal_padding + delta_x] = data[min_y:max_y+1, min_x:max_x+1]    
 
+    
+
     # Resize the padded image to 28x28
     resized_array = cv2.resize(padded_array, (28, 28), interpolation=cv2.INTER_LINEAR)
+
+    #print(resized_array)
 
     return resized_array

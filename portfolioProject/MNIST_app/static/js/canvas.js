@@ -51,7 +51,7 @@ canvas.addEventListener('touchmove', (e) => {
 });
 
 function draw(x, y) {
-    context.lineWidth = 20;
+    context.lineWidth = 40;
     context.lineCap = 'round';
     context.strokeStyle = 'white';
     context.lineTo(x, y);
