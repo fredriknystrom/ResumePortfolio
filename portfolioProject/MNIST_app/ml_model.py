@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import SparseCategoricalCrossentropy
 from tensorflow.keras.callbacks import EarlyStopping
-from utils import log_model_params, plot_loss_curves, preprocess_data
+from utils import check_image_labelling, log_model_params, plot_loss_curves, preprocess_data
 import matplotlib.pyplot as plt
 
 # Simple model
@@ -64,8 +64,9 @@ def main():
     print(len(test_images))
     print(len(test_labels))
     
-    #check_image_labelling(loaded_rotated_test_labels, loaded_rotated_test_images)
+    check_image_labelling(test_images, test_labels)
 
+    return 
     # Normalize the data - Scale images to the [0, 1] range
     preprocessed_train_images = preprocess_data(train_images)
     preprocessed_test_images = preprocess_data(test_images)

@@ -74,11 +74,12 @@ def display_images(images, num=20, rand=False):
     plt.show()
 
  # Display some images along with their labels
-def check_image_labelling(labels, images):
-    for idx in range(0, 100, 10):
-        print(f"Label: {labels[idx]}")
-        plt.imshow(images[idx], cmap='gray')
-        plt.show()
+def check_image_labelling(images, labels):
+    for idx in range(300):
+        if labels[idx] == 6:
+            print(f"Label: {labels[idx]}")
+            plt.imshow(images[idx], cmap='gray')
+            plt.show()
 
 def cv2_crop(data):
     """
@@ -100,7 +101,7 @@ def cv2_crop(data):
     max_dimension = max(delta_x, delta_y)
 
     # Calculate the padding size to make it square
-    padding_size = int(1.2 * max_dimension)
+    padding_size = int(1.3 * max_dimension)
 
     # Calculate vertical and horizontal padding while maintaining aspect ratio
     horizontal_padding = int((padding_size - delta_x) / 2)
@@ -118,6 +119,6 @@ def cv2_crop(data):
     # Resize the padded image to 28x28
     resized_array = cv2.resize(padded_array, (28, 28), interpolation=cv2.INTER_LINEAR)
 
-    #print(resized_array)
+    print(resized_array)
 
     return resized_array
