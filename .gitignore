@@ -50,3 +50,5 @@ portfolioProject/static/*
 
 # ignore ml model logs
 portfolioProject/MNIST_app/model_logs
+# train/validation loss plots 
+portfolioProject/MNIST_app/ml_models/*.png

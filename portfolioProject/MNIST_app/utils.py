@@ -119,6 +119,4 @@ def cv2_crop(data):
     # Resize the padded image to 28x28
     resized_array = cv2.resize(padded_array, (28, 28), interpolation=cv2.INTER_LINEAR)
 
-    print(resized_array)
-
     return resized_array

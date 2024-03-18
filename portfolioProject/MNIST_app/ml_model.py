@@ -54,19 +54,18 @@ def advanced_model():
 
 def main():
     # Load data from files
-    train_images = np.load('data/12-3degree-rotated-train-images.npy')
-    train_labels = np.load('data/12-3degree-rotated-train-labels.npy')
+    train_images = np.load('data/5-1degree-rotated-train-images.npy')
+    train_labels = np.load('data/5-1degree-rotated-train-labels.npy')
     print(len(train_images))
     print(len(train_labels))
 
-    test_images = np.load('data/12-3degree-rotated-test-images.npy')
-    test_labels = np.load('data/12-3degree-rotated-test-labels.npy')
+    test_images = np.load('data/5-1degree-rotated-test-images.npy')
+    test_labels = np.load('data/5-1degree-rotated-test-labels.npy')
     print(len(test_images))
     print(len(test_labels))
     
-    check_image_labelling(test_images, test_labels)
-
-    return 
+    #check_image_labelling(test_images, test_labels)
+    
     # Normalize the data - Scale images to the [0, 1] range
     preprocessed_train_images = preprocess_data(train_images)
     preprocessed_test_images = preprocess_data(test_images)
@@ -87,8 +86,8 @@ def main():
     )
 
     # Train the model
-    batch_size = 256 # 64
-    epochs = 1 # 20-30
+    batch_size = 64 # 64
+    epochs = 6 # 20-30
 
     history = model.fit(preprocessed_train_images, train_labels, 
             batch_size=batch_size, 

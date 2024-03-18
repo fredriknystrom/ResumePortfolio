@@ -11,7 +11,7 @@ import os
 import json
 
 # Load the pre-trained model
-filename = 'weights-b64-e5.keras'
+filename = 'new-weights-b64-e6.keras'
 model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'ml_models', filename)
 model = tf.keras.models.load_model(model_path)
 
@@ -30,7 +30,6 @@ def mnist_view(request):
         # Make predictions using your model
         predictions = model.predict(np.expand_dims(preprocessed_data, axis=0))
 
-        print(predictions)
         # Convert predictions to a format you want to return to the frontend
         predicted_number = np.argmax(predictions[0])
 

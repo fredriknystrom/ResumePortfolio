@@ -23,8 +23,8 @@ def rotate_images(images, max_rotation_degree, rotation_interval):
 def main():
     (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
-    max_rotation_degree = 12
-    max_rotation_interval = 3
+    max_rotation_degree = 5
+    max_rotation_interval = 1
     assert max_rotation_degree % max_rotation_interval == 0
     n_replicas = max_rotation_degree/max_rotation_interval * 2 + 1
     
