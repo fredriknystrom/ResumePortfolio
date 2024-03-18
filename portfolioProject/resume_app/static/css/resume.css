@@ -75,7 +75,7 @@ p {
 }
 
 .dark-mode .nav-link{
-    color: #181818; 
+    color: #F5F5F5; 
 }
 
 .nav-link:visited, .nav-link:focus {
@@ -301,6 +301,10 @@ ul {
     .dark-mode .navbar-toggler {
         color: #F5F5F5;
         border-color: #F5F5F5;
+    }
+
+    .dark-mode .navlink:visited {
+        color: #F5F5F5;
     }
 
     .navbar-toggler {
