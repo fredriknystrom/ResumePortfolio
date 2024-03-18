@@ -12,7 +12,7 @@ import json
 
 # Load the pre-trained model
 filename = 'new-weights-b64-e6.keras'
-model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'ml_models', filename)
+model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'model_weights', filename)
 model = tf.keras.models.load_model(model_path)
 
 @csrf_exempt

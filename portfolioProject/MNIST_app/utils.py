@@ -55,7 +55,7 @@ def plot_loss_curves(history, filename):
     plt.ylabel('Loss')
     plt.title('Training and Validation Loss')
     plt.legend()
-    plt.savefig(f'{filename}.png')
+    plt.savefig(f'model_plots/{filename}.png')
     plt.show()
 
 def display_images(images, num=20, rand=False):

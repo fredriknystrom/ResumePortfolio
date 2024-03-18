@@ -54,13 +54,13 @@ def advanced_model():
 
 def main():
     # Load data from files
-    train_images = np.load('data/5-1degree-rotated-train-images.npy')
-    train_labels = np.load('data/5-1degree-rotated-train-labels.npy')
+    train_images = np.load('data/5-1degree-rotated-train-images.npy')[:10000]
+    train_labels = np.load('data/5-1degree-rotated-train-labels.npy')[:10000]
     print(len(train_images))
     print(len(train_labels))
 
-    test_images = np.load('data/5-1degree-rotated-test-images.npy')
-    test_labels = np.load('data/5-1degree-rotated-test-labels.npy')
+    test_images = np.load('data/5-1degree-rotated-test-images.npy')[:10000]
+    test_labels = np.load('data/5-1degree-rotated-test-labels.npy')[:10000]
     print(len(test_images))
     print(len(test_labels))
     
@@ -86,8 +86,8 @@ def main():
     )
 
     # Train the model
-    batch_size = 64 # 64
-    epochs = 6 # 20-30
+    batch_size = 256 # 64
+    epochs = 1 # 20-30
 
     history = model.fit(preprocessed_train_images, train_labels, 
             batch_size=batch_size, 
@@ -105,8 +105,7 @@ def main():
     log_model_params(batch_size, epochs, test_accuracy, test_loss, history, train_images, test_images, filename)
 
     # Save the model's weights
-    filename = f'ml_models/{filename}'
-    model.save(f'{filename}.keras')
+    model.save(f'model_weights/{filename}.keras')
 
     # Plot training data and save the plot
     plot_loss_curves(history, filename)
