@@ -11,16 +11,17 @@ def preprocess_data(data):
     return dim_data
 
 def log_model_params(batch_size, epochs, test_accuracy,
-                      test_loss, history, train_images, test_images):
+                      test_loss, history, train_images, test_images, filename):
     """
     Logs parameters of interest to a txt file in the model_logs dir
     """
 
-    with open(f'model_logs/weights-b{batch_size}-e{epochs}.txt', 'w') as file:
+    with open(f'model_logs/{filename}.txt', 'w') as file:
         # Write each string to the file followed by a newline character
         file.write(f'Data\n')
         file.write(f'Train: {len(train_images)} images\n')
         file.write(f'Test: {len(test_images)} images\n')
+        file.write(f'\n')
 
         file.write(f'Training\n')
         file.write(f'Training loss: {history.history["loss"]}\n')

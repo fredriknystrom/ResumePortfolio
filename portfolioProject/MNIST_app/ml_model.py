@@ -54,13 +54,13 @@ def advanced_model():
 
 def main():
     # Load data from files
-    train_images = np.load('data/20degree-rotated-train-images.npy')
-    train_labels = np.load('data/20degree-rotated-train-labels.npy')
+    train_images = np.load('data/12-3degree-rotated-train-images.npy')
+    train_labels = np.load('data/12-3degree-rotated-train-labels.npy')
     print(len(train_images))
     print(len(train_labels))
 
-    test_images = np.load('data/20degree-rotated-test-images.npy')
-    test_labels = np.load('data/20degree-rotated-test-labels.npy')
+    test_images = np.load('data/12-3degree-rotated-test-images.npy')
+    test_labels = np.load('data/12-3degree-rotated-test-labels.npy')
     print(len(test_images))
     print(len(test_labels))
     
@@ -86,8 +86,8 @@ def main():
     )
 
     # Train the model
-    batch_size = 64 # 64
-    epochs = 10 # 20-30
+    batch_size = 256 # 64
+    epochs = 1 # 20-30
 
     history = model.fit(preprocessed_train_images, train_labels, 
             batch_size=batch_size, 
@@ -99,11 +99,13 @@ def main():
     test_loss, test_accuracy = model.evaluate(preprocessed_test_images, test_labels, verbose=2)
     print("\nTest accuracy:", test_accuracy)
 
+    # Create a common file name for model logs, weights and graphs
+    filename = f'new-weights-b{batch_size}-e{epochs}'
     # Log model parameters and result
-    log_model_params(batch_size, epochs, test_accuracy, test_loss, history, train_images, test_images)
+    log_model_params(batch_size, epochs, test_accuracy, test_loss, history, train_images, test_images, filename)
 
     # Save the model's weights
-    filename = f'ml_models/weights-b{batch_size}-e{epochs}'
+    filename = f'ml_models/{filename}'
     model.save(f'{filename}.keras')
 
     # Plot training data and save the plot
