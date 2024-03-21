@@ -1,5 +1,5 @@
 body {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -8,6 +8,7 @@ body {
 
 .my-text {
     color: #777777;
+    font-size: 48px;
 }
 
 .canvas {
@@ -21,10 +22,14 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) or (max-height: 800px) {
     .canvas {
         height: 280px;
         width: 280px;
+    }
+
+    .my-text {
+        font-size: 32px;
     }
 
 }
