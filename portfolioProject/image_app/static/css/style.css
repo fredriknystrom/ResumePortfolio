@@ -19,3 +19,9 @@ body {
     }
 }
 
+@media (max-width: 768px) { 
+    .download-button {
+        display: none;
+    }
+}
+
