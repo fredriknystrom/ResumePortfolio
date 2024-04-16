@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from PIL import Image
+from PIL import Image, ImageFilter
 from io import BytesIO
 import base64
 import numpy as np
@@ -75,6 +75,16 @@ def image_view(request):
                     'error_message': f"Invalid width of image {new_width}. Width must be positive."
                 }
                 return render(request, 'image_app/image-editor.html', context)
+
+            # Applying blurr to the image
+            blur_percentage = int(request.POST.get('blurPercentage', 0))
+            if blur_percentage > 0:
+                print(blur_percentage)
+                blur_radius = (blur_percentage / 100.0) * 10  # Modify this ratio as needed
+                print(blur_radius)
+                processed_image = processed_image.filter(ImageFilter.GaussianBlur(radius=blur_radius))
+
+
 
             # Get the dimensions of the processed image
             width, height = processed_image.size
