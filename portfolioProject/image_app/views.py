@@ -79,12 +79,8 @@ def image_view(request):
             # Applying blurr to the image
             blur_percentage = int(request.POST.get('blurPercentage', 0))
             if blur_percentage > 0:
-                print(blur_percentage)
-                blur_radius = (blur_percentage / 100.0) * 10  # Modify this ratio as needed
-                print(blur_radius)
+                blur_radius = (blur_percentage / 100.0) * 10
                 processed_image = processed_image.filter(ImageFilter.GaussianBlur(radius=blur_radius))
-
-
 
             # Get the dimensions of the processed image
             width, height = processed_image.size
