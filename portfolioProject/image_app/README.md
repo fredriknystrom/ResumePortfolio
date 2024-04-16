@@ -1,7 +1,7 @@
 # Image Editor
 
 ## Overview
-Image editor application offers a user-friendly interface for uploading images and applying transformations such color scale adjustments, resizing, and format conversion.Leveraging the capabilities of the Python Imaging Library (PIL) alongside NumPy, the app provides quality image processing with an focus on maintaining the aspect ratio and image integrity.
+Image editor application offers a user-friendly interface for uploading images and applying transformations such color scale adjustments, resizing, blurring and format conversion.Leveraging the capabilities of the Python Imaging Library (PIL) alongside NumPy, the app provides quality image processing with an focus on maintaining the aspect ratio and image integrity.
 
 ## Features
 
@@ -9,6 +9,7 @@ Image editor application offers a user-friendly interface for uploading images a
 - **Dynamic Color Scale Modification:** Users can easily switch their images to grayscale, redscale, greenscale, bluescale, or apply a custom color scale, providing versatility in visual presentation.
 - **Aspect Ratio Preservation:** Incorporates an intelligent resizing feature that adjusts the width of an image while maintaining its aspect ratio, avoiding distortion.
 - **Custom Color Selection:** Offers a color picker for those choosing the custom color scale option, enabling precise and personalized color adjustments.
+- **Blurring Adjustment:** Users can adjust the blur intensity from 0% to 100% using a slider, enabling subtle softening or significant smoothing of images instantly.
 - **Format Conversion:** Allows users to select their preferred output format between JPEG and PNG.
 - **Real-time Preview and Download:** After processing, the application displays a preview of the modified image, which can be downloaded in the chosen format and dimensions.
 
@@ -26,7 +27,9 @@ Image editor application offers a user-friendly interface for uploading images a
 
 3. **Adjusting Image Width:** Alter the image's width as desired, while the original aspect ratio is preserved. Leave the width field blank to keep the image's original width.
 
-4. **Choosing the Output Format:** Select your preferred output format for the edited image. Options include JPEG and PNG.
+4. **Applying a Blur Effect:** Adjust the blur intensity using a slider from 0% for no blur to 100% for maximum blur, allowing you to soften or smooth the image as needed.
+
+5. **Choosing the Output Format:** Select your preferred output format for the edited image. Options include JPEG and PNG.
 
 
 ## Example
