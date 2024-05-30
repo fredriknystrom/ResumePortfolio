@@ -47,6 +47,13 @@ Link to website: https://www.fredriknystrom.tech/
     ```
   - Follow the prompts to set up the username, email, and password.
 
+- **Accessing Database**
+  - One can easily check the current state of the database and try raw sql commands on it. 
+  - Run the dbshell command:
+    ```
+    python3 manage.py dbshell
+    ```
+
 - **Checking for Problems**
   - Django can check for problems in your project without making database migrations or starting the server.
   - Run the check command:
