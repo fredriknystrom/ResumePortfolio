@@ -12,12 +12,17 @@
                     <!-- Edit task form -->
                     <form method="post" action="{% url 'task_update' task_id=task.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-primary me-3">Edit</button>
+                        <button type="submit" class="btn btn-primary me-3">
+                            <i class="fas fa-edit"></i> <!-- Edit icon -->
+                        </button>
+                        
                     </form>
                     <!-- Delete task form -->
                     <form method="post" action="{% url 'task_delete' task_id=task.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> <!-- Delete icon -->
+                        </button>
                     </form>
                 </div>
             </li>

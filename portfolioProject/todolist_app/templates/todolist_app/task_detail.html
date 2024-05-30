@@ -1,7 +1,7 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-    <h1>{{ task.title }} </h1>
-    {{ task.description }} <br>
+    <h1 class="fs-1 mb-5">{{ task.title }} </h1>
+    <div class="fs-3 mb-5">{{ task.description }}</div>
     <a href="{% url 'task_list' %}" class="btn btn-primary">Back</a>
 {% endblock %}
