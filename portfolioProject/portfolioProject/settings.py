@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django_filters',
     'bootstrap5',
     'MNIST_app',
@@ -47,6 +52,12 @@ INSTALLED_APPS = [
     'image_app',
 ]
 
+SITE_ID = 1  # This should correspond to the ID of your site in the Site model
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/mnist/'  # or wherever you want to redirect after login
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,7 +66,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 
 ROOT_URLCONF = 'portfolioProject.urls'
 
@@ -81,18 +99,18 @@ WSGI_APPLICATION = 'portfolioProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'spotify_2023',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'USER': 'fredrik',
+        'PASSWORD': 'mypassword',
         'HOST': 'localhost',
         'PORT': '3306',         # MySQL default port
     }
 }
-"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

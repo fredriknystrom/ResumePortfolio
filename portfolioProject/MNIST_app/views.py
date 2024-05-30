@@ -1,11 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Import necessary libraries
 import numpy as np
 import tensorflow as tf
-from django.views.decorators.csrf import csrf_exempt
 from MNIST_app.utils import cv2_crop
 import os
 import json
@@ -16,6 +17,7 @@ model_path = os.path.join(settings.BASE_DIR, 'MNIST_app', 'model_weights', filen
 model = tf.keras.models.load_model(model_path)
 
 @csrf_exempt
+@login_required
 def mnist_view(request):
     if request.method == 'POST':
         # Get the JSON data from the request
