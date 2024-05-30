@@ -1,12 +1,11 @@
 from django.views.generic import DetailView, UpdateView, ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Task
-from django.db.models import F
 from django import forms
 
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description']  # Define the fields you want to include in the form
+    fields = ['title', 'description', 'status']  # Define the fields you want to include in the form
     success_url = reverse_lazy('task_list')  # Specify the URL to redirect after creating a task
     template_name = 'todolist_app/task_create.html'
 
@@ -15,7 +14,6 @@ class TaskListView(ListView):
     template_name = 'todolist_app/task_list.html'
     context_object_name = 'tasks'
 
-   
 
 class TaskDetailView(DetailView):
     model = Task
