@@ -3,28 +3,42 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-<h2>TodoList</h2>
+<h2 class="fs-1 mb-5">TodoList</h2>
 <ul class="list-group">
     {% for task in tasks %}
-        <a href="{% url 'task_detail' task_id=task.id %}">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
+            <li class="list-group-item d-flex justify-content-between align-items-center fs-3 m-1
+            {% if task.status == '1' %}
+                bg-high
+            {% elif task.status == '2' %}
+                bg-medium
+            {% elif task.status == '3' %}
+                bg-low
+            {% else %}
+                bg-done
+            {% endif %}
+            ">
+            
+ 
                 {{ task.title }}
-                <!-- Edit task form -->
-                <form method="post" action="{% url 'task_update' task_id=task.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-success btn-sm float-end">Edit</button>
-                </form>
-                <!-- Delete task form -->
-                <form method="post" action="{% url 'task_delete' task_id=task.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger btn-sm float-end">Remove</button>
-                </form>
+                {{ task.status }}
+                <div class="btn-group" role="group">
+                    <!-- Edit task form -->
+                    <form method="post" action="{% url 'task_update' task_id=task.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary me-3">Edit</button>
+                    </form>
+                    <!-- Delete task form -->
+                    <form method="post" action="{% url 'task_delete' task_id=task.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </div>
             </li>
         </a>
     {% endfor %}
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'task_create' %}" class="btn btn-primary mt-3 add-task-btn">+</a>
+    </div>
 </ul>
-<!-- Button to trigger modal -->
-<a href="{% url 'task_create' %}" class="btn btn-primary mt-3">
-    Add Task
-</a>
 {% endblock %}

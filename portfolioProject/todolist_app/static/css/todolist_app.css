@@ -1,0 +1,38 @@
+.add-task-btn {
+    font-size: 40px !important;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-high {
+    background-color: rgb(255, 105, 105);
+}
+
+.bg-medium {
+    background-color: rgb(253, 240, 62);
+}
+
+.bg-low {
+    background-color: rgb(19, 165, 250);
+}
+
+.bg-done {
+    background-color: rgb(99, 213, 28);
+}
+
+.list-group {
+    width: 80vh!important;
+    border: solid;
+    border-radius: 8px;
+    border-color: grey;
+    padding: 24px;
+}
+
+.list-group-item {
+    border: solid;
+    border-radius: 8px!important;
+    border-color: lightgray;
+}
