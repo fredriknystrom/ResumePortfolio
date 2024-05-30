@@ -26,7 +26,7 @@ class TaskDetailView(DetailView):
 class TaskUpdateForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'priority', 'completed']
+        fields = ['title', 'description', 'status']
 
 class UpdateTaskView(UpdateView):
     model = Task
@@ -44,17 +44,6 @@ class UpdateTaskView(UpdateView):
         task = self.get_object()
         kwargs['instance'] = task
         return kwargs
-    
-    def get_initial(self):
-        initial = super().get_initial()
-        task = self.get_object()
-        initial.update({
-            'title': task.title,
-            'description': task.description,
-            'priority': task.priority,
-            'completed': task.completed,
-        })
-        return initial
   
 
 class DeleteTaskView(DeleteView):

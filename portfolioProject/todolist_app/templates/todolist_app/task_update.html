@@ -4,8 +4,7 @@
     {% load crispy_forms_tags %}
     <h2>{{ task.title }}</h2>
     <p>Description: {{ task.description }}</p>
-    <p>Priority: {{ task.priority }}</p>
-    <p>Completed: {{ task.completed }}</p>
+    <p>Status: {{ task.status }}</p>
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
