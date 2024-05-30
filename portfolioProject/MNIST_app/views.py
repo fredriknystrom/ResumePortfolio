@@ -1,7 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 # Import necessary libraries
