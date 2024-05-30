@@ -6,12 +6,15 @@ cachetools==5.3.1
 certifi==2023.7.22
 charset-normalizer==3.3.0
 contourpy==1.1.1
+crispy-bootstrap5==2024.2
 cycler==0.12.1
 Django==4.2.6
 django-allauth==0.63.2
 django-bootstrap-v5==1.0.11
 django-bootstrap5==23.3
+django-crispy-forms==2.1
 django-filter==23.3
+djangorestframework==3.15.1
 flatbuffers==23.5.26
 fonttools==4.43.1
 gast==0.5.4
