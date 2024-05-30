@@ -26,6 +26,7 @@ urlpatterns = [
     path('mnist/', include('MNIST_app.urls')),
     path('image-editor/', include('image_app.urls')),
     #path('spotistats/', include('spotistats_app.urls')),
+    path('tasks/', include('todolist_app.urls')),
     path('private/', include('private_app.urls')),
 ]
 

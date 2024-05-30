@@ -1,0 +1,47 @@
+<!-- task_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TodoList App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- Include static CSS files -->
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task_list.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>TodoList</h2>
+        <ul class="list-group">
+            {% for task in tasks %}
+                <a href="{% url 'task_detail' task_id=task.id %}">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ task.title }}
+                        <!-- Edit task form -->
+                        <form method="post" action="{% url 'task_update' task_id=task.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-sm float-end">Edit</button>
+                        </form>
+                        <!-- Delete task form -->
+                        <form method="post" action="{% url 'task_delete' task_id=task.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm float-end">Remove</button>
+                        </form>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+        <!-- Button to trigger modal -->
+        <a href="{% url 'task_create' %}" class="btn btn-primary mt-3">
+            Add Task
+        </a>
+    </div>
+</body>
+</html>

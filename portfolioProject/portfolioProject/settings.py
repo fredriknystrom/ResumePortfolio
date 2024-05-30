@@ -52,12 +52,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_filters',
+    'rest_framework',
     'bootstrap5',
     'MNIST_app',
     'spotistats_app',
     'resume_app',
     'private_app',
     'image_app',
+    'todolist_app',
 ]
 
 SITE_ID = 1  # This should correspond to the ID of your site in the Site model
