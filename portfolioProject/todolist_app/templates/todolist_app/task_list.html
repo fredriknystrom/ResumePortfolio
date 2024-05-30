@@ -1,7 +1,8 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-<h2 class="fs-1 mb-5">TodoList</h2>
+<h2 class="fs-1 mb-5">Todo List</h2>
+{% if tasks %}
 <ul class="list-group p-5">
     {% for task in tasks %}
         <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
@@ -29,6 +30,7 @@
         </a>
     {% endfor %}
 </ul>
+{% endif %}
 <div class="d-flex justify-content-center mt-3">
     <a href="{% url 'task_create' %}" class="btn btn-primary mt-3 add-task-btn">+</a>
 </div>

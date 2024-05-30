@@ -2,6 +2,7 @@
 
 {% block content %}
     {% load crispy_forms_tags %}
+    <h1 class="fs-1">Create Task</h1>
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
