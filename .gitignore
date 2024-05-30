@@ -52,3 +52,6 @@ portfolioProject/static/*
 portfolioProject/MNIST_app/model_logs
 # train/validation loss plots 
 portfolioProject/MNIST_app/model_plots
+
+# ignore environmental variables
+.env
