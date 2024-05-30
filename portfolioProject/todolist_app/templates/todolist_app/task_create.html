@@ -1,13 +1,14 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
+    {% load crispy_forms_tags %}
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
  
         <!-- Form fields -->
-        {{ form.as_p }}
- 
-        <input type="submit" value="Create">
+        {{ form | crispy }}
+        
+        <input class="btn btn-primary" type="submit" value="Create">
     </form>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.views.generic import DetailView, UpdateView, ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Task
+from django import forms
 
 class TaskCreateView(CreateView):
     model = Task
@@ -22,24 +23,39 @@ class TaskDetailView(DetailView):
         queryset = Task.objects.all()
         return queryset.get(id=self.kwargs['task_id'])
 
+class TaskUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'description', 'priority', 'completed']
+
 class UpdateTaskView(UpdateView):
     model = Task
     template_name = 'todolist_app/task_update.html'
     context_object_name = 'task'
-    fields = '__all__'  # Update this to a custom class later cherry picking visual attr
+    form_class = TaskUpdateForm
     success_url = reverse_lazy('task_list')
 
     def get_object(self, queryset=None):
         queryset = Task.objects.all()  # You might want to filter this queryset
         return queryset.get(id=self.kwargs['task_id'])
     
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        task = self.get_object()
+        kwargs['instance'] = task
+        return kwargs
+    
     def get_initial(self):
         initial = super().get_initial()
         task = self.get_object()
-        initial["title"] = task.title
-        initial["description"] = task.description
-        print(initial)
+        initial.update({
+            'title': task.title,
+            'description': task.description,
+            'priority': task.priority,
+            'completed': task.completed,
+        })
         return initial
+  
 
 class DeleteTaskView(DeleteView):
     model = Task

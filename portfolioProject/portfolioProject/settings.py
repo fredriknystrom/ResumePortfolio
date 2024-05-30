@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'django_filters',
     'rest_framework',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'bootstrap5',
     'MNIST_app',
     'spotistats_app',
@@ -86,6 +88,10 @@ AUTHENTICATION_BACKENDS = (
 
 
 ROOT_URLCONF = 'portfolioProject.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
