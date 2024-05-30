@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Delete Task</title>
-</head>
-<body>
+{% extends 'todolist_app/base.html' %}
+
+{% block content %}
     <h1>Confirm Delete Task</h1>
     <p>Are you sure you want to delete the task "{{ object.title }}"?</p>
     <form method="post">
@@ -13,5 +8,4 @@
         <button type="submit" class="btn btn-danger">Confirm Delete</button>
         <a href="{% url 'task_list' %}" class="btn btn-secondary">Cancel</a>
     </form>
-</body>
-</html>
+{% endblock %}

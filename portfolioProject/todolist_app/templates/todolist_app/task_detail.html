@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Detail</title>
-</head>
-<body>
-    <h1>Task Detail</h1>
-    {{ task.title }} <br/>
+{% extends 'todolist_app/base.html' %}
+
+{% block content %}
+    <h1>{{ task.title }} </h1>
     {{ task.description }} <br>
     <a href="{% url 'task_list' %}" class="btn btn-primary">Back</a>
-</body>
-</html>
+{% endblock %}
