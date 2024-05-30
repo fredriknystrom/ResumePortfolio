@@ -1,5 +1,3 @@
-<!-- task_list.html -->
-
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
@@ -7,22 +5,10 @@
 <ul class="list-group">
     {% for task in tasks %}
         <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
-            <li class="list-group-item d-flex justify-content-between align-items-center fs-3 m-1
-            {% if task.status == '1' %}
-                bg-high
-            {% elif task.status == '2' %}
-                bg-medium
-            {% elif task.status == '3' %}
-                bg-low
-            {% else %}
-                bg-done
-            {% endif %}
-            ">
-            
- 
-                {{ task.title }}
-                {{ task.status }}
-                <div class="btn-group" role="group">
+            <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-1">
+                <!-- Apply appropriate CSS class based on task status -->
+                <div class="ms-4 float-start ">{{ task.title }} : {{ task.status }}</div>
+                <div class="btn-group float-end" role="group">
                     <!-- Edit task form -->
                     <form method="post" action="{% url 'task_update' task_id=task.id %}">
                         {% csrf_token %}
