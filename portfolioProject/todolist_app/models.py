@@ -23,5 +23,20 @@ class Task(models.Model):
             self.user = kwargs.pop('user', None)
         super().save(*args, **kwargs)
 
+    @staticmethod
+    def get_priority(status):
+        # Map status to priority levels
+        status_priority = {
+            Task.Status.HIGH: 1,
+            Task.Status.MEDIUM: 2,
+            Task.Status.LOW: 3,
+            Task.Status.DONE: 4,
+        }
+        # Return priority level
+        return status_priority.get(status, 5)  # Default to a higher value if status not found
+
+    class Meta:
+        ordering = ["status"]
+
 
    
