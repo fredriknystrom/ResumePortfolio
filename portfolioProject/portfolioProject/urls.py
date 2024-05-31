@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from auth_app.views import CustomLoginView, CustomLogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', CustomLoginView.as_view(), name='custom_login'),
+    path('accounts/logout/', CustomLogoutView.as_view(), name='custom_logout'),
     path('accounts/', include('allauth.urls')),
     path('', include('resume_app.urls')),
     path('mnist/', include('MNIST_app.urls')),

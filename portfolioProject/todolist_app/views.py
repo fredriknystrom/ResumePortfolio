@@ -5,19 +5,27 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+@method_decorator(login_required, name='dispatch')
 class TaskCreateView(CreateView):
     model = Task
     fields = ['title', 'description', 'status']  # Define the fields you want to include in the form
     success_url = reverse_lazy('task_list')  # Specify the URL to redirect after creating a task
     template_name = 'todolist_app/task_create.html'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
+@method_decorator(login_required, name='dispatch')
 class TaskListView(ListView):
     model = Task
     template_name = 'todolist_app/task_list.html'
     context_object_name = 'tasks'
 
+    def get_queryset(self):
+        return Task.objects.filter(user=self.request.user)
 
+@method_decorator(login_required, name='dispatch')
 class TaskDetailView(DetailView):
     model = Task
     template_name = 'todolist_app/task_detail.html'
@@ -32,6 +40,7 @@ class TaskUpdateForm(forms.ModelForm):
         model = Task
         fields = ['title', 'description', 'status']
 
+@method_decorator(login_required, name='dispatch')
 class UpdateTaskView(UpdateView):
     model = Task
     template_name = 'todolist_app/task_update.html'
@@ -49,7 +58,7 @@ class UpdateTaskView(UpdateView):
         kwargs['instance'] = task
         return kwargs
   
-
+@method_decorator(login_required, name='dispatch')
 class DeleteTaskView(DeleteView):
     model = Task
     success_url = reverse_lazy('task_list')

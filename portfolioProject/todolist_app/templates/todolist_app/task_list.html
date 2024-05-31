@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2 class="fs-1 mb-5">Todo List</h2>
+<a href="{% url 'custom_logout' %}" class="btn btn-primary">Logout</a>
 {% if tasks %}
 <ul class="list-group p-5">
     {% for task in tasks %}

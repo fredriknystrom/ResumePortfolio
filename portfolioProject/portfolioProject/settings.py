@@ -47,15 +47,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # all auth configs 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # Social providers, extend with github and so on maybe
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    # styling and other
     'django_filters',
     'rest_framework',
     'crispy_forms',
     'crispy_bootstrap5',
     'bootstrap5',
+    # my apps
+    'auth_app',
     'MNIST_app',
     'spotistats_app',
     'resume_app',
@@ -64,11 +70,33 @@ INSTALLED_APPS = [
     'todolist_app',
 ]
 
-SITE_ID = 1  # This should correspond to the ID of your site in the Site model
+SITE_ID = 3  # This should correspond to the ID of your site in the Site model
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = '/todo-list/tasks/'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+ACCOUNT_LOGOUT_ON_GET = True # This makes logout instant no extra "do you want to log out step"
 
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/mnist/'  # or wherever you want to redirect after login
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE' : [
+            'profile',
+            'email'
+        ],
+        'APP': {
+            'client_id': os.getenv('CLIENT_ID'),
+            'secret': os.getenv('CLIENT_SECRET'),
+        },
+        'AUTH_PARAMS': {
+            'access_type':'online',
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,11 +109,6 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
-
 
 ROOT_URLCONF = 'portfolioProject.urls'
 
@@ -96,7 +119,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
