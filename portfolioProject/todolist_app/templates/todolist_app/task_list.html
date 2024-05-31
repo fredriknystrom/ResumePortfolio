@@ -4,6 +4,13 @@
 <h2 class="fs-1 mb-5">Todo List</h2>
 {% if tasks %}
 <ul class="list-group p-5">
+     <!-- Legends for different statuses -->
+     <div class="mb-3">
+        <span class="badge status-1-color me-3">High</span>
+        <span class="badge status-2-color me-3">Medium</span>
+        <span class="badge status-3-color me-3">Low</span>
+        <span class="badge status-4-color">Done</span>
+    </div>
     {% for task in tasks %}
         <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
             <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-2">

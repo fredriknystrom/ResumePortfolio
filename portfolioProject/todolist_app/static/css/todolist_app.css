@@ -27,8 +27,8 @@ a:hover {
     width: 80vh!important;
     border: solid;
     border-radius: 8px;
-    border-color: #AAAAAA;
-    padding: 24px;
+    border-color: #666666;
+    background-color: #AAAAAA;
 }
 
 .list-group-item {
@@ -37,7 +37,29 @@ a:hover {
     border-color: #666666;
 }
 
+.badge {
+    font-size: 16px!important;
+    padding: 2%!important;
+    color: #444444;
+}
+
 /* Define CSS classes for different status colors */
+.status-1-color {
+    background-color: rgb(255, 76, 76);
+}
+
+.status-2-color {
+    background-color: rgb(255, 235, 81);
+}
+
+.status-3-color {
+    background-color: rgb(92, 163, 255);
+}
+
+.status-4-color {
+    background-color: rgb(75, 216, 50);
+}
+
 .status-1::before {
     content: '';
     position: absolute;
