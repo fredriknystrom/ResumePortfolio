@@ -5,7 +5,7 @@ The TodoList App is a web application designed to help users efficiently manage 
 
 ### Features
 User Authentication
-The app uses GitHub for user authentication, ensuring secure and easy access. Users must log in via their GitHub account to use the app.
+The app uses GitHub and Google for user authentication, ensuring secure and easy access. Users must log in via their GitHub or Google account to use the app.
 
 #### Task Management
 Users can effortlessly add new tasks, update existing ones, and delete tasks they no longer need. The intuitive interface makes task management simple and efficient.
