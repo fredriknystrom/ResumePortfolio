@@ -69,8 +69,8 @@ INSTALLED_APPS = [
     'image_app',
     'todolist_app',
 ]
-
-SITE_ID = 3  # This should correspond to the ID of your site in the Site model
+print("SITE_ID", int(os.getenv('SITE_ID')))
+SITE_ID = int(os.getenv('SITE_ID'))  # This should correspond to the ID of your site in the Site model
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = '/todo-list/tasks/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
