@@ -1,7 +1,7 @@
 from django.views.generic import DetailView, UpdateView, ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Task
-from django import forms
+from .forms import TaskUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -34,11 +34,6 @@ class TaskDetailView(DetailView):
     def get_object(self, queryset=None):
         queryset = Task.objects.all()
         return queryset.get(id=self.kwargs['task_id'])
-
-class TaskUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Task
-        fields = ['title', 'description', 'status']
 
 @method_decorator(login_required, name='dispatch')
 class UpdateTaskView(UpdateView):
