@@ -1,9 +1,17 @@
-.btn {
-    font-size: 20px;
-}
-
 form {
     width: 50vh;
+}
+
+a {
+    color: #444444;
+}
+
+a:hover {
+    color: #888888;
+}
+
+.btn {
+    font-size: 20px;
 }
 
 .add-task-btn {
@@ -19,14 +27,14 @@ form {
     width: 80vh!important;
     border: solid;
     border-radius: 8px;
-    border-color: grey;
+    border-color: #AAAAAA;
     padding: 24px;
 }
 
 .list-group-item {
     border: solid;
     border-radius: 10px!important;
-    border-color: lightgray;
+    border-color: #666666;
 }
 
 /* Define CSS classes for different status colors */
