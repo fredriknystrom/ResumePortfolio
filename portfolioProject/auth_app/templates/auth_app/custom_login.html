@@ -1,22 +1,32 @@
+{% extends 'auth_app/base.html' %}
 {% load socialaccount %}
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Custom login view</h2>
-    <a href="{% url 'resume-view' %}">Back</a>
-    <form method="post" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <button type="submit">Login</button>
-    </form>
-    <h3>Or login with:</h3>
-    <ul>
-        <li><a href="{% provider_login_url 'github' %}">GitHub</a></li>
-    </ul>
-    <p><a href="{% url 'account_signup' %}">Sign up</a></p>
-</body>
-</html>
+
+{% block content %}
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Login TodoList App</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+        <hr>
+        <h3 class="text-center">Or login with:</h3>
+        <div class="text-center">
+            <a href="{% provider_login_url 'github' %}" class="btn btn-dark">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+        <hr>
+        <a href="{% url 'resume-view' %}" class="btn btn-secondary mb-3">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
+    
+</div>
+{% endblock %}
