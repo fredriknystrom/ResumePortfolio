@@ -18,11 +18,23 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/todolist_app.css' %}">
 </head>
 <body>    
-    <div class="container d-flex justify-content-center my-5">
+    <div class="container">
         <div class="row">
-            <div class="col text-center">
-                {% block content %}
-                {% endblock %}
+            <div class="col text-end my-3">
+                {% if user.is_authenticated %}
+                    <span>Currently logged in as <strong>{{ user.username }}</strong></span>
+                    <a href="{% url 'custom_logout' %}" class="btn btn-primary ms-2">Logout</a>
+                {% else %}
+                    <a href="{% url 'custom_login' %}" class="btn btn-primary">Login</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center my-5">
+            <div class="row">
+                <div class="col text-center">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
     </div>
