@@ -68,6 +68,16 @@ Link to website: https://www.fredriknystrom.tech/
     python3 manage.py collectstatic
     ```
 
+- **Adding Social Providers**
+  - How to add providers so that users can login and be able to take part of personalized usage of apps. 
+  - Log in with superuser and go to admin view.
+  - Add the domain name and display name under sites.
+  - One can see the site ID when editing a site in the url, eg: http://127.0.0.1:8000/admin/sites/site/2/change/
+  - Add the SITE_ID in the settings.py file. Use .env (dot-env) file to prepare for production.
+  - Also add the new prodiver under the installed apps in settings.py, eg for github: 'allauth.socialaccount.providers.github'
+  - Now back to the django admin page and click add Social Application. If everything is set up the new provider should be available in the dropdown menu.
+  - Now just fill in the Client_ID and Secret Key from the provider (this you have to get for each provider) and link to the site where the authentication should be applied.
+
 ## PythonAnywhere Deployment Guide
 
 1. **Save Local Changes**
