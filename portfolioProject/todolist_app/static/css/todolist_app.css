@@ -36,6 +36,11 @@ a:hover {
     border-radius: 10px!important;
     border-color: #666666;
 }
+.box {
+    max-width: 50vh;
+    width: 50vh;
+    box-sizing: border-box;
+}
 
 .badge {
     font-size: 16px!important;

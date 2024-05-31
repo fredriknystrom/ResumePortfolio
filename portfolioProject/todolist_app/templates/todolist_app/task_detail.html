@@ -1,7 +1,11 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-    <h1 class="fs-1 mb-5">{{ task.title }} </h1>
-    <div class="fs-3 mb-5">{{ task.description }}</div>
+<div class="box border border-dark p-4 rounded my-5">
+    <h1 class="fs-1 mb-4">{{ task.title }}</h1>
+    <div class="fs-3 mb-4">{{ task.description }}</div>
+    <div class="text-muted small mb-2">{{ task.created_at|date:"Y-m-d H:i" }}</div>
+</div>
+
     <a href="{% url 'task_list' %}" class="btn btn-primary">Back</a>
 {% endblock %}
