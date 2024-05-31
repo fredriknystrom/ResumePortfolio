@@ -1,28 +1,38 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-    {% load crispy_forms_tags %}
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
-        <!-- Form fields -->
-        <div class="mb-3">
-            <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
-            <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="title" value="{{ task.title }}">
+{% load crispy_forms_tags %}
+<h1 class="fs-1">Update Task</h1>
+<form method="POST">
+    <!-- Security token by Django -->
+    {% csrf_token %}
+    <!-- Form fields -->
+    <div class="mb-3">
+        <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+        <input type="text" class="textinput form-control" id="{{ form.title.id_for_label }}" name="title" value="{{ task.title }}" required>
+        <div class="invalid-feedback">
+            Please provide a title.
         </div>
-        <div class="mb-3">
-            <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
-            <textarea class="form-control" id="{{ form.description.id_for_label }}" name="description">{{ task.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+        <textarea class="textarea form-control" id="{{ form.description.id_for_label }}" name="description" rows="4" required>{{ task.description }}</textarea>
+        <div class="invalid-feedback">
+            Please provide a description.
         </div>
-        <div class="mb-3">
-            <label for="{{ form.status.id_for_label }}" class="form-label">Status</label>
-            <select class="form-control" id="{{ form.status.id_for_label }}" name="status">
-                {% for choice in form.status.field.choices %}
-                    <option value="{{ choice.0 }}" {% if choice.0 == task.status %}selected{% endif %}>{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.status.id_for_label }}" class="form-label">Status</label>
+        <select class="form-control" id="{{ form.status.id_for_label }}" name="status" required>
+            {% for choice in form.status.field.choices %}
+                <option value="{{ choice.0 }}" {% if choice.0 == task.status %}selected{% endif %}>{{ choice.1 }}</option>
+            {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+            Please select a status.
         </div>
-        <input class="btn btn-primary" type="submit" value="Update">
-        <a href="{% url 'task_list' %}" class="btn btn-danger">Cancel</a>
-    </form>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Update">
+    <a href="{% url 'task_list' %}" class="btn btn-danger">Cancel</a>
+</form>
 {% endblock %}
