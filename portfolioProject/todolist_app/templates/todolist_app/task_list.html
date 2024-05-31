@@ -8,7 +8,7 @@
         <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
             <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-2">
                 <!-- Apply appropriate CSS class based on task status -->
-                <div class="ms-4">{{ task.title }} : {{ task.status }}</div>
+                <div class="ms-4">{{ task.title }}</div>
                 <div>
                     <!-- Edit task -->
                     <a href="{% url 'task_update' task_id=task.id %}" class="btn btn-primary btn-sm">
