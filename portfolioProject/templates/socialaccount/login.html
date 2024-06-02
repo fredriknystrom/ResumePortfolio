@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load allauth %}
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <!-- Bootstrap CSS and JS -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- Include static CSS files -->
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    {% block content %}
+                        {% if process == "connect" %}
+                            <h1 class="card-title">{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+                            <p class="card-text">{% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}</p>
+                        {% else %}
+                            <h1 class="card-title">{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h1>
+                            <p class="card-text">{% blocktrans with provider.name as provider %}You are about to sign in using a third-party account from {{ provider }}.{% endblocktrans %}</p>
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">
+                                {% trans "Continue" %}
+                            </button>
+                        </form>
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
