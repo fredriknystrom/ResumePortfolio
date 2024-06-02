@@ -1,37 +1,81 @@
 {% extends 'todolist_app/base.html' %}
 
 {% block content %}
-<h2 class="fs-1 mb-5">Todo List</h2>
-{% if tasks %}
-<ul class="list-group p-5">
-     <!-- Legends for different statuses -->
-     <div class="mb-3">
-        <span class="badge status-1-color me-3">High</span>
-        <span class="badge status-2-color me-3">Medium</span>
-        <span class="badge status-3-color me-3">Low</span>
-        <span class="badge status-4-color">Done</span>
-    </div>
-    {% for task in tasks %}
-        <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
-            <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-2">
-                <!-- Apply appropriate CSS class based on task status -->
-                <div class="ms-4">{{ task.title }}</div>
-                <div>
-                    <!-- Edit task -->
-                    <a href="{% url 'task_update' task_id=task.id %}" class="btn btn-primary btn-sm">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <!-- Delete task -->
-                    <a href="{% url 'task_delete' task_id=task.id %}" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                </div>
-            </li>
-        </a>
-    {% endfor %}
+<h2 class="fs-1 mb-4">Todo List</h2>
+<!-- Tabs Navigation -->
+<ul class="nav nav-tabs dflex justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link nav-link-custom bg-secondary {% if request.GET.filter == 'yesterday' %}active{% endif %}" id="yesterday-tab" href="?filter=yesterday">Yesterday</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link nav-link-custom bg-secondary {% if request.GET.filter == 'today' or not request.GET.filter %}active{% endif %}" id="today-tab" href="?filter=today">Today</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link nav-link-custom bg-secondary {% if request.GET.filter == 'tomorrow' %}active{% endif %}" id="tomorrow-tab" href="?filter=tomorrow">Tomorrow</a>
+    </li>
 </ul>
-{% endif %}
-<div class="d-flex justify-content-center mt-3">
-    <a href="{% url 'task_create' %}" class="btn btn-primary mt-3 add-task-btn">+</a>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+    {% if tasks %}
+    <ul class="list-group p-5">
+        <!-- Legends for different statuses -->
+        <div class="mb-3">
+            <span class="badge status-1-color me-3">High</span>
+            <span class="badge status-2-color me-3">Medium</span>
+            <span class="badge status-3-color me-3">Low</span>
+        </div>
+        {% for task in tasks %}
+            {% if task.status != '4' %}
+            <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
+                <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-2">
+                    <div class="ms-4 flex-grow-1">
+                        {{ task.title }}
+                    </div>
+                    <div class="d-flex">
+                        <!-- Edit task -->
+                        <a href="{% url 'task_update' task_id=task.id %}" class="btn btn-primary btn-sm me-2">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <!-- Delete task -->
+                        <a href="{% url 'task_delete' task_id=task.id %}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </li>
+                
+            </a>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="d-flex justify-content-center mt-3">
+        <a href="{% url 'task_create' %}" class="btn btn-primary mt-3">Add Task</a>
+    </div>
+    {% if has_completed_tasks %}
+    <h2 class="fs-1 my-4">Completed Tasks</h2>
+    <ul class="list-group p-5">
+        {% for task in tasks %}
+            {% if task.status == '4' %}
+            <a href="{% url 'task_detail' task_id=task.id %}" class="text-decoration-none">
+                <li class="list-group-item status-{{ task.status.lower }} d-flex justify-content-between align-items-center fs-3 m-2">
+                    <!-- Apply appropriate CSS class based on task status -->
+                    <div class="ms-4">{{ task.title }}</div>
+                    <div>
+                        <!-- Edit task -->
+                        <a href="{% url 'task_update' task_id=task.id %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <!-- Delete task -->
+                        <a href="{% url 'task_delete' task_id=task.id %}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </li>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
 </div>
 {% endblock %}

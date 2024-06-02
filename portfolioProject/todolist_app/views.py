@@ -4,6 +4,7 @@ from .models import Task
 from .forms import TaskUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from datetime import datetime, timedelta
 
 @method_decorator(login_required, name='dispatch')
 class TaskCreateView(CreateView):
@@ -23,7 +24,30 @@ class TaskListView(ListView):
     context_object_name = 'tasks'
 
     def get_queryset(self):
-        return Task.objects.filter(user=self.request.user)
+            user = self.request.user
+            filter_type = self.request.GET.get('filter', 'today')
+            today = datetime.now().date()
+            yesterday = today - timedelta(days=1)
+            tomorrow = today + timedelta(days=1)
+
+            if filter_type == 'yesterday':
+                print("yesterday")
+                return Task.objects.filter(user=user, created_at__date=yesterday)
+            elif filter_type == 'today':
+                print("today")
+                return Task.objects.filter(user=user, created_at__date=today)
+            elif filter_type == 'tomorrow':
+                print("tomorrow")
+                return Task.objects.filter(user=user, created_at__date=tomorrow)
+            else:
+                print("else")
+                return Task.objects.filter(user=user)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['has_completed_tasks'] = self.get_queryset().filter(status='4').exists()
+        return context
+        
 
 @method_decorator(login_required, name='dispatch')
 class TaskDetailView(DetailView):

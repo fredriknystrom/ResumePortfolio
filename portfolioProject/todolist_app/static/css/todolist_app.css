@@ -1,3 +1,7 @@
+body {
+    background-color: #F5F5F5;
+}
+
 form {
     width: 50vh;
 }
@@ -15,12 +19,37 @@ a:hover {
 }
 
 .add-task-btn {
-    font-size: 40px;
-    width: 64px;
-    height: 64px;
+    font-size: 32px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nav-link-custom {
+    color: #000000; /* White text */
+    background-color: #FFFFFF!important;
+    border: solid!important;
+    border-top-left-radius: 8px!important;
+    border-top-right-radius: 8px!important;
+    border-color: #666666!important;
+    border-bottom: none!important;
+}
+.nav-link-custom.active {
+    color: #FFFFFF!important; /* Black background for active tab */
+    background-color: #666666!important; /* Black background for active tab */
+}
+
+.nav-link-custom.active:hover {
+    color: #FFFFFF!important; /* Black background for active tab */
+    background-color: #AAAAAA!important; /* Black background for active tab */
+    border-color: #AAAAAA!important; 
+}
+
+.nav-link-custom:hover {
+    color: #AAAAAA!important; /* Slightly darker grey on hover */
+    border-color: #AAAAAA!important; 
 }
 
 .list-group {
@@ -28,7 +57,7 @@ a:hover {
     border: solid;
     border-radius: 8px;
     border-color: #666666;
-    background-color: #AAAAAA;
+    background-color: #FFFFFF;
 }
 
 .list-group-item {
@@ -45,24 +74,24 @@ a:hover {
 .badge {
     font-size: 16px!important;
     padding: 2%!important;
-    color: #444444;
+    color: #F5F5F5;
 }
 
 /* Define CSS classes for different status colors */
 .status-1-color {
-    background-color: rgb(255, 76, 76);
+    background-color: #E71D36;
 }
 
 .status-2-color {
-    background-color: rgb(255, 235, 81);
+    background-color: #F39237;
 }
 
 .status-3-color {
-    background-color: rgb(92, 163, 255);
+    background-color: #FFD300;
 }
 
 .status-4-color {
-    background-color: rgb(75, 216, 50);
+    background-color: #7FB800;
 }
 
 .status-1::before {
@@ -72,8 +101,8 @@ a:hover {
     left: 0;
     border: solid;
     border-width: 3px;
-    border-color: rgb(255, 76, 76);
-    background-color: rgb(255, 76, 76);
+    border-color: #E71D36;
+    background-color: #E71D36;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     width: 4%; 
@@ -88,8 +117,8 @@ a:hover {
     left: 0;
     border: solid;
     border-width: 3px;
-    border-color: rgb(255, 235, 81);
-    background-color: rgb(255, 235, 81);
+    border-color: #F39237;
+    background-color: #F39237;
     border-top-left-radius: 8px; 
     border-bottom-left-radius: 8px; 
     width: 4%; 
@@ -104,8 +133,8 @@ a:hover {
     left: 0;
     border: solid;
     border-width: 3px;
-    border-color: rgb(92, 163, 255);
-    background-color: rgb(92, 163, 255);
+    border-color: #FFD300;
+    background-color: #FFD300;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     width: 4%; 
@@ -120,8 +149,8 @@ a:hover {
     left: 0;
     border: solid;
     border-width: 3px;
-    border-color: rgb(75, 216, 50);
-    background-color: rgb(75, 216, 50);
+    border-color: #32CD32;
+    background-color: #32CD32;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     width: 4%; 
