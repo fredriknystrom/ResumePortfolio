@@ -1,7 +1,7 @@
 from django.views.generic import DetailView, UpdateView, ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Task
-from .forms import TaskUpdateForm
+from .forms import TaskUpdateForm, TaskForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from datetime import datetime, timedelta
@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 @method_decorator(login_required, name='dispatch')
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description', 'status']  # Define the fields you want to include in the form
+    form_class = TaskForm
     success_url = reverse_lazy('task_list')  # Specify the URL to redirect after creating a task
     template_name = 'todolist_app/task_create.html'
 
