@@ -10,6 +10,6 @@
         <!-- Form fields -->
         {{ form | crispy }}
         <input class="btn btn-primary" type="submit" value="Create">
-        <a href="{% url 'task_list' %}" class="btn btn-danger">Cancel</a>
+        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
     </form>
 {% endblock %}

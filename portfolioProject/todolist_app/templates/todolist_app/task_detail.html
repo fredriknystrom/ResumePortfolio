@@ -6,6 +6,5 @@
     <div class="fs-3 mb-4">{{ task.description }}</div>
     <div class="text-muted small mb-2">{{ task.created_at|date:"Y-m-d H:i" }}</div>
 </div>
-
-    <a href="{% url 'task_list' %}" class="btn btn-primary">Back</a>
+<button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
 {% endblock %}
