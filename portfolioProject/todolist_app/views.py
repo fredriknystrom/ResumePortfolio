@@ -31,16 +31,12 @@ class TaskListView(ListView):
             tomorrow = today + timedelta(days=1)
 
             if filter_type == 'yesterday':
-                print("yesterday")
                 return Task.objects.filter(user=user, created_at__date=yesterday)
             elif filter_type == 'today':
-                print("today")
                 return Task.objects.filter(user=user, created_at__date=today)
             elif filter_type == 'tomorrow':
-                print("tomorrow")
                 return Task.objects.filter(user=user, created_at__date=tomorrow)
             else:
-                print("else")
                 return Task.objects.filter(user=user)
     
     def get_context_data(self, **kwargs):
