@@ -24,12 +24,12 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-    border: 1px solid #6cb79d; /* Adding a border for distinction */
+    border: 1px solid var(--background-color); /* Adding a border for distinction */
     border-radius: 34px; /* Keeping the rounded edges */
 }
 
 .dark-mode .slider {
-    border-color: #F5F5F5;
+    border-color: var(--darkmode-secondary-color);
 }
 
 .slider:before {
@@ -39,14 +39,14 @@
     width: 24px;
     left: 4px;
     bottom: 3px;
-    background-color: #6cb79d;
+    background-color: var(--background-color);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 /* Adjust for dark mode */
 .dark-mode .slider:before {
-    background-color: #181818;
+    background-color: var(--darkmode-background-color);
 }
 
 /* On/Off icon styles */
@@ -70,7 +70,7 @@
     position: absolute;
     right: 8px;
     bottom: 5px;
-    color: #6cb79d;
+    color: var(--background-color);
 }
 
 /* Toggle icon display based on checkbox state */

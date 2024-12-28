@@ -1,0 +1,152 @@
+/* navbar toggler is the media menu icon*/
+.navbar-toggler {
+    transition: transform 0.3s;
+    color: var(--background-color);
+    border-color: var(--background-color);
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+
+.dark-mode .navbar-toggler {
+    color: var(--darkmode-secondary-color);
+    border-color: var(--darkmode-secondary-color);
+}
+
+.navbar-toggler::before {
+    content: '\2630'; /* Hamburger icon */
+    font-size: 24px; /* Adjust size as needed */
+    display: block;
+}
+
+.navbar-toggler[aria-expanded="true"]::before {
+    content: '\00D7'; /* 'X' character */
+    padding-right: 3px;
+    padding-left: 3.5px;
+}
+
+/* No normal bullet points in the dropdown menu*/
+ul {
+    list-style-type: none;
+    color: var();
+    margin: 0;
+    padding: 0;
+}
+
+.dark-mode ul {
+    color: var(--darkmode-secondary-color);
+}
+
+/* media css width 991 pixels here*/
+@media (max-width: 991px) {
+    .navbar-nav .nav-item {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+    .navbar-collapse.show .nav-item:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* media css width 768 pixels here*/
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 20px;
+        padding-bottom: 40px;
+        border-radius: 0;
+    }
+
+    .resume {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .card {
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .profile-img {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .footer-header {
+        font-size: 32px;
+    }
+
+    .resume-section-header{
+        font-size: 32px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    hr, .section-break {  /* This targets all <hr> and .section-break */
+        border: 0.5px solid #e0e0e0;  /* A subtle gray */
+        display: block;
+        margin:0;
+        padding:0;
+        opacity: 1;
+    }
+
+    .description {
+        max-width: 280px;  /* You can adjust this value based on your design needs */
+        font-size: 14px;
+    }
+
+    .fs-1 {
+        font-size: 22px!important;
+    }
+
+    #brandname {
+        font-size: 24px!important;
+        padding: 0;
+        margin:0;
+
+    }
+
+    .fs-3 {
+        font-size: 20px!important;
+    }
+
+    .fs-5 {
+        font-size: 16px!important;
+    }
+
+    .hello-header {
+        font-size: 26px!important;
+        margin: 0!important;
+    }
+
+    .fa-linkedin-square {
+        font-size: 32px!important;
+    }
+
+    .fa-envelope {
+        font-size: 32px!important;
+    }
+
+    .fa-github {
+        font-size: 32px!important;
+    }
+}

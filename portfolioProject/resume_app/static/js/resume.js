@@ -24,15 +24,14 @@ $(document).ready(function() {
 document.addEventListener('DOMContentLoaded', function () {
     const typeString = 'Hello, my name is Fredrik!';
     let i = 0;
-    console.log(typeString)
     const typeWriter = () => {
         if (i < typeString.length) {
-            document.querySelector('.hello-header').textContent += typeString.charAt(i);
+            document.querySelector('.intro-header').textContent += typeString.charAt(i);
             i++;
             setTimeout(typeWriter, 100);  // Adjust the typing speed by changing the timeout value.
         } else {
             // Remove the typing class to stop the cursor from blinking after typing is complete.
-            document.querySelector('.hello-header').classList.remove('typing');
+            document.querySelector('.intro-header').classList.remove('typing');
         }
     };
 

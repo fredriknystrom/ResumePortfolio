@@ -13,8 +13,8 @@
 
     {% load static %}
     <!-- Include static CSS files -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">  
-    <link rel="stylesheet" type="text/css" href="{% static 'css/darkmode.css' %}">  
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">  
+
     <!-- Include static JS files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
@@ -74,121 +74,118 @@
         <!-- About Me Section -->
         <div class="resume-section">
             <div class="container">
-                <h1 class="mb-5 hello-header typing">
+                <h1 class="mb-5 intro-header typing">
                     
                 </h1>
                 <div class="row">
-                    <div class="col-md-5 mt-2 order-md-2">
-                        <img class="img-fluid profile-img img-container" src="{% static 'images/resume.jpg' %}" alt="Your Image">
-                    </div>
-                    <div class="col-md-7 order-md-1">
-                        <p class="fs-3">
-                            I am a Full-Stack developer  
-                            from Sweden, Gothenburg 
-                            with a strong passion for  
-                            Artificial Intelligence.
+                    <div class="col-md-8">
+                        <p>
+                            I am a Full-Stack Developer from 
+                            Sweden, currently based in Gothenburg. 
                         </p>
-                        <p class="fs-3">
-                            Currently on exchange at
-                            ETH Zürich in Switzerland 
-                            until June 2024.
+                        <p>
+                            Working with databases and presenting information in clear
+                            way is something that I find enjoyable.
+                        </p>
+                        <p>
+                            I also find it interesting to develop data-driven solutions using
+                            machine learning and neural networks to tackle various problems.
                         </p>
                     </div>
+                    <div class="col-md-4 mt-2">
+                        <img class="img-fluid profile-img" src="{% static 'images/resume.jpg' %}" alt="Your Image">
+                    </div>
+                    
                 </div>
             </div>
         </div>
         
         <!-- Education Section -->
         <div class="resume-section" id="education">
-            <h1 class="display-4 text-center">Education</h1>
-            <div class="container text-center">
-                <ul>
-                    <li class="list-item mb-4">
-                        <div class="card mb-5">
-                            <div class="card-body">
-                                <span class="fs-1">Master's degree</span><br />
-                                <span class="fs-3">Data Science and AI</span><br />
-                                <span class="fs-5">Chalmers University of Technology, ETH Zürich</span><br />
-                                <span class="fs-5">Sep. 2023 - ongoing</span><br />
-                                <span class="description">
-                                    During my first year of the master's program, I will be
-                                    studying abroad at ETH Zürich in Switzerland.
-                                <span>
-                            </div>
+            <h1 class="resume-section-header text-center">Education</h1>
+            <ul class="container text-center">
+                <li class="list-item mb-4">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <span class="fs-1">Master's degree</span><br />
+                            <span class="fs-3">Data Science and AI</span><br />
+                            <span class="fs-5">Chalmers University of Technology and ETH Zürich</span><br />
+                            <span class="fs-5">Sep. 2023 - ongoing</span><br />
+                            <span class="description">
+                                I studied abroad at ETH Zürich in Switzerland for one year.
+                            <span>
                         </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="card">
-                            <div class="card-body">
-                                <span class="fs-1 ">Bachelor's degree</span><br />
-                                <span class="fs-3">Computer Science and Engineering</span><br />
-                                <span class="fs-5">Chalmers University of Technology</span><br />
-                                <span class="fs-5">Aug. 2020 - June 2023</span><br />
-                            </div>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="fs-1 ">Bachelor's degree</span><br />
+                            <span class="fs-3">Computer Science and Engineering</span><br />
+                            <span class="fs-5">Chalmers University of Technology</span><br />
+                            <span class="fs-5">Aug. 2020 - June 2023</span><br />
                         </div>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         
         <!-- Work Experience Section -->
         <div class="resume-section" id="experience">
-            <h1 class="display-4 text-center">Work Experience</h1>
-            <div class="container text-center">
-                <ul>
-                    <li class="list-item mb-4">
-                        <div class="card mb-5">
-                            <div class="card-body">
-                                <span class="fs-1">Axis Communications AB</span><br />
-                                <span class="fs-3">Software Developer Intern</span><br />
-                                <span class="fs-5">Lund, Sweden</span><br />
-                                <span class="fs-5">June 2023 - Aug. 2023</span><br />
-                                <span class="description">
-                                    Full stack development for creating an internal component
-                                    information system. My responsibilities spanned user interface
-                                    implementation, database design, and data presentation.
-                                    My tools of choice were MySQL, Python/Django, HTML/CSS,
-                                    and I worked in a Linux environment.</span>
-                            </div>
+            <h1 class="resume-section-header text-center">Work Experience</h1>
+            <ul class="container text-center">
+                <li class="list-item mb-4">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <span class="fs-2">Axis Communications AB</span><br />
+                            <span class="fs-4">Software Developer Intern</span><br />
+                            <span class="fs-5">Lund, Sweden</span><br />
+                            <span class="fs-5">June 2024 - Dec. 2024</span><br />
+                            <span class="fs-5">June 2023 - Aug. 2023</span><br />
+                            <span class="description">
+                                For a bit more than two summers and I worked as a full stack developer and created
+                                an internal component information system. My responsibilities
+                                spanned user interface implementation, database design, and data presentation.
+                                My tools of choice were MySQL, Python/Django, HTML/CSS,
+                                and I worked in a Linux environment.</span>
                         </div>
-                    </li>
-                    <li class="list-item mb-4">
-                        <div class="card mb-5">
-                            <div class="card-body">
-                                <span class="fs-1">Chalmers University of Technology</span><br />
-                                <span class="fs-3">Teaching Assistant</span><br />
-                                <span class="fs-5">Gothenburg, Sweden</span><br />
-                                <span class="fs-5">Oct. 2022 - Mar. 2023</span><br />
-                                <span class="description">
-                                    Served as a supervisor during exercise and lab sessions for
-                                    'Introduction to Computer Engineering'. The course included
-                                    over 350 students and covered topics like assembly
-                                    programming, Boolean algebra, circuit design, and
-                                    hexadecimal number representation.
-                            </div>
+                    </div>
+                </li>
+                <li class="list-item mb-4">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <span class="fs-2">Chalmers University of Technology</span><br />
+                            <span class="fs-4">Teaching Assistant</span><br />
+                            <span class="fs-5">Gothenburg, Sweden</span><br />
+                            <span class="fs-5">Oct. 2022 - Mar. 2023</span><br />
+                            <span class="description">
+                                Served as a supervisor during exercise and lab sessions for
+                                'Introduction to Computer Engineering'. The course included
+                                over 350 students and covered topics like assembly
+                                programming, Boolean algebra and circuit design.
                         </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="card">
-                            <div class="card-body">
-                                <span class="fs-1">Axis Communications AB</span><br />
-                                <span class="fs-3">Software Developer Intern</span><br />
-                                <span class="fs-5 ">Lund, Sweden</span><br />
-                                <span class="fs-5 ">June 2022 - Aug. 2022</span><br />
-                                <span class="description">
-                                    Development of a user interface for a complex measurement
-                                    equipment. I focused on implementing the UI requirements,
-                                    using Python, the Qt GUI framework, and CSS.
-                            </div>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="fs-2">Axis Communications AB</span><br />
+                            <span class="fs-4">Software Developer Intern</span><br />
+                            <span class="fs-5 ">Lund, Sweden</span><br />
+                            <span class="fs-5 ">June 2022 - Aug. 2022</span><br />
+                            <span class="description">
+                                Development of a user interface for a complex measurement
+                                equipment. I focused on implementing the UI requirements,
+                                using Python, Qt GUI framework, and CSS.
                         </div>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         
         <!-- Projects Section -->
         <div class="resume-section" id="projects">
-            <h1 class="display-4 text-center">Projects</h1>
+            <h1 class="resume-section-header text-center">Projects</h1>
             <div class="container text-center">
                 <div class="card-deck">
                     <!-- Project 1 -->
@@ -250,7 +247,7 @@
         </div>
         <!-- Download Resume Section -->
         <div class="resume-section" id="resume">
-            <h1 class="display-4 text-center">Resume</h1>
+            <h1 class="resume-section-header text-center">Resume</h1>
             <div class="container text-center">
                 <div class="card">
                     <div class="card-body">
@@ -272,7 +269,6 @@
             </div>
         </div>
     </div>
-
     <hr class="section-break"> 
     <!-- Contact Section -->
     <footer class="text-center py-5" id="contact">
