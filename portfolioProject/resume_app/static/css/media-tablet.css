@@ -1,5 +1,6 @@
 @media (min-width: 481px) and (max-width: 1024px) {
 
+    /* Navbar dropdown animation for mobile and tablets*/
     .navbar-nav .nav-item {
         opacity: 0;
         transform: translateY(-20px);
@@ -7,23 +8,130 @@
     }
 
     .navbar-collapse.show .nav-item:nth-child(1) {
-        transition-delay: 0.1s;
+        transition-delay: 0.05s;
     }
     .navbar-collapse.show .nav-item:nth-child(2) {
-        transition-delay: 0.2s;
+        transition-delay: 0.1s;
     }
     .navbar-collapse.show .nav-item:nth-child(3) {
-        transition-delay: 0.3s;
+        transition-delay: 0.15s;
     }
     .navbar-collapse.show .nav-item:nth-child(4) {
-        transition-delay: 0.4s;
+        transition-delay: 0.2s;
     }
     .navbar-collapse.show .nav-item:nth-child(5) {
-        transition-delay: 0.5s;
+        transition-delay: 0.25s;
     }
 
     .navbar-collapse.show .nav-item {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .dark-mode .navbar {
+        background-color: var(--darkmode-tertiary-color); 
+    }
+
+    .nav-link {
+        font-size: 5vw!important;
+        padding: 0.75vh 0;
+    }
+
+    .intro-header {
+        font-size: 7vw;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+    }
+
+    .profile-img {
+        max-width: 30vw;
+    }
+
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p {
+        font-size: 3vw;
+    }
+
+    .resume-section-header{
+        font-size: 7vw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Remove background color section from top and bottom*/
+    .resume {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .resume-section {
+        padding-top: 50px;  /* Adjust based on the height of your navbar */
+        margin-top: -50px; /* Adjust based on the height of your navbar */
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 20px;
+        border-radius: 0;
+    }
+
+    .footer-header {
+        font-size: 7vw;
+    }
+
+    .section-break {
+        border: 0.5px solid var(--secondary-color);  /* A subtle gray */
+        display: block;
+        margin:0;
+        padding:0;
+        opacity: 1;
+    }
+
+    .description {
+        max-width: 90%;
+        font-size: 3.2vw;
+    }
+
+    #brandname {
+        font-size: 6vw!important;
+        padding: 0;
+        margin:0;
+    }
+
+    .btn {
+        font-size: 3vw;
+    }
+
+    .fs-1 {
+        font-size: 5vw!important;
+    }
+
+    .fs-2 {
+        font-size: 4.5vw!important;
+    }
+
+    .fs-3 {
+        font-size: 4vw!important;
+    }
+
+    .fs-5 {
+        font-size: 3.4vw!important;
+    }
+
+    .fa-linkedin-square {
+        font-size: 6vw!important;
+    }
+
+    .fa-envelope {
+        font-size: 6vw!important;
+    }
+
+    .fa-github {
+        font-size: 6vw!important;
     }
 }
