@@ -46,7 +46,9 @@ migrations
 # Ignore data
 *.npy
 
+
 portfolioProject/static/*
+portfolioProject/static/css
 
 # ignore ml model logs
 portfolioProject/MNIST_app/model_logs
