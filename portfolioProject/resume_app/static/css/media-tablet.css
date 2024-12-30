@@ -37,6 +37,14 @@
         padding: 0.75vh 0;
     }
 
+    .nav-link:hover {
+        color: var(-secondary-color);
+    }
+
+    .dark-mode .nav-link:hover {
+        color: var(--darkmode-secondary-color);
+    }
+
     .intro-header {
         font-size: 7vw;
         margin-top: 1vh;
@@ -45,6 +53,11 @@
 
     .profile-img {
         max-width: 30vw;
+    }
+
+    /* No hover transform on mobile/tablet since hover doesnt work properly here */
+    .profile-img:hover {
+        transform: scale(1);
     }
 
     .image-container {

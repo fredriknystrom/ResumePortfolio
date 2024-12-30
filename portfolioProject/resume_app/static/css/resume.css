@@ -39,9 +39,8 @@ body.dark-mode {
     color: var(--background-color); 
 }
 
-/* need fix i think */
 .dark-mode .nav-link:hover {
-    color: var(--darkmode-secondary-text-color);
+    color: var(--darkmode-tertiary-color);
 }
 
 /* Intro section */
