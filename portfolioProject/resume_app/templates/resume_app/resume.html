@@ -74,9 +74,7 @@
         <!-- About Me Section -->
         <div class="resume-section">
             <div class="container">
-                <h1 class="mb-5 intro-header typing">
-                    
-                </h1>
+                <h1 class="intro-header typing"></h1>
                 <div class="row">
                     <div class="col-md-8">
                         <p>
@@ -92,7 +90,7 @@
                             machine learning and neural networks to tackle various problems.
                         </p>
                     </div>
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-4 mt-2 image-container">
                         <img class="img-fluid profile-img" src="{% static 'images/resume.jpg' %}" alt="Your Image">
                     </div>
                     
@@ -104,15 +102,16 @@
         <div class="resume-section" id="education">
             <h1 class="resume-section-header text-center">Education</h1>
             <ul class="container text-center">
-                <li class="list-item mb-4">
-                    <div class="card mb-5">
+                <li class="list-item">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <span class="fs-1">Master's degree</span><br />
+                            <span class="fs-2">Master's degree</span><br />
                             <span class="fs-3">Data Science and AI</span><br />
-                            <span class="fs-5">Chalmers University of Technology and ETH Zürich</span><br />
+                            <span class="fs-5">Chalmers University of Technology,</span><br />
+                            <span class="fs-5">ETH Zürich</span><br />
                             <span class="fs-5">Sep. 2023 - ongoing</span><br />
                             <span class="description">
-                                I studied abroad at ETH Zürich in Switzerland for one year.
+                                I spent a year studying abroad at ETH Zürich in Switzerland.
                             <span>
                         </div>
                     </div>
@@ -120,7 +119,7 @@
                 <li class="list-item">
                     <div class="card">
                         <div class="card-body">
-                            <span class="fs-1 ">Bachelor's degree</span><br />
+                            <span class="fs-2 ">Bachelor's degree</span><br />
                             <span class="fs-3">Computer Science and Engineering</span><br />
                             <span class="fs-5">Chalmers University of Technology</span><br />
                             <span class="fs-5">Aug. 2020 - June 2023</span><br />
@@ -135,10 +134,10 @@
             <h1 class="resume-section-header text-center">Work Experience</h1>
             <ul class="container text-center">
                 <li class="list-item mb-4">
-                    <div class="card mb-5">
+                    <div class="card mb-4">
                         <div class="card-body">
                             <span class="fs-2">Axis Communications AB</span><br />
-                            <span class="fs-4">Software Developer Intern</span><br />
+                            <span class="fs-3">Software Developer Intern</span><br />
                             <span class="fs-5">Lund, Sweden</span><br />
                             <span class="fs-5">June 2024 - Dec. 2024</span><br />
                             <span class="fs-5">June 2023 - Aug. 2023</span><br />
@@ -146,16 +145,17 @@
                                 For a bit more than two summers and I worked as a full stack developer and created
                                 an internal component information system. My responsibilities
                                 spanned user interface implementation, database design, and data presentation.
-                                My tools of choice were MySQL, Python/Django, HTML/CSS,
+                                The system featured functionalities such as filtering, multiple views, and data 
+                                comparison. My tools of choice were MySQL, Python/Django, HTML/CSS,
                                 and I worked in a Linux environment.</span>
                         </div>
                     </div>
                 </li>
                 <li class="list-item mb-4">
-                    <div class="card mb-5">
+                    <div class="card mb-4">
                         <div class="card-body">
                             <span class="fs-2">Chalmers University of Technology</span><br />
-                            <span class="fs-4">Teaching Assistant</span><br />
+                            <span class="fs-3">Teaching Assistant</span><br />
                             <span class="fs-5">Gothenburg, Sweden</span><br />
                             <span class="fs-5">Oct. 2022 - Mar. 2023</span><br />
                             <span class="description">
@@ -170,7 +170,7 @@
                     <div class="card">
                         <div class="card-body">
                             <span class="fs-2">Axis Communications AB</span><br />
-                            <span class="fs-4">Software Developer Intern</span><br />
+                            <span class="fs-3">Software Developer Intern</span><br />
                             <span class="fs-5 ">Lund, Sweden</span><br />
                             <span class="fs-5 ">June 2022 - Aug. 2022</span><br />
                             <span class="description">
@@ -189,9 +189,9 @@
             <div class="container text-center">
                 <div class="card-deck">
                     <!-- Project 1 -->
-                    <div class="card mb-5">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="fs-3">MNIST Prediction</h5>
+                            <h5 class="fs-2">MNIST Prediction</h5>
                             <span class="description">This project is a basic machine learning model, trained using 
                                 the MNIST dataset, to accurately predict handwritten numbers from the user between
                                 0 to 9. I also created some synthetic data by slightly rotating the images to improve
@@ -207,9 +207,9 @@
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="card mb-5">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="fs-3 text-color">Todo List</h5>
+                            <h5 class="fs-2">Todo List</h5>
                             <span class="description"> The TodoList application provides a user-friendly interface 
                                 for managing tasks, allowing users to add, update, and delete tasks with ease. Utilizing
                                 Django for the backend and MySQL for persistent storage. Authentication is handled
@@ -226,11 +226,11 @@
                     </div>
             
                     <!-- Project 3 -->
-                    <div class="card mb-5">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="fs-3 text-color">Image Editor</h5>
+                            <h5 class="fs-2">Image Editor</h5>
                             <span class="description"> The Image Editor application offers a user-friendly interface for uploading 
-                                images and applying transformations such color scale adjustments, resizing, and format conversion.
+                                images and applying transformations such as color scale adjustments, resizing, and format conversion.
                                 Leveraging the capabilities of the Python Imaging Library (PIL) alongside NumPy, the app provides 
                                 quality image processing with an focus on maintaining the aspect ratio and image integrity.
                             </span>
@@ -271,7 +271,7 @@
     </div>
     <hr class="section-break"> 
     <!-- Contact Section -->
-    <footer class="text-center py-5" id="contact">
+    <footer class="text-center" id="contact">
             <h1 class="footer-header text-center mb-5">Contact Me</h1>
             <div class="d-flex justify-content-center">
                 <div class="d-flex flex-column flex-lg-row align-items-start">

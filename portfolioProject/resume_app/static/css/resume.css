@@ -66,6 +66,7 @@ body.dark-mode {
 .intro-header {
     font-size: 48px;
     font-weight: 300;
+    margin-bottom: 32px;
 }
 
 .profile-img {
@@ -100,7 +101,7 @@ p {
 .resume-section-header {
     margin-top: 60px;
     margin-bottom: 20px;
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 300;
     color: var(--primary-color);
 }
@@ -147,6 +148,7 @@ p {
     margin-top: 10px;
     color: var(--secondary-color);
     font-size: 16px;
+    line-height: 1.75;
     max-width: 85%;  /* You can adjust this value based on your design needs */
     word-wrap: break-word;  /* This ensures that the text wraps to the next line */
     display: inline-block;  /* Makes max-width apply to the span */
@@ -185,6 +187,8 @@ p {
 footer {
     color: var(--tertiary-color);
     background: var(--primary-color);
+    padding-top: 6vh!important;
+    padding-bottom: 14vh!important;
 }
 
 .footer-link {

@@ -29,7 +29,7 @@
 }
 
 .dark-mode .slider {
-    border-color: var(--darkmode-secondary-color);
+    border-color: var(--darkmode-background-color);
 }
 
 .slider:before {

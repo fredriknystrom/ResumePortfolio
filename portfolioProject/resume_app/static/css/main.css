@@ -1,4 +1,8 @@
 @import url('darkmode.css');
-@import url('resume-media.css');
+/* order here matters a lot about how the styling is 
+applied since overlapping css for different devices*/
 @import url('resume.css');
+@import url('media-general.css');
+@import url('media-phone.css');
+@import url('media-tablet.css');
 @import url('root.css');
