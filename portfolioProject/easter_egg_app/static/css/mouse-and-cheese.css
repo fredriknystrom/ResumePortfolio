@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    cursor: none; /* Hide default cursor */
+    overflow: hidden;
+    background-color: #f4e1c1;
+}
+
+/* Custom cursor (cheese) */
+.cheese-cursor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+}
+
+/* Mouse character */
+.mouse {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background-color: transparent;
+    transform-origin: center;
+    transition: transform 0.1s linear;
+}
+
+/* Game Over screen */
+.game-over {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    cursor: default; 
+    display: none;
+}
+
+.game-over-button {
+    font-family: Arial;
+    text-decoration: None;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse and Cheese Game</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mouse-and-cheese.css' %}">
+</head>
+<body>
+
+    <!-- Cheese cursor -->
+    <img src="{% static 'images/cheese.png' %}" class="cheese-cursor" id="cheese">
+
+    <!-- Mouse that follows -->
+    <img src="{% static 'images/mouse.png' %}" class="mouse" id="mouse">
+
+    <!-- Game Over Screen -->
+    <div class="game-over" id="gameOverScreen">
+        Game Over
+        <div>
+            <button class="game-over-button" onclick="restartGame()">Restart</button>
+            <a class="game-over-button" href="{% url 'resume-view' %}#projects">Resume Page</a>
+        </div>
+    </div>
+
+    <script>
+        const cheese = document.getElementById("cheese");
+        const mouse = document.getElementById("mouse");
+        const gameOverScreen = document.getElementById("gameOverScreen");
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let currentX = 0;
+        let currentY = 0;
+
+        let isGameOver = false;
+
+        // Apply initial position to the mouse and cheese
+        mouse.style.left = `${currentX}px`;
+        mouse.style.top = `${currentY}px`;
+        cheese.style.left = `${window.innerWidth / 2}px`;
+        cheese.style.top = `${window.innerHeight / 2}px`;
+
+        document.addEventListener("mousemove", (event) => {
+            if (!isGameOver) {
+                cheese.style.left = event.clientX + "px";
+                cheese.style.top = event.clientY + "px";
+
+                mouseX = event.clientX;
+                mouseY = event.clientY;
+            }
+        });
+
+        function moveMouse() {
+            let dx = mouseX - currentX;
+            let dy = mouseY - currentY;
+
+            let speed = 7;
+            let distance = Math.hypot(dx, dy);
+
+            if (distance > 1) {
+                let angle = Math.atan2(dy, dx);
+                currentX += Math.cos(angle) * Math.min(speed, distance);
+                currentY += Math.sin(angle) * Math.min(speed, distance);
+
+                mouse.style.left = `${currentX}px`;
+                mouse.style.top = `${currentY}px`;
+
+                // Rotate mouse to face the cursor
+                let angleDeg = angle * (180 / Math.PI);
+                mouse.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg)`;
+            }
+
+            // Check for collision
+            checkCollision();
+
+            if (!isGameOver) {
+                requestAnimationFrame(moveMouse);
+            }
+        }
+
+        function checkCollision() {
+            let mouseRect = mouse.getBoundingClientRect();
+            let cheeseRect = cheese.getBoundingClientRect();
+        
+            // If the mouse collides with the cheese (overlapping)
+            let OFFSET = 20
+            if (
+                mouseRect.left + OFFSET < cheeseRect.right &&
+                mouseRect.right - OFFSET > cheeseRect.left &&
+                mouseRect.top + OFFSET < cheeseRect.bottom &&
+                mouseRect.bottom - OFFSET > cheeseRect.top
+            ) {
+                console.log("here")
+                endGame()
+            }
+        }
+
+        function endGame() {
+            isGameOver = true;
+            gameOverScreen.style.display = "block"; // Show Game Over screen
+        }
+
+        function restartGame() {
+            // Reset position and variables
+            currentX = 0;
+            currentY = 0;
+            isGameOver = false;
+            gameOverScreen.style.display = "none";
+            mouse.style.left = `${currentX}px`;
+            mouse.style.top = `${currentY}px`;
+            moveMouse(); // Restart mouse movement
+        }
+
+        moveMouse(); // Start the game
+    </script>
+
+</body>
+</html>

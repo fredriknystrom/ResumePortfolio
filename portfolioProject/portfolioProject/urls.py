@@ -31,6 +31,7 @@ urlpatterns = [
     #path('spotistats/', include('spotistats_app.urls')),
     path('todo-list/', include('todolist_app.urls')),
     path('private/', include('private_app.urls')),
+    path('easter-egg/', include('easter_egg_app.urls')),
 ]
 
 if settings.DEBUG:

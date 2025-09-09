@@ -68,7 +68,9 @@ INSTALLED_APPS = [
     'private_app',
     'image_app',
     'todolist_app',
+    'easter_egg_app',
 ]
+
 print("SITE_ID", int(os.getenv('SITE_ID')))
 SITE_ID = int(os.getenv('SITE_ID'))  # This should correspond to the ID of your site in the Site model
 ACCOUNT_EMAIL_VERIFICATION = "none"

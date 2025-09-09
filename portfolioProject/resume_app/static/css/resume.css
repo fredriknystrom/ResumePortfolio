@@ -198,3 +198,10 @@ footer {
     font-size: 48px;
     font-weight: 300;
 }
+
+.easter-egg {
+    max-width: 6vw;   /* 50% of viewport width */
+    max-height: 6vh;  /* 50% of viewport height */
+    width: auto;       /* Maintain aspect ratio */
+    height: auto;      /* Maintain aspect ratio */
+}
